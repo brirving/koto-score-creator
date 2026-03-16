@@ -2,28 +2,6 @@
 //
 
 #include "KotoNotation.h"
-#include <juce_gui_basics/juce_gui_basics.h>
-
-class MainComponent : public juce::Component
-{
-public:
-    MainComponent()
-    {
-        setSize(400, 200);
-    }
-
-    void paint(juce::Graphics& g) override
-    {
-        g.fillAll(juce::Colours::white);
-
-        g.setColour(juce::Colours::black);
-        g.setFont(24.0f);
-        g.drawFittedText("Hello Me",
-            getLocalBounds(),
-            juce::Justification::centred,
-            1);
-    }
-};
 
 class HelloJuceApplication : public juce::JUCEApplication
 {
@@ -63,7 +41,7 @@ public:
                 juce::DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar(true);
-            setContentOwned(new MainComponent(), true);
+            setContentOwned(new MainContentComponent(), true);
             centreWithSize(getWidth(), getHeight());
             setVisible(true);
         }

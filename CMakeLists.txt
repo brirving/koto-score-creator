@@ -24,6 +24,9 @@ target_sources(KotoNotation
 target_link_libraries(KotoNotation
     PRIVATE
         juce::juce_gui_extra
+        juce::juce_gui_basics
+        juce::juce_audio_basics
+        juce::juce_audio_utils
 )
 
 target_compile_definitions(KotoNotation

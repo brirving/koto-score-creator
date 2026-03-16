@@ -1,0 +1,33 @@
+﻿# CMakeList.txt : Top-level CMake project file, do global configuration
+# and include sub-projects here.
+#
+cmake_minimum_required (VERSION 3.22)
+
+
+project(KotoNotation VERSION 0.1.0)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Point this to your JUCE folder
+add_subdirectory("JUCE" JUCE)
+
+juce_add_gui_app(KotoNotation
+    PRODUCT_NAME "Koto Notation"
+)
+
+target_sources(KotoNotation
+    PRIVATE
+        KotoNotation/KotoNotation.cpp
+)
+
+target_link_libraries(KotoNotation
+    PRIVATE
+        juce::juce_gui_extra
+)
+
+target_compile_definitions(KotoNotation
+    PRIVATE
+        JUCE_WEB_BROWSER=0
+        JUCE_USE_CURL=0
+)

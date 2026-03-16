@@ -1,0 +1,10 @@
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/KotoNotation.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/KotoNotation_rc_lib.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/INSTALL.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/CMakeFiles/INSTALL.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/CMakeFiles/ALL_BUILD.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/modules/CMakeFiles/INSTALL.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/extras/Build/CMakeFiles/INSTALL.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/extras/Build/juceaide/CMakeFiles/INSTALL.dir

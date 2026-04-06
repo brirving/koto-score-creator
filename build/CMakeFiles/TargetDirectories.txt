@@ -1,5 +1,6 @@
 C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/KotoNotation.dir
 C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/KotoNotation_rc_lib.dir
+C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/BinaryData.dir
 C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/INSTALL.dir
 C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/ZERO_CHECK.dir

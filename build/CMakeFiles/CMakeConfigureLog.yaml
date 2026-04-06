@@ -96,7 +96,7 @@ events:
       The output was:
       0
       MSBuild version 18.4.0+6e61e96ac for .NET Framework
-      Build started 16/03/2026 1:23:48 pm.
+      Build started 6/04/2026 3:37:39 pm.
       
       Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.2.3-msvc3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -125,7 +125,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.83
+      Time Elapsed 00:00:00.86
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -793,7 +793,7 @@ events:
       The output was:
       0
       MSBuild version 18.4.0+6e61e96ac for .NET Framework
-      Build started 16/03/2026 1:23:49 pm.
+      Build started 6/04/2026 3:37:41 pm.
       
       Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.2.3-msvc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -822,7 +822,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.80
+      Time Elapsed 00:00:00.90
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -1156,8 +1156,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-37xqii"
-      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-37xqii"
+      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-p1xnk4"
+      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-p1xnk4"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1166,39 +1166,39 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-37xqii'
+        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-p1xnk4'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e40da.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_31949.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.4.0+6e61e96ac for .NET Framework
-        Build started 16/03/2026 1:23:51 pm.
+        Build started 6/04/2026 3:37:43 pm.
         
-        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-37xqii\\cmTC_e40da.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p1xnk4\\cmTC_31949.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-37xqii\\Debug\\".
-          Creating directory "cmTC_e40da.dir\\Debug\\cmTC_e40da.tlog\\".
+          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p1xnk4\\Debug\\".
+          Creating directory "cmTC_31949.dir\\Debug\\cmTC_31949.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_e40da.dir\\Debug\\cmTC_e40da.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_e40da.dir\\Debug\\cmTC_e40da.tlog\\unsuccessfulbuild".
+          Creating "cmTC_31949.dir\\Debug\\cmTC_31949.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_31949.dir\\Debug\\cmTC_31949.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_e40da.dir\\Debug\\\\" /Fd"cmTC_e40da.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35726 for x64
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_31949.dir\\Debug\\\\" /Fd"cmTC_31949.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35728 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_e40da.dir\\Debug\\\\" /Fd"cmTC_e40da.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_31949.dir\\Debug\\\\" /Fd"cmTC_31949.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-37xqii\\Debug\\cmTC_e40da.exe" /INCREMENTAL /ILK:"cmTC_e40da.dir\\Debug\\cmTC_e40da.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-37xqii/Debug/cmTC_e40da.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-37xqii/Debug/cmTC_e40da.lib" /MACHINE:X64  /machine:x64 cmTC_e40da.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_e40da.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-37xqii\\Debug\\cmTC_e40da.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p1xnk4\\Debug\\cmTC_31949.exe" /INCREMENTAL /ILK:"cmTC_31949.dir\\Debug\\cmTC_31949.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-p1xnk4/Debug/cmTC_31949.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-p1xnk4/Debug/cmTC_31949.lib" /MACHINE:X64  /machine:x64 cmTC_31949.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_31949.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p1xnk4\\Debug\\cmTC_31949.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_e40da.dir\\Debug\\cmTC_e40da.tlog\\unsuccessfulbuild".
-          Touching "cmTC_e40da.dir\\Debug\\cmTC_e40da.tlog\\cmTC_e40da.lastbuildstate".
-        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-37xqii\\cmTC_e40da.vcxproj" (default targets).
+          Deleting file "cmTC_31949.dir\\Debug\\cmTC_31949.tlog\\unsuccessfulbuild".
+          Touching "cmTC_31949.dir\\Debug\\cmTC_31949.tlog\\cmTC_31949.lastbuildstate".
+        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p1xnk4\\cmTC_31949.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.75
+        Time Elapsed 00:00:00.76
         
       exitCode: 0
   -
@@ -1227,7 +1227,7 @@ events:
       - "CMakeLists.txt:7 (project)"
     message: |
       Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/HostX64/x64/link.exe" "-v"
-      Microsoft (R) Incremental Linker Version 14.50.35726.0
+      Microsoft (R) Incremental Linker Version 14.50.35728.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
   -
     kind: "try_compile-v1"
@@ -1238,8 +1238,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-av8zfv"
-      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-av8zfv"
+      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-jn65na"
+      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-jn65na"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1249,39 +1249,39 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-av8zfv'
+        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-jn65na'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1da66.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9744a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.4.0+6e61e96ac for .NET Framework
-        Build started 16/03/2026 1:23:52 pm.
+        Build started 6/04/2026 3:37:44 pm.
         
-        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-av8zfv\\cmTC_1da66.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jn65na\\cmTC_9744a.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-av8zfv\\Debug\\".
-          Creating directory "cmTC_1da66.dir\\Debug\\cmTC_1da66.tlog\\".
+          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jn65na\\Debug\\".
+          Creating directory "cmTC_9744a.dir\\Debug\\cmTC_9744a.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_1da66.dir\\Debug\\cmTC_1da66.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_1da66.dir\\Debug\\cmTC_1da66.tlog\\unsuccessfulbuild".
+          Creating "cmTC_9744a.dir\\Debug\\cmTC_9744a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_9744a.dir\\Debug\\cmTC_9744a.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_1da66.dir\\Debug\\\\" /Fd"cmTC_1da66.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35726 for x64
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_9744a.dir\\Debug\\\\" /Fd"cmTC_9744a.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35728 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_1da66.dir\\Debug\\\\" /Fd"cmTC_1da66.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_9744a.dir\\Debug\\\\" /Fd"cmTC_9744a.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-av8zfv\\Debug\\cmTC_1da66.exe" /INCREMENTAL /ILK:"cmTC_1da66.dir\\Debug\\cmTC_1da66.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-av8zfv/Debug/cmTC_1da66.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-av8zfv/Debug/cmTC_1da66.lib" /MACHINE:X64  /machine:x64 cmTC_1da66.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_1da66.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-av8zfv\\Debug\\cmTC_1da66.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jn65na\\Debug\\cmTC_9744a.exe" /INCREMENTAL /ILK:"cmTC_9744a.dir\\Debug\\cmTC_9744a.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-jn65na/Debug/cmTC_9744a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-jn65na/Debug/cmTC_9744a.lib" /MACHINE:X64  /machine:x64 cmTC_9744a.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_9744a.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jn65na\\Debug\\cmTC_9744a.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_1da66.dir\\Debug\\cmTC_1da66.tlog\\unsuccessfulbuild".
-          Touching "cmTC_1da66.dir\\Debug\\cmTC_1da66.tlog\\cmTC_1da66.lastbuildstate".
-        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-av8zfv\\cmTC_1da66.vcxproj" (default targets).
+          Deleting file "cmTC_9744a.dir\\Debug\\cmTC_9744a.tlog\\unsuccessfulbuild".
+          Touching "cmTC_9744a.dir\\Debug\\cmTC_9744a.tlog\\cmTC_9744a.lastbuildstate".
+        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jn65na\\cmTC_9744a.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.79
+        Time Elapsed 00:00:00.81
         
       exitCode: 0
   -
@@ -1310,7 +1310,7 @@ events:
       - "CMakeLists.txt:7 (project)"
     message: |
       Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/HostX64/x64/link.exe" "-v"
-      Microsoft (R) Incremental Linker Version 14.50.35726.0
+      Microsoft (R) Incremental Linker Version 14.50.35728.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
   -
     kind: "try_compile-v1"
@@ -1331,37 +1331,37 @@ events:
       stdout: |
         Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_82960.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_681fc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.4.0+6e61e96ac for .NET Framework
-        Build started 16/03/2026 1:23:54 pm.
+        Build started 6/04/2026 3:37:46 pm.
         
-        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_82960.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_681fc.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
           Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\Debug\\".
-          Creating directory "cmTC_82960.dir\\Debug\\cmTC_82960.tlog\\".
+          Creating directory "cmTC_681fc.dir\\Debug\\cmTC_681fc.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_82960.dir\\Debug\\cmTC_82960.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_82960.dir\\Debug\\cmTC_82960.tlog\\unsuccessfulbuild".
+          Creating "cmTC_681fc.dir\\Debug\\cmTC_681fc.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_681fc.dir\\Debug\\cmTC_681fc.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++17 /Fo"cmTC_82960.dir\\Debug\\\\" /Fd"cmTC_82960.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35726 for x64
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++17 /Fo"cmTC_681fc.dir\\Debug\\\\" /Fd"cmTC_681fc.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35728 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++17 /Fo"cmTC_82960.dir\\Debug\\\\" /Fd"cmTC_82960.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++17 /Fo"cmTC_681fc.dir\\Debug\\\\" /Fd"cmTC_681fc.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp
           juce_runtime_arch_detection.cpp
-        C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp(56,1): error C1189: #error:  JUCE_ARCH x86_64 [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_82960.vcxproj]
-        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_82960.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp(56,1): error C1189: #error:  JUCE_ARCH x86_64 [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_681fc.vcxproj]
+        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_681fc.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_82960.vcxproj" (default target) (1) ->
+        "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_681fc.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp(56,1): error C1189: #error:  JUCE_ARCH x86_64 [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_82960.vcxproj]
+          C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp(56,1): error C1189: #error:  JUCE_ARCH x86_64 [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_681fc.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.54
+        Time Elapsed 00:00:00.60
         
       exitCode: 1
 ...

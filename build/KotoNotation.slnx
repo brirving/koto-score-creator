@@ -7,7 +7,11 @@
 		<BuildType Name="RelWithDebInfo"/>
 		<Platform Name="x64"/>
 	</Configurations>
+	<Project Path="BinaryData.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="df2ec460-e209-34a4-ac7b-a51ec5244648">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
 	<Project Path="KotoNotation.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5707fb49-1a4b-3129-aaa1-d243b9222899">
+		<BuildDependency Project="BinaryData.vcxproj"/>
 		<BuildDependency Project="KotoNotation_rc_lib.vcxproj"/>
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 	</Project>
@@ -16,6 +20,7 @@
 	</Project>
 	<Folder Name="/CMakePredefinedTargets/">
 		<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c6e9f215-cc2f-3b1b-ad23-09e8a72a8f52" DefaultStartup="true">
+			<BuildDependency Project="BinaryData.vcxproj"/>
 			<BuildDependency Project="KotoNotation.vcxproj"/>
 			<BuildDependency Project="KotoNotation_rc_lib.vcxproj"/>
 			<BuildDependency Project="ZERO_CHECK.vcxproj"/>

@@ -19,10 +19,18 @@ juce_add_gui_app(KotoNotation
 target_sources(KotoNotation
     PRIVATE
         KotoNotation/KotoNotation.cpp
-)
+ )
+
+ file(GLOB plugin_assets
+    "assets/*.*")
+
+juce_add_binary_data(BinaryData
+    SOURCES 
+    ${plugin_assets})
 
 target_link_libraries(KotoNotation
     PRIVATE
+    BinaryData
         juce::juce_gui_extra
         juce::juce_gui_basics
         juce::juce_audio_basics
@@ -34,3 +42,4 @@ target_compile_definitions(KotoNotation
         JUCE_WEB_BROWSER=0
         JUCE_USE_CURL=0
 )
+

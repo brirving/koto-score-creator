@@ -3,10 +3,10 @@
 
 #include "KotoNotation.h"
 
-class HelloJuceApplication : public juce::JUCEApplication
+class KotoApplication : public juce::JUCEApplication
 {
 public:
-    HelloJuceApplication() = default;
+    KotoApplication() = default;
 
     const juce::String getApplicationName() override { return "KotoNotation"; }
     const juce::String getApplicationVersion() override { return "0.1.0"; }
@@ -36,14 +36,16 @@ public:
     public:
         explicit MainWindow(juce::String name)
             : DocumentWindow(name,
-                juce::Desktop::getInstance().getDefaultLookAndFeel()
-                .findColour(juce::ResizableWindow::backgroundColourId),
+                juce::Colour(250, 190, 120),
                 juce::DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar(true);
             setContentOwned(new MainContentComponent(), true);
             centreWithSize(getWidth(), getHeight());
             setVisible(true);
+            setResizable(true, true);
+            setResizeLimits(650, 450, 8000, 6000);
+
         }
 
         void closeButtonPressed() override
@@ -56,4 +58,4 @@ private:
     std::unique_ptr<MainWindow> mainWindow;
 };
 
-START_JUCE_APPLICATION(HelloJuceApplication)
+START_JUCE_APPLICATION(KotoApplication)

@@ -57,41 +57,78 @@ class MainContentComponent : public juce::AudioAppComponent
 public:
     MainContentComponent()
     {
-        //addAndMakeVisible(playNote);
-        //playNote.addListener(this);
 
         addAndMakeVisible(titleInput);
+        addAndMakeVisible(titleOut);
         addAndMakeVisible(authInput);
+        addAndMakeVisible(authOut);
         for (int i = 0; i < 13; i++)
         {
             addAndMakeVisible(tuneInput[i]);
         }
         addAndMakeVisible(hiraButton);
         addAndMakeVisible(infoButton);
+        addChildComponent(infoBox);
+        addChildComponent(infoContent);
         addAndMakeVisible(bpmInput);
         addAndMakeVisible(notesInput);
         addAndMakeVisible(scoreInput);
         addAndMakeVisible(playButton);
         addAndMakeVisible(stopButton);
         addAndMakeVisible(pdfButton);
+        addAndMakeVisible(saveButton);
         addAndMakeVisible(pageNextButton);
         addAndMakeVisible(pageBackButton);
 
+        //Reactivity
+        titleInput.onTextChange = [this] {changeTitle(); };
+        authInput.onTextChange = [this] {changeAuth(); };
+        for (int i = 0; i < 13; i++)
+        {
+            tuneInput[i].onTextChange = [this] {changeTuning(); };
+        }
+        hiraButton.onClick = [this] {toHira(); };
+        infoButton.onClick = [this] {popInfo(); };
+        bpmInput.onTextChange = [this] {changeBPM(); };
+        notesInput.onTextChange = [this] {changeNotes(); };
+        scoreInput.onTextChange = [this] {changeScore(); };
+        playButton.onClick = [this] {playScore(); };
+        stopButton.onClick = [this] {stopScore(); };
+        pdfButton.onClick = [this] {savePDF(); };
+        pageNextButton.onClick = [this] {nextPage(); };
+        pageBackButton.onClick = [this] {prevPage(); };
+
         //Colours
         titleInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+        titleInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
+        titleOut.setColour(juce::Colours::black);
+
         authInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+        authInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
+        authOut.setColour(juce::Colours::black);
+
         for (int i = 0; i < 13; i++) {
             tuneInput[i].setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+            tuneInput[i].setColour(juce::TextEditor::textColourId, juce::Colours::black);
         }
         hiraButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
         hiraButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
         infoButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
         infoButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+        //infoButton.setToggleable(true);
+        infoBox.setFill(juce::FillType(juce::Colours::white));
+        infoContent.setColour(juce::Colours::black);
 
         bpmInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+        bpmInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
+
         notesInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+        notesInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
+
         scoreInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+        scoreInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
+        scoreInput.setMultiLine(true);
 
         playButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
         playButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
@@ -102,6 +139,9 @@ public:
         pdfButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
         pdfButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
+        saveButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+        saveButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+
         pageNextButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
         pageNextButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
@@ -111,14 +151,13 @@ public:
         
         createWavetable();
 
-        setSize(650, 450);
+        setSize(900, 600);
         setAudioChannels(0, 2);
     }
 
     ~MainContentComponent() override
     {
         shutdownAudio();
-       // playNote.removeListener(this);
     }
 
     void createWavetable()
@@ -273,6 +312,24 @@ public:
         }
         hiraButton.setBounds(tuneInput[12].getX() + (((getWidth() / 2) / 7) - 2.857), tuneInput[12].getY(), 60, 20);
         infoButton.setBounds(20, (getHeight() / 10) * 4.5, 20, 20);
+        infoBox.setRectangle(juce::Rectangle<float>((getWidth()/2) + 20, 20, (getWidth()/2) - 40, getHeight() - 60));
+        infoContent.setBoundingBox(juce::Rectangle<float>((getWidth() / 2) + 40, 40, (getWidth() / 2) - 80, getHeight() - 80));
+        infoContent.setFont(labelFont.withHeight(20.0f), true);
+        juce::String info1 = juce::CharPointer_UTF8(u8"\n\n1, 2, 3...    =    一, 二, 三...");
+        juce::String info2 = juce::CharPointer_UTF8(u8"\nq, w, e, r    =    十, 斗, 為, 巾");
+        juce::String info3 = juce::CharPointer_UTF8(u8"\n0 = ⦿・rest");
+        juce::String info4 = juce::CharPointer_UTF8(u8"\n- = 〇・rest");
+        juce::String info5 = juce::CharPointer_UTF8(u8"\no = オ");
+        juce::String info6 = juce::CharPointer_UTF8(u8"\np = ヲ");
+        juce::String info7 = juce::CharPointer_UTF8(u8"\ns = ス");
+        juce::String info8 = juce::CharPointer_UTF8(u8"\nh = ヒ");
+        juce::String info9 = juce::CharPointer_UTF8(u8"\n. = ・");
+        juce::String info10 = juce::CharPointer_UTF8(u8"\n, = 次の小節・new bar");
+        juce::String info11 = juce::CharPointer_UTF8(u8"\n/ = 半音符・halve note length");
+        juce::String info12 = juce::CharPointer_UTF8(u8"\n// = 四分音符・quarter note length");
+        juce::String info13 = juce::CharPointer_UTF8(u8"\n(...) = 和音・chord");
+        infoContent.setText("Info" + info1 + info2 + info3 + info4 + info5 + info6 + info7 + info8 + info9 + info10 + info11 + info12 + info13);
+
         bpmInput.setBounds(20, (getHeight() / 10) * 5, getWidth() / 20, 20);
         notesInput.setBounds(bpmInput.getX() + bpmInput.getWidth() + 100, (getHeight() / 10) * 5,
             getWidth() / 2 - bpmInput.getWidth() - 140, 20);
@@ -280,9 +337,69 @@ public:
         playButton.setBounds(getWidth() / 2 - 12.5, 20, 25, 25);
         stopButton.setBounds(getWidth() / 2 - 12.5, 50, 25, 25);
         pdfButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 25, 25, 25);
+        saveButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 55, 25, 25);
         pageNextButton.setBounds(getWidth() / 2 + ((getWidth() / 4) - 20), getHeight() - 35, 20, 20);
         pageBackButton.setBounds(pageNextButton.getX() + pageNextButton.getWidth(), pageNextButton.getY(), 20, 20);
+
+
+        //Score
+        int sheetH = getHeight() - 100;
+        int sheetW = sheetH * 0.707;
+
+        if (sheetW > getWidth() - ((getWidth() / 2) + 40)) {
+            sheetW = getWidth() - ((getWidth() / 2) + 40) - 40;
+            sheetH = sheetW / 0.707;
+        }
+
+        int sheetX = (getWidth() / 2) + 20 + ((getWidth() - ((getWidth() / 2) + 40)) / 2) - (sheetW / 2);
+        int sheetY = 40;
+
+
+        //For Japanese text
+        //titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(sheetX + sheetW - (sheetW / 8), sheetY + 20));
+        //need to add a converter to add breaks between characters
+        //titleOut.setBoundingBox(juce::Rectangle<float>(20, sheetH - 80));
+
+        titleOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(sheetX + sheetW - (sheetW / 8), sheetY + 20));
+        titleOut.setBoundingBox(juce::Rectangle<float>(sheetH - 80, 20));
+        titleOut.setJustification(juce::Justification::centred);
+        titleOut.setFont(labelFont.withHeight(20.0f), true);
+
+        authOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(sheetX + sheetW - (sheetW / 20), sheetY + 40));
+        authOut.setBoundingBox(juce::Rectangle<float>(sheetH - 80, 20));
+        //authOut.setJustification(juce::Justification::centred);
+        authOut.setFont(labelFont.withHeight(20.0f), true);
+
     }
+
+    void changeTitle() { titleOut.setText(titleInput.getText()); }
+    void changeAuth() 
+    { 
+        juce::String a1 = juce::CharPointer_UTF8(u8"作曲: ");
+        juce::String a2 = authInput.getText();
+        authOut.setText(a1+a2) ; 
+    }
+    void changeTuning() {}
+    void toHira() {}
+    void popInfo() 
+    { 
+        if (infoBox.isVisible()) {
+            infoBox.setVisible(false);
+            infoContent.setVisible(false);
+        }
+        else {
+            infoBox.setVisible(true);
+            infoContent.setVisible(true);
+        }
+    }
+    void changeBPM() {}
+    void changeNotes() {}
+    void changeScore() {}
+    void playScore() {}
+    void stopScore() {}
+    void savePDF() {}
+    void nextPage() {}
+    void prevPage() {}
 
 private:
 
@@ -292,13 +409,13 @@ private:
 
     juce::FontOptions labelFont{ juce::Typeface::createSystemTypefaceFor(BinaryData::YujiSyukuRegular_ttf, BinaryData::YujiSyukuRegular_ttfSize) };
 
-    //juce::TextButton playNote {"Play note"};
-
     //Title
     juce::TextEditor titleInput;
+    juce::DrawableText titleOut;
 
     //Author
     juce::TextEditor authInput;
+    juce::DrawableText authOut;
 
     //Tuning
     std::array<juce::TextEditor, 13> tuneInput;
@@ -306,14 +423,17 @@ private:
     //Set to hirachōshi D
     juce::TextButton hiraButton{ juce::CharPointer_UTF8(u8"平調子D") };
 
-    //Info button
+    //Info
     juce::TextButton infoButton{ "?" };
+    juce::DrawableRectangle infoBox;
+    juce::DrawableText infoContent;
 
     //BPM
     juce::TextEditor bpmInput{ "120" };
 
     //Notes
     juce::TextEditor notesInput;
+    juce::Label notesOut;
 
     //Notation input
     juce::TextEditor scoreInput;
@@ -325,9 +445,10 @@ private:
     juce::TextButton stopButton{ juce::CharPointer_UTF8(u8"■") };
 
     //PDF button
-    juce::TextButton pdfButton{ juce::CharPointer_UTF8(u8"\U0001F5AB")};
-        //pdfButton.addClass("material-icons")
-        //pdfButton.addClass("download")
+    juce::TextButton pdfButton{ juce::CharPointer_UTF8(u8"\U00002B73")};
+
+    //Save button
+    juce::TextButton saveButton{ juce::CharPointer_UTF8(u8"\U0001F5AB") };
 
     //Next page button
     juce::TextButton pageNextButton{ juce::CharPointer_UTF8(u8"◀") };

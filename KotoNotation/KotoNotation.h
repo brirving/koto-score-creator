@@ -8,7 +8,177 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_audio_basics/juce_audio_basics.h>
 #include "BinaryData.h"
+#include <regex>
 
+class scoreHolder {
+public:
+    juce::String note;
+    juce::String ornament;
+    juce::String length;
+};
+
+
+class Bar : public juce::Component {
+public:
+    int placementModifier;
+    //juce::DrawableRectangle rect;
+    //std::array<juce::DrawablePath, 12> lines;
+    std::vector<scoreHolder> infoHolder;
+
+
+    Bar(int mod = 0) {
+
+        placementModifier = mod;
+
+        /*addAndMakeVisible(rect);
+        for (int i = 0; i < lines.size(); i++) {
+            addAndMakeVisible(lines[i]);
+        }
+
+        rect.setFill(juce::Colours::blue);
+        rect.setStrokeFill(juce::Colours::black);
+        rect.setStrokeThickness(1.3f);
+        rect.setRectangle(juce::Rectangle(0.0f, 0.0f, 2000.0f, 4000.0f));*/
+    }
+
+    void paint(juce::Graphics& g) override {
+        //Set bar size
+        float boxW = ((getHeight()) * 0.707) / 10;
+        float boxH = getHeight() / 4.5;
+
+        //Set bar location
+        float w = getWidth();
+        float x = (7 - floor(placementModifier / 4)) * (getWidth() / 10) - (2*floor(placementModifier / 4));
+        float y = getHeight() / 14 + (placementModifier % 4 * (getHeight() / 4.5 + 2));
+
+        //Draw bar
+        g.setColour(juce::Colours::black);
+        g.drawRect(x, y, boxW, boxH, 0.3f);
+
+        //Draw bar lines
+        for (int i = 1; i < 4; i++) {
+            g.drawLine(x,
+                y + (boxH / 4) * i,
+                x + boxW,
+                y + (boxH / 4) * i,
+                0.3f);
+        }
+
+        for (int i = 1; i < 8; i += 2) {
+            g.drawLine(x,
+                y + (boxH / 8) * i,
+                x + boxW / 2,
+                y + (boxH / 8) * i,
+                0.2f);
+        }
+
+    }
+
+    void updateInput(std::vector<scoreHolder> newInfo) {
+        infoHolder = newInfo;
+        /*
+            for (int i = 0; i < info.size(); i++) {
+                std::array note = info[i].note.split("");
+                juce::String ornmt = info[i].ornament.split("")
+                    let length = info[i].length
+
+                    //Combine notes and ornaments into one string
+                    let combo = []
+                    for (let j = 0; j < ornmt.length; j++) {
+                        combo.push(note[j])
+                            combo.push(ornmt[j])
+                    }
+
+                combo = combo.join("").replaceAll(" ", "")
+
+                    //Only keep one staccato for chords
+                    if (ornmt.includes("・")) {
+                        combo = combo.replaceAll("・", "") + "・"
+                    }
+
+                //Calculate size and placement modifier
+                let mod = (boxH / 8)
+                    let xmod = boxW / 6
+                    let size = 12
+
+                    if (combo.length > 3 || note.length > 2) {
+                        size -= combo.length
+                            xmod = boxW / 12
+                    }
+
+                //length overrules chord sizing
+                if (length > 8) {
+                    size = 12 / (length / 8)
+                }
+
+                if (length > 4) {
+                    mod = 0
+                }
+
+
+
+                y += (boxH / length)
+
+                    //Write note out
+                    textSize(size)
+                    textAlign(LEFT, BOTTOM)
+                    fill(0)
+                    text(combo,
+                        this.x + xmod,
+                        (y - mod - 1))
+
+            }*/
+    }
+
+    private:
+        //==============================================================================
+        //JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Bar)
+};
+
+
+class scoreComponent : public juce::Component {
+public:
+
+    juce::DrawableRectangle sheet;
+    std::vector<scoreHolder> allInfo;
+    std::array<Bar, 28> bars;
+
+    scoreComponent() {
+
+        addAndMakeVisible(sheet);
+        for (int i = 0; i < bars.max_size(); i++) {
+            std::vector<scoreHolder> info;
+            bars[i].placementModifier = i;
+            addAndMakeVisible(bars[i]);
+        }
+        
+
+        sheet.setFill(juce::Colours::white);
+    }
+
+    void resized() override{
+        float w = getWidth();
+        float h = getHeight();
+        sheet.setRectangle(juce::Rectangle(0.0f, 0.0f, w,  h));
+
+
+
+        for (int i = 0; i < bars.size(); i++) {
+            bars[i].setBounds(0,0,w,h);
+        }
+        
+    }
+
+    void addBar() {
+    }
+
+    void removeBar() {
+    }
+
+private:
+    //==============================================================================
+    //JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(scoreComponent)
+};
 
 
 class WavetableOscillator
@@ -58,6 +228,8 @@ public:
     MainContentComponent()
     {
 
+        
+        addAndMakeVisible(scoreSheet);
         addAndMakeVisible(titleInput);
         addAndMakeVisible(titleOut);
         addAndMakeVisible(authInput);
@@ -117,7 +289,7 @@ public:
         infoButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
         infoButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
         //infoButton.setToggleable(true);
-        infoBox.setFill(juce::FillType(juce::Colours::white));
+        infoBox.setFill(juce::Colours::white);
         infoContent.setColour(juce::Colours::black);
 
         bpmInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
@@ -147,7 +319,7 @@ public:
 
         pageBackButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
         pageBackButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
-        
+
         
         createWavetable();
 
@@ -251,6 +423,7 @@ public:
         g.setColour(juce::Colour(250, 210, 150));
         g.fillRect((getWidth() / 2) + 20, 20, getWidth() - ((getWidth() / 2) + 40), getHeight() - 60);
 
+        /*
         int sheetH = getHeight() - 100;
         int sheetW = sheetH * 0.707;
 
@@ -264,6 +437,7 @@ public:
         
         g.setColour(juce::Colours::white);
         g.fillRect(sheetX, sheetY, sheetW, sheetH);
+        */
 
         //Labels
         //Title
@@ -343,17 +517,18 @@ public:
 
 
         //Score
-        int sheetH = getHeight() - 100;
-        int sheetW = sheetH * 0.707;
+        float sheetH = getHeight() - 100;
+        float sheetW = sheetH * 0.707;
 
         if (sheetW > getWidth() - ((getWidth() / 2) + 40)) {
             sheetW = getWidth() - ((getWidth() / 2) + 40) - 40;
             sheetH = sheetW / 0.707;
         }
 
-        int sheetX = (getWidth() / 2) + 20 + ((getWidth() - ((getWidth() / 2) + 40)) / 2) - (sheetW / 2);
-        int sheetY = 40;
+        float sheetX = (getWidth() / 2) + 20 + ((getWidth() - ((getWidth() / 2) + 40)) / 2) - (sheetW / 2);
+        float sheetY = 40;
 
+        scoreSheet.setBounds(sheetX, sheetY, sheetW, sheetH);
 
         //For Japanese text
         //titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(sheetX + sheetW - (sheetW / 8), sheetY + 20));
@@ -369,6 +544,8 @@ public:
         authOut.setBoundingBox(juce::Rectangle<float>(sheetH - 80, 20));
         //authOut.setJustification(juce::Justification::centred);
         authOut.setFont(labelFont.withHeight(20.0f), true);
+
+        
 
     }
 
@@ -394,7 +571,95 @@ public:
     }
     void changeBPM() {}
     void changeNotes() {}
-    void changeScore() {}
+    void changeScore() {
+        std::regex del("(?![^(]*\\))");
+        std::string text = scoreInput.getText().toStdString();
+        std::sregex_token_iterator it(text.begin(),
+            text.end(), del, -1);
+        std::sregex_token_iterator end;
+
+        std::vector<std::string> inputArray;
+        // Iterating through each token
+        while (it != end) {
+            inputArray.push_back(*it);
+            ++it;
+        }
+        std::vector<std::string> outputArray;
+        std::vector<std::string> noteArray;
+        std::vector<std::string> ornamentArray;
+        std::vector<std::string> lengthArray;
+        /*
+        int length = 4;
+        for (int i = 0; i < inputArray.size(); i++) {
+            if (inputArray[i] == "/") {
+                length *= 2;
+                i++;
+                if (inputArray[i] == "/") {
+                    length *= 2;
+                    i++;
+                    if (inputArray[i] == "/") {
+                        length *= 2;
+                        i++;
+                    }
+                }
+            };
+
+                if (std::regex_match(inputArray[i], std::regex("(. + ? \\)"))) {
+                    let chord = inputArray[i].split("")
+                        let chordArray = []
+                        let chordOrnArray = []
+                        for (let i = 0; i < chord.length; i++) {
+                            if (noteInputVals.includes(chord[i])) {
+                                let n = noteInputVals.indexOf(chord[i])
+                                    chordArray.push(notes[n])
+
+                                    if (ornInputVals.includes(chord[i + 1])) {
+                                        let o = ornInputVals.indexOf(chord[i + 1])
+                                            chordOrnArray.push(ornaments[o])
+                                    }
+                                    else {
+                                        chordOrnArray.push(" ")
+                                    }
+                            }
+                        }
+                    let n = chordArray.join("")
+                        let o = chordOrnArray.join("")
+                        noteArray.push(n)
+                        lengthArray.push(length)
+                        ornamentArray.push(o)
+                        length = 4
+                }
+
+                if (noteInputVals.includes(inputArray[i])) {
+                    let n = noteInputVals.indexOf(inputArray[i])
+                        noteArray.push(notes[n])
+                        lengthArray.push(length)
+                        length = 4
+
+                        if (ornInputVals.includes(inputArray[i + 1])) {
+                            let o = ornInputVals.indexOf(inputArray[i + 1])
+                                ornamentArray.push(ornaments[o])
+
+                                //Check for second ornament
+                                if (ornInputVals.includes(inputArray[i + 2])) {
+                                    let o1 = ornamentArray.pop()
+                                        //ornamentArray.pop()
+                                        let o = ornInputVals.indexOf(inputArray[i + 2])
+                                        ornamentArray.push(o1 + ornaments[o])
+                                }
+                        }
+                        else {
+                            ornamentArray.push(" ")
+                        }
+                }
+            }
+
+        for (let i = 0; i < noteArray.length; i++) {
+            outputArray.push({ note: noteArray[i],
+                              ornament : ornamentArray[i],
+                              length : lengthArray[i] })
+        }*/
+    }
     void playScore() {}
     void stopScore() {}
     void savePDF() {}
@@ -409,6 +674,9 @@ private:
 
     juce::FontOptions labelFont{ juce::Typeface::createSystemTypefaceFor(BinaryData::YujiSyukuRegular_ttf, BinaryData::YujiSyukuRegular_ttfSize) };
 
+    //Sheet
+    scoreComponent scoreSheet;
+    
     //Title
     juce::TextEditor titleInput;
     juce::DrawableText titleOut;

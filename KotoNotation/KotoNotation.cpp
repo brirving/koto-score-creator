@@ -2,6 +2,7 @@
 //
 
 #include "KotoNotation.h"
+#include "Synth.h"
 
 class KotoApplication : public juce::JUCEApplication
 {

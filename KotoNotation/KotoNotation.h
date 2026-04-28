@@ -90,8 +90,7 @@ public:
 		for (int i = 0; i < textHolder.size(); i++) {
 			textHolder[i].setVisible(false);
 		}
-		//TODO: fix last note in chord being cut off
-		//TODO: fix lone close brackets and second ornaments causing issues
+
 		for (int i = 0; i < newInfo.size(); i++) {
 			std::vector<std::string> note(newInfo[i].note.size());
 			std::ranges::copy(newInfo[i].note, begin(note));
@@ -102,7 +101,9 @@ public:
 			//Combine notes and ornaments into one string
 			std::vector<std::string> combo;
 			for (int j = 0; j < ornmt.size(); j++) {
-				combo.push_back(note[j]);
+				if (note.size() > j) {
+					combo.push_back(note[j]);
+				}
 				combo.push_back(ornmt[j]);
 			}
 
@@ -278,7 +279,8 @@ public:
 		if (n[b1].length() > 0) {
 			for (int i = 0; i < bEnd - b1; i++) {
 				int length = n[b1 + i].length();
-				std::vector<scoreHolder>arraySlice = std::vector<scoreHolder>(outputArray.begin() + start, outputArray.begin() + start + length);
+				std::vector<scoreHolder> arraySlice(length + 1);
+				std::ranges::copy(outputArray.begin() + start, outputArray.begin() + start + length, begin(arraySlice));
 				bars[i].updateInput(arraySlice);
 				bars[i].setVisible(true);
 				start += length + 1;
@@ -669,7 +671,7 @@ public:
 	void changeBPM() {}
 	void changeNotes() {}
 	void changeScore() {
-		std::regex del("(?![^(]*[^)]\\))");
+		std::regex del("(?![^(]*\\))");
 		std::string text = scoreInput.getText().toStdString();
 		std::sregex_token_iterator it(text.begin(),
 			text.end(), del, -1);
@@ -708,7 +710,7 @@ public:
 
 			};
 
-			if (std::regex_search(inputArray[i], std::regex("\\(.+"))) {
+			if (inputArray[i].size() > 1) {
 				if (inputArray[i].size() > 0) {
 					std::vector<std::string> chord(inputArray[i].size());
 					std::ranges::copy(inputArray[i], begin(chord));

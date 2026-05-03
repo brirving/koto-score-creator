@@ -215,15 +215,25 @@ public:
 
 	}
 
-	void writeBars(std::string text, std::vector<scoreHolder> outputArray) {
+	void writeBars(std::vector<scoreHolder> outputArray) {
 		//Take in notation input and draw the bars with the notes
-		std::string part1 = std::regex_replace(text, std::regex("\\(.+?\\)"), "0");
-		std::string part2 = std::regex_replace(part1, std::regex("[^0-9-, qwer]"), "");
+		//std::string part1 = std::regex_replace(text, std::regex("\\(.[^(]*?\\)"), "0");
+		//std::string part2 = std::regex_replace(part1, std::regex("[^0-9-, qwer]"), "");
+		std::string text;
+		for (int i = 0; i < outputArray.size(); i++) {
+			if (outputArray[i].note == ",") {
+				text += ",";
+			}
+			else if (outputArray[i].note != "") {
+				text += "0";
+			}
+		}
+
 		std::vector<std::string> n;
 
 		std::regex del(",");
-		std::sregex_token_iterator it(part2.begin(),
-			part2.end(), del, -1);
+		std::sregex_token_iterator it(text.begin(),
+			text.end(), del, -1);
 		std::sregex_token_iterator end;
 
 		// Iterating through each token
@@ -671,7 +681,7 @@ public:
 	void changeBPM() {}
 	void changeNotes() {}
 	void changeScore() {
-		std::regex del("(?![^(]*\\))");
+		std::regex del("(?![^(]*?\\)+[^)])");
 		std::string text = scoreInput.getText().toStdString();
 		std::sregex_token_iterator it(text.begin(),
 			text.end(), del, -1);
@@ -689,23 +699,13 @@ public:
 		std::vector<int> lengthArray;
 
 
-
+		//TODO: Fix triple forward slash crash
 		int length = 4;
 		for (int i = 0; i < inputArray.size(); i++) {
 			if (inputArray[i] == "/") {
 				length *= 2;
 				if (inputArray.size() > i + 1) {
 					i++;
-					if (inputArray[i] == "/") {
-						length *= 2;
-						if (inputArray.size() > i + 1) {
-							i++;
-							if (inputArray[i] == "/") {
-								length *= 2;
-								i++;
-							}
-						}
-					}
 				}
 
 			};
@@ -765,13 +765,19 @@ public:
 					ornamentArray.push_back(" ");
 				}
 			}
+			if (inputArray[i] == ",") {
+				noteArray.push_back(",");
+				ornamentArray.push_back(",");
+			}
 		}
+
+
 
 		for (int i = 0; i < noteArray.size(); i++) {
 			outputArray.push_back({ noteArray[i], ornamentArray[i], lengthArray[i] });
 		}
 
-		scoreSheet.writeBars(text, outputArray);
+		scoreSheet.writeBars(outputArray);
 	}
 	void playScore() {}
 	void stopScore() {}

@@ -46,7 +46,7 @@ public:
             setVisible(true);
             setResizable(true, true);
             setResizeLimits(650, 450, 8000, 6000);
-
+ 
         }
 
         void closeButtonPressed() override

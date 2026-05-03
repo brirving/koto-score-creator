@@ -131,8 +131,7 @@ private:
 class SynthAudioSource : public juce::AudioSource
 {
 public:
-    SynthAudioSource(juce::MidiKeyboardState& keyState)
-        //: keyboardState(keyState)
+    SynthAudioSource()
     {
         for (auto i = 0; i < 4; ++i)
             synth.addVoice(new Voice());
@@ -148,7 +147,7 @@ public:
     void prepareToPlay(int /*samplesPerBlockExpected*/, double sampleRate) override
     {
         synth.setCurrentPlaybackSampleRate(sampleRate);
-        midiCollector.reset(sampleRate); // [10]
+        midiCollector.reset(sampleRate); 
     }
 
     void releaseResources() override {}
@@ -158,10 +157,7 @@ public:
         bufferToFill.clearActiveBufferRegion();
 
         juce::MidiBuffer incomingMidi;
-        midiCollector.removeNextBlockOfMessages(incomingMidi, bufferToFill.numSamples); // [11]
-
-        //keyboardState.processNextMidiBuffer(incomingMidi, bufferToFill.startSample,
-          //  bufferToFill.numSamples, true);
+        midiCollector.removeNextBlockOfMessages(incomingMidi, bufferToFill.numSamples); 
 
         synth.renderNextBlock(*bufferToFill.buffer, incomingMidi,
             bufferToFill.startSample, bufferToFill.numSamples);
@@ -173,7 +169,6 @@ public:
     }
 
 private:
-    //juce::MidiKeyboardState& keyboardState;
     juce::Synthesiser synth;
     juce::MidiMessageCollector midiCollector;
 };
@@ -184,37 +179,9 @@ class SynthContentComponent : public juce::AudioAppComponent,
 {
 public:
     SynthContentComponent()
-        : synthAudioSource(keyboardState),
-        keyboardComponent(keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)
+        : synthAudioSource()
     {
-        addAndMakeVisible(midiInputListLabel);
-        midiInputListLabel.setText("MIDI Input:", juce::dontSendNotification);
-        midiInputListLabel.attachToComponent(&midiInputList, true);
 
-        auto midiInputs = juce::MidiInput::getAvailableDevices();
-        addAndMakeVisible(midiInputList);
-        midiInputList.setTextWhenNoChoicesAvailable("No MIDI Inputs Enabled");
-
-        juce::StringArray midiInputNames;
-        for (auto input : midiInputs)
-            midiInputNames.add(input.name);
-
-        midiInputList.addItemList(midiInputNames, 1);
-        midiInputList.onChange = [this] { setMidiInput(midiInputList.getSelectedItemIndex()); };
-
-        for (auto input : midiInputs)
-        {
-            if (deviceManager.isMidiInputDeviceEnabled(input.identifier))
-            {
-                setMidiInput(midiInputs.indexOf(input));
-                break;
-            }
-        }
-
-        if (midiInputList.getSelectedId() == 0)
-            setMidiInput(0);
-
-        addAndMakeVisible(keyboardComponent);
         setAudioChannels(0, 2);
 
         setSize(600, 190);
@@ -228,8 +195,6 @@ public:
 
     void resized() override
     {
-        midiInputList.setBounds(200, 10, getWidth() - 210, 20);
-        keyboardComponent.setBounds(10, 40, getWidth() - 20, getHeight() - 50);
     }
 
     void prepareToPlay(int samplesPerBlockExpected, double sampleRate) override
@@ -250,7 +215,6 @@ public:
 private:
     void timerCallback() override
     {
-        keyboardComponent.grabKeyboardFocus();
         stopTimer();
     }
 
@@ -259,47 +223,38 @@ private:
         auto list = juce::MidiInput::getAvailableDevices();
 
         deviceManager.removeMidiInputDeviceCallback(list[lastInputIndex].identifier,
-            synthAudioSource.getMidiCollector()); // [12]
+            synthAudioSource.getMidiCollector());
 
         auto newInput = list[index];
 
         if (!deviceManager.isMidiInputDeviceEnabled(newInput.identifier))
             deviceManager.setMidiInputDeviceEnabled(newInput.identifier, true);
 
-        deviceManager.addMidiInputDeviceCallback(newInput.identifier, synthAudioSource.getMidiCollector()); // [13]
-        midiInputList.setSelectedId(index + 1, juce::dontSendNotification);
+        deviceManager.addMidiInputDeviceCallback(newInput.identifier, synthAudioSource.getMidiCollector());
 
         lastInputIndex = index;
     }
 
     //==========================================================================
-    juce::MidiKeyboardState keyboardState;
     SynthAudioSource synthAudioSource;
-    juce::MidiKeyboardComponent keyboardComponent;
 
-    juce::ComboBox midiInputList;
-    juce::Label midiInputListLabel;
     int lastInputIndex = 0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SynthContentComponent)
 };
 
 
-class MainContentComponent2 : public juce::AudioAppComponent
+class kotoSynth : public juce::AudioAppComponent
 {
 public:
-    MainContentComponent2()
+    std::array <juce::ADSR, 6> adsr;
+    double fund = 146.83;
+
+    kotoSynth()
     {
-        setSize(600, 400);
 
         // Open audio device (0 inputs, 2 outputs)
         setAudioChannels(0, 2);
-
-        // Add button to GUI
-        addAndMakeVisible(triggerButton);
-
-        // Make it toggle on/off
-        triggerButton.setClickingTogglesState(true);
 
         // Connect button → atomic parameter
         triggerButton.onClick = [this]()
@@ -310,14 +265,13 @@ public:
             };
     }
 
-    ~MainContentComponent2() override
+    ~kotoSynth() override
     {
         shutdownAudio();
     }
 
     void resized() override
     {
-        triggerButton.setBounds(20, 20, 100, 40);
     }
 
 
@@ -333,7 +287,7 @@ public:
         spec.maximumBlockSize = samplesPerBlockExpected;
         spec.numChannels = 2;
 
-        double fund = 146.83;
+        
         double freq = fund;
         double length = sqrt(215 * (juce::MathConstants<double>::pi * juce::MathConstants<double>::pi) / (0.086197 * (fund * fund)));
         double EI = (2.52 * juce::MathConstants<double>::pi * 0.0000522) / 4;
@@ -358,15 +312,6 @@ public:
         };
 
 
-        //lfo.init(sampleRate, 4, 0.0f, 0.25f);  // sine wave, 0.25 Hz
-
-        // Filter
-        /*filter.init(sampleRate);
-        filter.setFilterType(ZDSVF::LP);  // low-pass
-        filter.setQ(0.0f);                // resonance
-        filter.setCutoff(freq*1.5f);         // cutoff in MIDI pitch
-        filter.setDrive(1.5f);   */         // neutral drive
-
         filter.prepare(spec);
         filter.coefficients = juce::dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, freq * 1.5);
 
@@ -388,11 +333,6 @@ public:
 
         for (int i = 0; i < numSamples; ++i)
         {
-            //float lfoValue;
-            //lfo.dsp(lfoValue);
-
-            //float lfoGain = 0.5f * (lfoValue + 1.0f);
-           // lfoGain *= 0.2f;
 
             float mix = 0;
             float m = mix;
@@ -409,10 +349,6 @@ public:
                 float sample = buffer->getSample(ch, i);
                 sample += mix;
 
-                // Apply modulation chain
-                //sample *= lfoGain;
-
-
 
                 sample = filter.processSample(sample);
 
@@ -424,30 +360,15 @@ public:
 
             juce::dsp::AudioBlock<float> block(*buffer);
             juce::dsp::ProcessContextReplacing<float> context(block);
-            //verb.process(context);
 
         }
     }
 
     void releaseResources() override {}
 
-    void paint(juce::Graphics& g) override
-    {
-        g.fillAll(juce::Colours::black);
-        g.setColour(juce::Colours::white);
-        g.setFont(24.0f);
-
-        g.drawText("jdsplib test",
-            getLocalBounds(),
-            juce::Justification::centred,
-            true);
-    }
-
 private:
     std::array<juce::dsp::Oscillator<double>, 6> oscArray;
-    //LFO lfo;
     juce::dsp::IIR::Filter<float> filter;
-    std::array <juce::ADSR, 6> adsr;
     juce::dsp::Reverb verb;
 
     std::atomic<float> trigger{ 0.0f };

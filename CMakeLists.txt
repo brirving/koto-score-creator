@@ -35,6 +35,8 @@ target_link_libraries(KotoNotation
         juce::juce_gui_basics
         juce::juce_audio_basics
         juce::juce_audio_utils
+        juce::juce_dsp
+        juce::juce_core
 )
 
 target_compile_definitions(KotoNotation

@@ -8,6 +8,7 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_audio_basics/juce_audio_basics.h>
 #include "BinaryData.h"
+#include "Synth.h"
 #include <regex>
 
 class scoreHolder {
@@ -304,54 +305,11 @@ public:
 private:
 };
 
-
-class WavetableOscillator
-{
-public:
-	WavetableOscillator(const juce::AudioSampleBuffer& wavetableToUse)
-		: wavetable(wavetableToUse),
-		tableSize(wavetable.getNumSamples() - 1)
-	{
-		jassert(wavetable.getNumChannels() == 1);
-	}
-
-	void setFrequency(float frequency, float sampleRate)
-	{
-		auto tableSizeOverSampleRate = (float)tableSize / sampleRate;
-		tableDelta = frequency * tableSizeOverSampleRate;
-	}
-
-	forcedinline float getNextSample() noexcept
-	{
-		auto index0 = (unsigned int)currentIndex;
-		auto index1 = index0 + 1;
-
-		auto frac = currentIndex - (float)index0;
-
-		auto* table = wavetable.getReadPointer(0);
-		auto value0 = table[index0];
-		auto value1 = table[index1];
-
-		auto currentSample = value0 + frac * (value1 - value0);
-
-		if ((currentIndex += tableDelta) > (float)tableSize)
-			currentIndex -= (float)tableSize;
-
-		return currentSample;
-	}
-
-private:
-	const juce::AudioSampleBuffer& wavetable;
-	const int tableSize;
-	float currentIndex = 0.0f, tableDelta = 0.0f;
-};
-
 class MainContentComponent : public juce::AudioAppComponent
 {
 public:
 	MainContentComponent()
 	{
-
 
 		addAndMakeVisible(scoreSheet);
 		addAndMakeVisible(titleInput);
@@ -445,7 +403,6 @@ public:
 		pageBackButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 
-		createWavetable();
 
 		setSize(900, 600);
 		setAudioChannels(0, 2);
@@ -456,85 +413,18 @@ public:
 		shutdownAudio();
 	}
 
-	void createWavetable()
+	void prepareToPlay(int samplesPerBlockExpected, double sampleRate) override
 	{
-		sineTable.setSize(1, (int)tableSize + 1);
-		sineTable.clear();
-
-		auto* samples = sineTable.getWritePointer(0);
-
-		int harmonics[] = { 1, 3, 5, 6, 7, 9, 13, 15 };
-		float harmonicWeights[] = { 0.5f, 0.1f, 0.05f, 0.125f, 0.09f, 0.005f, 0.002f, 0.001f };     // [1]
-
-		jassert(juce::numElementsInArray(harmonics) == juce::numElementsInArray(harmonicWeights));
-
-		for (auto harmonic = 0; harmonic < juce::numElementsInArray(harmonics); ++harmonic)
-		{
-			auto angleDelta = juce::MathConstants<double>::twoPi / (double)(tableSize - 1) * harmonics[harmonic]; // [2]
-			auto currentAngle = 0.0;
-
-			for (unsigned int i = 0; i < tableSize; ++i)
-			{
-				auto sample = std::sin(currentAngle);
-				samples[i] += (float)sample * harmonicWeights[harmonic];                           // [3]
-				currentAngle += angleDelta;
-			}
+		for (int i = 0; i < synthArray.size(); i++) {
+			synthArray[i].fund = tuneArray[i];
+			synthArray[i].prepareToPlay(samplesPerBlockExpected, sampleRate);
 		}
-
-		samples[tableSize] = samples[0];
-	}
-
-	void prepareToPlay(int, double sampleRate) override
-	{
-		auto numberOfOscillators = 10;
-		adsr.setParameters(params);
-
-		for (auto i = 0; i < numberOfOscillators; ++i)
-		{
-			auto* oscillator = new WavetableOscillator(sineTable);
-
-			double freq = 440.0;
-
-			float strLength = sqrt(215 * (juce::MathConstants<double>::pi * juce::MathConstants<double>::pi) / (0.086197 * (freq * freq)));
-			float a = (EI * 9.8596) / (2 * 215 * pow(strLength, 2));
-
-
-			float harmonic = ((i + 2) * freq) * (1 + (a * (pow((i + 2), 2))));
-
-			if (i == 0) {
-				harmonic = freq;
-			}
-
-
-			oscillator->setFrequency((float)harmonic, (float)sampleRate);
-			oscillators.add(oscillator);
-		}
-
-		level = 0.25f / (float)numberOfOscillators;
 	}
 
 	void releaseResources() override {}
 
 	void getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill) override
 	{
-		auto* leftBuffer = bufferToFill.buffer->getWritePointer(0, bufferToFill.startSample);
-		auto* rightBuffer = bufferToFill.buffer->getWritePointer(1, bufferToFill.startSample);
-
-		bufferToFill.clearActiveBufferRegion();
-
-		for (auto oscillatorIndex = 0; oscillatorIndex < oscillators.size(); ++oscillatorIndex)
-		{
-			auto* oscillator = oscillators.getUnchecked(oscillatorIndex);
-			auto a = adsr.getNextSample();
-
-			for (auto sample = 0; sample < bufferToFill.numSamples; ++sample)
-			{
-				auto levelSample = oscillator->getNextSample() * a;
-
-				leftBuffer[sample] += levelSample;
-				rightBuffer[sample] += levelSample;
-			}
-		}
 	}
 
 	void paint(juce::Graphics& g) override
@@ -779,7 +669,18 @@ public:
 
 		scoreSheet.writeBars(outputArray);
 	}
-	void playScore() {}
+	void playScore() {
+		lastUsedSynth += 1;
+		if (lastUsedSynth > 12) {
+			lastUsedSynth = 0;
+		}
+		int synthToUse = lastUsedSynth;
+
+		for (int i = 0; i < synthArray[synthToUse].adsr.size(); i++) {
+			synthArray[synthToUse].adsr[i].noteOn();
+		};
+
+	}
 	void stopScore() {}
 	void savePDF() {}
 	void nextPage() {}
@@ -849,11 +750,9 @@ private:
 	std::array < std::string, 5> ornInputVals{ "o", "p", "h", "s", "." };
 
 	//Audio components
-	juce::ADSR adsr;
-	juce::ADSR::Parameters params{ 0.001f, 0.1f, 0.0f, 1.0f };
-
-	juce::AudioSampleBuffer sineTable;
-	juce::OwnedArray<WavetableOscillator> oscillators;
+	std::array<kotoSynth, 13>  synthArray;
+	int lastUsedSynth = 13;
+	std::array<double, 13> tuneArray{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainContentComponent)
 };

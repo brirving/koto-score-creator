@@ -403,6 +403,14 @@ public:
 		pageBackButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 
+		//Input setup
+		bpmInput.setInputRestrictions(4, "1234567890");
+		bpmInput.setText("120");
+
+		for (int i = 0; i < tuneInput.size(); i++) {
+			tuneInput[i].setInputRestrictions(7, "1234567890.");
+		}
+
 
 		setSize(900, 600);
 		setAudioChannels(0, 2);
@@ -419,12 +427,25 @@ public:
 			synthArray[i].fund = tuneArray[i];
 			synthArray[i].prepareToPlay(samplesPerBlockExpected, sampleRate);
 		}
+		sr = sampleRate;
 	}
 
 	void releaseResources() override {}
 
 	void getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill) override
 	{
+
+		for (int i = 0; i < playbackPlaying.size(); i++) {
+			if (playbackPlaying[i].note == ",") {
+				continue;
+			}
+			if (playbackPlaying[i].length >= playbackPointer && playbackPlaying[i].length < (playbackPointer + bufferToFill.numSamples)) {
+				int n = std::stoi(playbackPlaying[i].note);
+
+				synthArray[n].playNote();
+			}
+		}
+		playbackPointer += bufferToFill.numSamples;
 	}
 
 	void paint(juce::Graphics& g) override
@@ -555,8 +576,38 @@ public:
 		juce::String a2 = authInput.getText();
 		authOut.setText(a1 + a2);
 	}
-	void changeTuning() {}
-	void toHira() {}
+	void changeTuning() {
+		//Update tuneArray
+		for (int i = 0; i < tuneInput.size(); i++) {
+			if (tuneInput[i].getText().length() > 0) {
+				try
+				{
+					tuneArray[i] = std::stod(tuneInput[i].getText().toStdString());
+				}
+				catch (const std::exception&)
+				{
+					continue;
+				}
+				
+			}
+		}
+
+		//Update synths
+		for (int i = 0; i < synthArray.size(); i++) {
+			synthArray[i].fund = tuneArray[i];
+			synthArray[i].updateFrequency(sr);
+		}
+	}
+	void toHira() { 
+		//Return tuneArray to default hirachōshi tuning
+		tuneArray = hiraTuning;
+
+		//Update synths
+		for (int i = 0; i < synthArray.size(); i++) {
+			synthArray[i].fund = tuneArray[i];
+			synthArray[i].updateFrequency(sr);
+		}
+	}
 	void popInfo()
 	{
 		if (infoBox.isVisible()) {
@@ -568,7 +619,11 @@ public:
 			infoContent.setVisible(true);
 		}
 	}
-	void changeBPM() {}
+	void changeBPM() {
+		if (bpmInput.getText().length() > 0) {
+			changeScore();
+		}
+	}
 	void changeNotes() {}
 	void changeScore() {
 		std::regex del("(?![^(]*?\\)+[^)])");
@@ -589,15 +644,11 @@ public:
 		std::vector<int> lengthArray;
 
 
-		//TODO: Fix triple forward slash crash
 		int length = 4;
 		for (int i = 0; i < inputArray.size(); i++) {
 			if (inputArray[i] == "/") {
 				length *= 2;
-				if (inputArray.size() > i + 1) {
-					i++;
-				}
-
+				continue;
 			};
 
 			if (inputArray[i].size() > 1) {
@@ -655,10 +706,6 @@ public:
 					ornamentArray.push_back(" ");
 				}
 			}
-			if (inputArray[i] == ",") {
-				noteArray.push_back(",");
-				ornamentArray.push_back(",");
-			}
 		}
 
 
@@ -668,20 +715,46 @@ public:
 		}
 
 		scoreSheet.writeBars(outputArray);
+		updatePlayback(outputArray);
 	}
-	void playScore() {
-		lastUsedSynth += 1;
-		if (lastUsedSynth > 12) {
-			lastUsedSynth = 0;
+
+	void updatePlayback(std::vector<scoreHolder>& outputArray) {
+		std::vector<scoreHolder> playbackHolder(outputArray.size());
+		std::ranges::copy(outputArray, begin(playbackHolder));
+
+		std::string bpmString = bpmInput.getText().toStdString();
+		int bpm = std::stoi(bpmString);
+		double beat = 60.0f / bpm;
+
+		int timeToPlay = 0;
+		//convert notes to synth numbers
+		for (int i = 0; i < playbackHolder.size(); i++) {
+			if (playbackHolder[i].note == ",") {
+				continue;
+			}
+			int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), playbackHolder[i].note));
+			playbackHolder[i].note = std::to_string(n);
+
+			//get length of note in samples
+			double t = (beat * sr) * (4.0f / playbackHolder[i].length);
+
+			playbackHolder[i].length = timeToPlay;
+
+			//add note length to playtime
+			timeToPlay += t;
 		}
-		int synthToUse = lastUsedSynth;
 
-		for (int i = 0; i < synthArray[synthToUse].adsr.size(); i++) {
-			synthArray[synthToUse].adsr[i].noteOn();
-		};
-
+		playbackHold = playbackHolder;
 	}
-	void stopScore() {}
+
+	void playScore() {
+		playbackPlaying = playbackHold;
+		playbackPointer = 0;
+	}
+	void stopScore() {
+		std::vector<scoreHolder> emptyScore;
+		playbackPlaying = emptyScore;
+	}
 	void savePDF() {}
 	void nextPage() {}
 	void prevPage() {}
@@ -717,7 +790,7 @@ private:
 	juce::DrawableText infoContent;
 
 	//BPM
-	juce::TextEditor bpmInput{ "120" };
+	juce::TextEditor bpmInput;
 
 	//Notes
 	juce::TextEditor notesInput;
@@ -751,8 +824,13 @@ private:
 
 	//Audio components
 	std::array<kotoSynth, 13>  synthArray;
-	int lastUsedSynth = 13;
 	std::array<double, 13> tuneArray{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
+	std::array<double, 13> hiraTuning{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
+
+	std::vector<scoreHolder> playbackHold;
+	std::vector<scoreHolder> playbackPlaying;
+	double sr;
+	double playbackPointer = 0;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainContentComponent)
 };

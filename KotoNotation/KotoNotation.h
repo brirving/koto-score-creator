@@ -15,6 +15,7 @@ class scoreHolder {
 public:
 	std::string note;
 	std::string ornament;
+	std::string hand;
 	int length;
 };
 
@@ -24,7 +25,7 @@ public:
 	int placementModifier;
 	//juce::DrawableRectangle rect;
 	//std::array<juce::DrawablePath, 12> lines;
-	std::array<juce::DrawableText, 16> textHolder;
+	std::array<juce::DrawableText, 68> textHolder;
 
 
 	Bar(int mod = 0) {
@@ -77,20 +78,35 @@ public:
 
 	}
 
-	void updateInput(std::vector<scoreHolder> newInfo) {
+	void updateInput(std::vector<scoreHolder> newInfo, std::vector<scoreHolder> newInfoLeft) {
+		//Set bar size
+		float boxW = ((getHeight()) * 0.707) / 10;
+
+		//Set bar location
+		float x = (7 - floor(placementModifier / 4)) * (getWidth() / 10) - (2 * floor(placementModifier / 4));
+		float xl = x - (boxW / 9);
+		x += (boxW / 3);
+
+		//Clear text
+		for (int i = 0; i < textHolder.size(); i++) {
+			textHolder[i].setVisible(false);
+		}
+
+
+
+		//TODO: get left hand displaying properly
+		fillBars(newInfo, x, 0);
+		fillBars(newInfoLeft, xl, newInfo.size());
+	}
+
+	void fillBars(std::vector<scoreHolder> newInfo, int x, int imod) {
 		//Set bar size
 		float boxW = ((getHeight()) * 0.707) / 10;
 		float boxH = getHeight() / 4.5;
 
 		//Set bar location
 		float w = getWidth();
-		float x = (7 - floor(placementModifier / 4)) * (getWidth() / 10) - (2 * floor(placementModifier / 4));
 		float y = getHeight() / 14 + (placementModifier % 4 * (getHeight() / 4.5 + 2));
-
-		//Clear text
-		for (int i = 0; i < textHolder.size(); i++) {
-			textHolder[i].setVisible(false);
-		}
 
 		for (int i = 0; i < newInfo.size(); i++) {
 			std::vector<std::string> note(newInfo[i].note.size());
@@ -140,32 +156,36 @@ public:
 			//Calculate size and placement modifier
 			float mod = (boxH / 8);
 			float xmod = boxW / 6;
-			int size = 12;
+			int size = boxH / 8;
 
-			if (combo2.length() > 3 || note.size() > 2) {
-				size -= combo2.length();
+			if (combo2.length() > 1 || note.size() > 2) {
+				size -= combo2.length() * (boxW / 24);
 				xmod = boxW / 12;
 			}
 
 			//length overrules chord sizing
 			if (length > 8) {
-				size = 12 / (length / 8);
+				size = (boxH / 8) / (length / 8);
 			}
 
 			if (length > 4) {
 				mod = 0;
 			}
 
+			//Smaller left hand
+			if (newInfo[i].hand == "l") {
+				size -= 1;
+			}
 
 
 			y += boxH / length;
 
 			//Write note out
 			if (i < textHolder.size()) {
-				textHolder[i].setFontHeight(size);
-				textHolder[i].setBoundingBox(juce::Rectangle(x + xmod, (y - mod - size), boxW, float(size)));
-				textHolder[i].setText(comboFinal);
-				textHolder[i].setVisible(true);
+				textHolder[i + imod].setFontHeight(size);
+				textHolder[i + imod].setBoundingBox(juce::Rectangle(x + xmod, (y - mod - size), boxW, float(size)));
+				textHolder[i + imod].setText(comboFinal);
+				textHolder[i + imod].setVisible(true);
 			}
 
 		}
@@ -186,7 +206,6 @@ class scoreComponent : public juce::Component {
 public:
 
 	juce::DrawableRectangle sheet;
-	//std::vector<scoreHolder> allInfo;
 	std::array<Bar, 28> bars;
 	int page = 0;
 
@@ -216,10 +235,8 @@ public:
 
 	}
 
-	void writeBars(std::vector<scoreHolder> outputArray) {
+	void writeBars(std::vector<scoreHolder> outputArray, std::vector<scoreHolder> outputArrayLeft) {
 		//Take in notation input and draw the bars with the notes
-		//std::string part1 = std::regex_replace(text, std::regex("\\(.[^(]*?\\)"), "0");
-		//std::string part2 = std::regex_replace(part1, std::regex("[^0-9-, qwer]"), "");
 		std::string text;
 		for (int i = 0; i < outputArray.size(); i++) {
 			if (outputArray[i].note == ",") {
@@ -230,17 +247,35 @@ public:
 			}
 		}
 
+		std::string textLeft;
+		for (int i = 0; i < outputArrayLeft.size(); i++) {
+			if (outputArrayLeft[i].note == ",") {
+				textLeft += ",";
+			}
+			else if (outputArrayLeft[i].note != "") {
+				textLeft += "0";
+			}
+		}
+
 		std::vector<std::string> n;
+		std::vector<std::string> nLeft;
 
 		std::regex del(",");
 		std::sregex_token_iterator it(text.begin(),
 			text.end(), del, -1);
+		std::sregex_token_iterator itLeft(textLeft.begin(),
+			textLeft.end(), del, -1);
 		std::sregex_token_iterator end;
+		std::sregex_token_iterator endLeft;
 
 		// Iterating through each token
 		while (it != end) {
 			n.push_back(*it);
 			++it;
+		}
+		while (itLeft != endLeft) {
+			nLeft.push_back(*itLeft);
+			++itLeft;
 		}
 		/*
 		   //Refresh pages array
@@ -268,6 +303,7 @@ public:
 		//Get start position
 		//https://stackoverflow.com/questions/48584267/get-the-indexes-of-javascript-array-elements-that-satisfy-condition
 		int start = 0;
+		int startLeft = 0;
 		//let arr = []
 		if (page == 0) {
 			start = 0;
@@ -289,12 +325,27 @@ public:
 		//Display each chunk of notation
 		if (n[b1].length() > 0) {
 			for (int i = 0; i < bEnd - b1; i++) {
+				//get number of notes in bar
 				int length = n[b1 + i].length();
+				int lengthLeft = 0;
+
+				//Slice notes in given bar from arrays
 				std::vector<scoreHolder> arraySlice(length + 1);
+				std::vector<scoreHolder> arraySliceLeft;
 				std::ranges::copy(outputArray.begin() + start, outputArray.begin() + start + length, begin(arraySlice));
-				bars[i].updateInput(arraySlice);
+
+				//Get left hand
+				if (nLeft.size() > b1 + i) {
+					lengthLeft = nLeft[b1 + i].length();
+					arraySliceLeft.resize(lengthLeft + 1);
+					std::ranges::copy(outputArrayLeft.begin() + startLeft, outputArrayLeft.begin() + startLeft + lengthLeft, begin(arraySliceLeft));
+				}
+
+				//Update bar contents
+				bars[i].updateInput(arraySlice, arraySliceLeft);
 				bars[i].setVisible(true);
 				start += length + 1;
+				startLeft += lengthLeft + 1;
 			}
 		}
 	}
@@ -423,10 +474,6 @@ public:
 
 	void prepareToPlay(int samplesPerBlockExpected, double sampleRate) override
 	{
-		for (int i = 0; i < synthArray.size(); i++) {
-			synthArray[i].fund = tuneArray[i];
-			synthArray[i].prepareToPlay(samplesPerBlockExpected, sampleRate);
-		}
 		sr = sampleRate;
 	}
 
@@ -442,7 +489,10 @@ public:
 			if (playbackPlaying[i].length >= playbackPointer && playbackPlaying[i].length < (playbackPointer + bufferToFill.numSamples)) {
 				int n = std::stoi(playbackPlaying[i].note);
 
-				synthArray[n].playNote();
+				if (n >= 0 && n < 13) {
+					synthArray[n].playNote();
+				}
+
 			}
 		}
 		playbackPointer += bufferToFill.numSamples;
@@ -565,7 +615,8 @@ public:
 		//authOut.setJustification(juce::Justification::centred);
 		authOut.setFont(labelFont.withHeight(20.0f), true);
 
-
+		//Set off process to update bar contents
+		changeScore();
 
 	}
 
@@ -588,7 +639,7 @@ public:
 				{
 					continue;
 				}
-				
+
 			}
 		}
 
@@ -598,7 +649,7 @@ public:
 			synthArray[i].updateFrequency(sr);
 		}
 	}
-	void toHira() { 
+	void toHira() {
 		//Return tuneArray to default hirachōshi tuning
 		tuneArray = hiraTuning;
 
@@ -626,7 +677,7 @@ public:
 	}
 	void changeNotes() {}
 	void changeScore() {
-		std::regex del("(?![^(]*?\\)+[^)])");
+		std::regex del("(?![^(]*?\\))");
 		std::string text = scoreInput.getText().toStdString();
 		std::sregex_token_iterator it(text.begin(),
 			text.end(), del, -1);
@@ -639,18 +690,32 @@ public:
 			++it;
 		}
 		std::vector<scoreHolder> outputArray;
+		std::vector<scoreHolder> outputArrayLeft;
 		std::vector<std::string> noteArray;
 		std::vector<std::string> ornamentArray;
+		std::vector<std::string> handArray;
 		std::vector<int> lengthArray;
 
-
+		std::string hand = "r";
 		int length = 4;
 		for (int i = 0; i < inputArray.size(); i++) {
+			//get note length
 			if (inputArray[i] == "/") {
 				length *= 2;
 				continue;
 			};
 
+			//get note hand
+			if (inputArray[i] == "l") {
+				if (hand == "r") {
+					hand = "l";
+				}
+				else {
+					hand = "r";
+				}
+			};
+
+			//get note or chord
 			if (inputArray[i].size() > 1) {
 				if (inputArray[i].size() > 0) {
 					std::vector<std::string> chord(inputArray[i].size());
@@ -675,6 +740,7 @@ public:
 					noteArray.push_back(n);
 					lengthArray.push_back(length);
 					ornamentArray.push_back(o);
+					handArray.push_back(hand);
 					length = 4;
 				}
 
@@ -683,6 +749,7 @@ public:
 			if (std::ranges::contains(noteInputVals, inputArray[i])) {
 				int num = i;
 				noteArray.push_back(inputArray[i]);
+				handArray.push_back(hand);
 				lengthArray.push_back(length);
 				length = 4;
 				if (inputArray.size() > num + 1) {
@@ -709,18 +776,38 @@ public:
 		}
 
 
+		int leftLength = 0;
 
 		for (int i = 0; i < noteArray.size(); i++) {
-			outputArray.push_back({ noteArray[i], ornamentArray[i], lengthArray[i] });
+			if (handArray[i] == "r") {
+				outputArray.push_back({ noteArray[i], ornamentArray[i], handArray[i], lengthArray[i] });
+				if (leftLength > 0) {
+					leftLength -= lengthArray[i];
+				}
+				else if (noteArray[i] == ",") {
+					outputArrayLeft.push_back({ ",", " ", "l", lengthArray[i] });
+				}
+				else {
+					outputArrayLeft.push_back({ " ", " ", "l", lengthArray[i] });
+				}
+
+			}
+			else {
+				outputArrayLeft.push_back({ noteArray[i], ornamentArray[i], handArray[i], lengthArray[i] });
+				leftLength += lengthArray[i];
+			}
 		}
 
-		scoreSheet.writeBars(outputArray);
-		updatePlayback(outputArray);
+		scoreSheet.writeBars(outputArray, outputArrayLeft);
+		updatePlayback(outputArray, outputArrayLeft);
 	}
 
-	void updatePlayback(std::vector<scoreHolder>& outputArray) {
+	void updatePlayback(std::vector<scoreHolder>& outputArray, std::vector<scoreHolder>& outputArrayLeft) {
 		std::vector<scoreHolder> playbackHolder(outputArray.size());
 		std::ranges::copy(outputArray, begin(playbackHolder));
+
+		std::vector<scoreHolder> playbackHolderLeft(outputArrayLeft.size());
+		std::ranges::copy(outputArrayLeft, begin(playbackHolderLeft));
 
 		std::string bpmString = bpmInput.getText().toStdString();
 		int bpm = std::stoi(bpmString);
@@ -744,10 +831,44 @@ public:
 			timeToPlay += t;
 		}
 
+
+		timeToPlay = 0;
+		//convert notes to synth numbers for left hand
+		for (int i = 0; i < playbackHolderLeft.size(); i++) {
+			if (playbackHolderLeft[i].note == ",") {
+				continue;
+			}
+
+			if (std::ranges::contains(noteInputVals, playbackHolderLeft[i].note)) {
+				int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), playbackHolderLeft[i].note));
+				playbackHolderLeft[i].note = std::to_string(n);
+			}
+			else {
+				playbackHolderLeft[i].note = "14";
+			}
+
+
+			//get length of note in samples
+			double t = (beat * sr) * (4.0f / playbackHolderLeft[i].length);
+
+			playbackHolderLeft[i].length = timeToPlay;
+
+			//add note length to playtime
+			timeToPlay += t;
+		}
+
+		//Append left hand
+		playbackHolder.insert(playbackHolder.end(), playbackHolderLeft.begin(), playbackHolderLeft.end());
+
 		playbackHold = playbackHolder;
 	}
 
 	void playScore() {
+		for (int i = 0; i < synthArray.size(); i++) {
+			synthArray[i].fund = tuneArray[i];
+			synthArray[i].updateFrequency(sr);
+		}
+
 		playbackPlaying = playbackHold;
 		playbackPointer = 0;
 	}

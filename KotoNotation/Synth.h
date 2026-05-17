@@ -155,7 +155,4 @@ private:
     std::array<juce::dsp::Oscillator<double>, 6> oscArray;
     juce::dsp::IIR::Filter<float> filter;
     juce::dsp::Reverb verb;
-
-    std::atomic<float> trigger{ 0.0f };
-    juce::TextButton triggerButton{ "Trigger" };
 };

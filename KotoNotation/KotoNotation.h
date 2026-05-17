@@ -9,6 +9,7 @@
 #include <juce_audio_basics/juce_audio_basics.h>
 #include "BinaryData.h"
 #include "Synth.h"
+#include "PDF.h"
 #include <regex>
 
 class scoreHolder {
@@ -34,6 +35,7 @@ public:
 
 		for (int i = 0; i < textHolder.size(); i++) {
 			addAndMakeVisible(textHolder[i]);
+			textHolder[i].setFont(labelFont, true);
 		}
 
 		/*addAndMakeVisible(rect);
@@ -156,10 +158,10 @@ public:
 			//Calculate size and placement modifier
 			float mod = (boxH / 8);
 			float xmod = boxW / 6;
-			int size = boxH / 8;
+			int size = boxH / 7;
 
 			if (combo2.length() > 1 || note.size() > 2) {
-				size -= combo2.length() * (boxW / 24);
+				size -= combo2.length() * (boxW / 16);
 				xmod = boxW / 12;
 			}
 
@@ -192,6 +194,8 @@ public:
 	}
 
 private:
+	juce::FontOptions labelFont{ juce::Typeface::createSystemTypefaceFor(BinaryData::YujiSyukuRegular_ttf, BinaryData::YujiSyukuRegular_ttfSize) };
+
 	//Reference arrays
 	std::array<std::string, 16> noteInputVals{ "1", "2", "3", "4", "5", "6", "7", "8",
 		"9", "q", "w", "e", "r", "0", "-", "," };
@@ -208,6 +212,10 @@ public:
 	juce::DrawableRectangle sheet;
 	std::array<Bar, 28> bars;
 	int page = 0;
+	int maxPage = 0;
+
+	std::vector<scoreHolder> contents;
+	std::vector<scoreHolder> contentsLeft;
 
 	scoreComponent() {
 
@@ -236,6 +244,8 @@ public:
 	}
 
 	void writeBars(std::vector<scoreHolder> outputArray, std::vector<scoreHolder> outputArrayLeft) {
+		contents = outputArray;
+		contentsLeft = outputArrayLeft;
 		//Take in notation input and draw the bars with the notes
 		std::string text;
 		for (int i = 0; i < outputArray.size(); i++) {
@@ -277,22 +287,18 @@ public:
 			nLeft.push_back(*itLeft);
 			++itLeft;
 		}
-		/*
-		   //Refresh pages array
-		   let prevPageL = pages.slice(-1)
-		   pages = []
-		   for (let i = 0; i < (n.length / 28); i++) {
-			   pages.push(i)
-		   }
-	   //Change page if number of pages has changed
-	   if (prevPageL[0] != pages.slice(-1)[0]) {
-		   let p = pages.slice(-1)
-			   page = p[0]
-	   }*/
 
-	   //Clear bars
+		//Refresh number of pages
+		int prev = maxPage;
+		maxPage = floor((n.size() - 1) / 28);
 
-		   //Grab bars based on page, 28 bars per page
+		//Change page if number of pages has changed and user was on the last page
+		if (prev != maxPage && page == prev) {
+			page = maxPage;
+		}
+
+
+		//Grab bars based on page, 28 bars per page
 		int b1 = 0 + (page * 28);
 		int bEnd = 28 + (page * 28);
 
@@ -308,17 +314,15 @@ public:
 		if (page == 0) {
 			start = 0;
 		}
-		/*
 		else {
-			let fulldat = scoreInput.value().replace(/ \(. + ? \) / g, "0").replace(/ [^ 0 - 9 - , qwer] / g, "")
-				for (let i = 0; i < fulldat.length; i++) {
-					if (fulldat[i] == ',') arr.push(i)
-				}
-			start = arr[b1 - 1] + 1
-		}*/
+			for (int i = 0; i < b1; i++) {
+				start += n[i].length() + 1;
+				startLeft += nLeft[i].length() + 1;
+			}
+		}
 
 		//Set unused bars as invisible
-		for (int i = bEnd; i < bars.size(); i++) {
+		for (int i = bEnd - b1; i < bars.size(); i++) {
 			bars[i].setVisible(false);
 		}
 
@@ -350,10 +354,25 @@ public:
 		}
 	}
 
+	void pageUp() {
+		if (page < maxPage) {
+			page++;
+			writeBars(contents, contentsLeft);
+		}
+	}
+
+	void pageDown() {
+		if (page > 0) {
+			page--;
+			writeBars(contents, contentsLeft);
+		}
+	}
+
 	void removeBar() {
 	}
 
 private:
+
 };
 
 class MainContentComponent : public juce::AudioAppComponent
@@ -376,7 +395,7 @@ public:
 		addChildComponent(infoBox);
 		addChildComponent(infoContent);
 		addAndMakeVisible(bpmInput);
-		addAndMakeVisible(notesInput);
+		addAndMakeVisible(addKotoButton);
 		addAndMakeVisible(scoreInput);
 		addAndMakeVisible(playButton);
 		addAndMakeVisible(stopButton);
@@ -395,11 +414,11 @@ public:
 		hiraButton.onClick = [this] {toHira(); };
 		infoButton.onClick = [this] {popInfo(); };
 		bpmInput.onTextChange = [this] {changeBPM(); };
-		notesInput.onTextChange = [this] {changeNotes(); };
 		scoreInput.onTextChange = [this] {changeScore(); };
 		playButton.onClick = [this] {playScore(); };
 		stopButton.onClick = [this] {stopScore(); };
 		pdfButton.onClick = [this] {savePDF(); };
+		saveButton.onClick = [this] {saveFile(); };
 		pageNextButton.onClick = [this] {nextPage(); };
 		pageBackButton.onClick = [this] {prevPage(); };
 
@@ -428,8 +447,9 @@ public:
 		bpmInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		bpmInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
 
-		notesInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
-		notesInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
+		addKotoButton.setColour(juce::ToggleButton::tickDisabledColourId, juce::Colours::white);
+		addKotoButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		addKotoButton.setColour(juce::ToggleButton::tickColourId, juce::Colours::black);
 
 		scoreInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		scoreInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
@@ -475,6 +495,19 @@ public:
 	void prepareToPlay(int samplesPerBlockExpected, double sampleRate) override
 	{
 		sr = sampleRate;
+		for (int i = 0; i < synthArray.size(); i++) {
+			//Update main synths
+			synthArray[i].fund = tuneArray[i];
+			synthArray[i].updateFrequency(sr);
+
+			//Update full string press synths
+			synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
+			synthArrayOsu[i].updateFrequency(sr);
+
+			//Update half string press synths
+			synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
+			synthArrayHanOsu[i].updateFrequency(sr);
+		}
 	}
 
 	void releaseResources() override {}
@@ -488,9 +521,20 @@ public:
 			}
 			if (playbackPlaying[i].length >= playbackPointer && playbackPlaying[i].length < (playbackPointer + bufferToFill.numSamples)) {
 				int n = std::stoi(playbackPlaying[i].note);
+				std::string orn = playbackPlaying[i].ornament;
+
+
 
 				if (n >= 0 && n < 13) {
-					synthArray[n].playNote();
+					if (std::regex_search(orn, std::regex("o"))) {
+						synthArrayOsu[n].playNote();
+					}
+					else if (std::regex_search(orn, std::regex("p"))) {
+						synthArrayHanOsu[n].playNote();
+					}
+					else {
+						synthArray[n].playNote();
+					}
 				}
 
 			}
@@ -532,6 +576,11 @@ public:
 		g.drawSingleLineText(u8"一拍・BPM",
 			bpmInput.getX() + bpmInput.getWidth() + 10,
 			bpmInput.getY() + (bpmInput.getHeight() - 5));
+
+		//Second koto button
+		g.drawSingleLineText(u8"第二箏",
+			addKotoButton.getX() + addKotoButton.getWidth(),
+			addKotoButton.getY() + (addKotoButton.getHeight() - 5));
 
 		//Notes
 		g.drawSingleLineText(u8"その他・Notes", notesInput.getX(), notesInput.getY() - 5);
@@ -575,8 +624,7 @@ public:
 		infoContent.setText("Info" + info1 + info2 + info3 + info4 + info5 + info6 + info7 + info8 + info9 + info10 + info11 + info12 + info13);
 
 		bpmInput.setBounds(20, (getHeight() / 10) * 5, getWidth() / 20, 20);
-		notesInput.setBounds(bpmInput.getX() + bpmInput.getWidth() + 100, (getHeight() / 10) * 5,
-			getWidth() / 2 - bpmInput.getWidth() - 140, 20);
+		addKotoButton.setBounds(bpmInput.getX() + bpmInput.getWidth() + 100, (getHeight() / 10) * 5, 30, 20);
 		scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 2 - 40, (getHeight() - (getHeight() / 10) * 5.5) - 40);
 		playButton.setBounds(getWidth() / 2 - 12.5, 20, 25, 25);
 		stopButton.setBounds(getWidth() / 2 - 12.5, 50, 25, 25);
@@ -645,8 +693,17 @@ public:
 
 		//Update synths
 		for (int i = 0; i < synthArray.size(); i++) {
+			//Update main synths
 			synthArray[i].fund = tuneArray[i];
 			synthArray[i].updateFrequency(sr);
+
+			//Update full string press synths
+			synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
+			synthArrayOsu[i].updateFrequency(sr);
+
+			//Update half string press synths
+			synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
+			synthArrayHanOsu[i].updateFrequency(sr);
 		}
 	}
 	void toHira() {
@@ -655,8 +712,17 @@ public:
 
 		//Update synths
 		for (int i = 0; i < synthArray.size(); i++) {
+			//Update main synths
 			synthArray[i].fund = tuneArray[i];
 			synthArray[i].updateFrequency(sr);
+
+			//Update full string press synths
+			synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
+			synthArrayOsu[i].updateFrequency(sr);
+
+			//Update half string press synths
+			synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
+			synthArrayHanOsu[i].updateFrequency(sr);
 		}
 	}
 	void popInfo()
@@ -809,6 +875,9 @@ public:
 		std::vector<scoreHolder> playbackHolderLeft(outputArrayLeft.size());
 		std::ranges::copy(outputArrayLeft, begin(playbackHolderLeft));
 
+
+		std::vector<scoreHolder> playbackHolderSukui;
+
 		std::string bpmString = bpmInput.getText().toStdString();
 		int bpm = std::stoi(bpmString);
 		double beat = 60.0f / bpm;
@@ -826,6 +895,16 @@ public:
 			double t = (beat * sr) * (4.0f / playbackHolder[i].length);
 
 			playbackHolder[i].length = timeToPlay;
+
+			//Check for sukui
+			std::string orn = playbackHolder[i].ornament;
+			if (std::regex_search(orn, std::regex("s"))) {
+				scoreHolder s;
+				s.note = playbackHolder[i].note;
+				s.ornament = playbackHolder[i].ornament + "d";
+				s.length = playbackHolder[i].length + (t / 2);
+				playbackHolderSukui.push_back(s);
+			}
 
 			//add note length to playtime
 			timeToPlay += t;
@@ -860,6 +939,9 @@ public:
 		//Append left hand
 		playbackHolder.insert(playbackHolder.end(), playbackHolderLeft.begin(), playbackHolderLeft.end());
 
+		//Append sukui
+		playbackHolder.insert(playbackHolder.end(), playbackHolderSukui.begin(), playbackHolderSukui.end());
+
 		playbackHold = playbackHolder;
 	}
 
@@ -867,6 +949,14 @@ public:
 		for (int i = 0; i < synthArray.size(); i++) {
 			synthArray[i].fund = tuneArray[i];
 			synthArray[i].updateFrequency(sr);
+
+
+			synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
+			synthArrayOsu[i].updateFrequency(sr);
+
+
+			synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
+			synthArrayHanOsu[i].updateFrequency(sr);
 		}
 
 		playbackPlaying = playbackHold;
@@ -877,8 +967,32 @@ public:
 		playbackPlaying = emptyScore;
 	}
 	void savePDF() {}
-	void nextPage() {}
-	void prevPage() {}
+	void saveFile() { 
+		//Get contents of inputs
+		//Title
+		juce::String title = titleInput.getText();
+
+		//Author
+		juce::String auth = authInput.getText();
+
+		//Tuning
+		std::string tune;
+		for (int i = 0; i < tuneArray.size(); i++) {
+			tune += std::to_string(tuneArray[i]) + ", ";
+		}
+
+		//BPM
+		juce::String bpm = bpmInput.getText();
+
+		//Score
+		juce::String score = scoreInput.getText();
+
+		//Save contents in txt file
+		
+		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + bpm + "\n" + score);
+	}
+	void nextPage() { scoreSheet.pageUp(); }
+	void prevPage() { scoreSheet.pageDown(); }
 
 private:
 
@@ -920,6 +1034,9 @@ private:
 	//Notation input
 	juce::TextEditor scoreInput;
 
+	//Second koto button
+	juce::ToggleButton addKotoButton;
+
 	//Play button
 	juce::TextButton playButton{ u8"▶" };
 
@@ -944,7 +1061,11 @@ private:
 	std::array < std::string, 5> ornInputVals{ "o", "p", "h", "s", "." };
 
 	//Audio components
+	//Three synth arrays to avoid unwanted pitch bend from string presses
 	std::array<kotoSynth, 13>  synthArray;
+	std::array<kotoSynth, 13>  synthArrayOsu;
+	std::array<kotoSynth, 13>  synthArrayHanOsu;
+
 	std::array<double, 13> tuneArray{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 	std::array<double, 13> hiraTuning{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 
@@ -952,6 +1073,9 @@ private:
 	std::vector<scoreHolder> playbackPlaying;
 	double sr;
 	double playbackPointer = 0;
+
+	//Component for saving and loading files
+	saver fileSaver;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainContentComponent)
 };

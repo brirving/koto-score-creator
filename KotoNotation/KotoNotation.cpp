@@ -3,6 +3,7 @@
 
 #include "KotoNotation.h"
 #include "Synth.h"
+#include "PDF.h"
 
 class KotoApplication : public juce::JUCEApplication
 {

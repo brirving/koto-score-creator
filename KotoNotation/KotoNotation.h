@@ -211,11 +211,19 @@ public:
 
 	juce::DrawableRectangle sheet;
 	std::array<Bar, 28> bars;
+	std::array<Bar, 14> bars2;
 	int page = 0;
 	int maxPage = 0;
+	int maxPage1 = 0;
+	int maxPage2 = 0;
 
 	std::vector<scoreHolder> contents;
 	std::vector<scoreHolder> contentsLeft;
+
+	std::vector<scoreHolder> contents2;
+	std::vector<scoreHolder> contentsLeft2;
+
+	bool hasSecondKoto;
 
 	scoreComponent() {
 
@@ -243,9 +251,24 @@ public:
 
 	}
 
-	void writeBars(std::vector<scoreHolder> outputArray, std::vector<scoreHolder> outputArrayLeft) {
-		contents = outputArray;
-		contentsLeft = outputArrayLeft;
+	void writeBars(std::vector<scoreHolder> outputArray, std::vector<scoreHolder> outputArrayLeft, bool isSecond, bool secondActive) {
+		if (isSecond) {
+			contents2 = outputArray;
+			contentsLeft2 = outputArrayLeft;
+			hasSecondKoto = secondActive;
+		}
+		else {
+			contents = outputArray;
+			contentsLeft = outputArrayLeft;
+			hasSecondKoto = secondActive;
+		}
+
+		//Set number of bars for each koto per page
+		int barsPerPage = 28;
+		if (secondActive) {
+			barsPerPage = 12;
+		}
+
 		//Take in notation input and draw the bars with the notes
 		std::string text;
 		for (int i = 0; i < outputArray.size(); i++) {
@@ -289,18 +312,35 @@ public:
 		}
 
 		//Refresh number of pages
-		int prev = maxPage;
-		maxPage = floor((n.size() - 1) / 28);
+		int prev1 = maxPage1;
+		int prev2 = maxPage2;
+
+		if (isSecond) {
+			maxPage2 = floor((n.size() - 1) / barsPerPage);
+		}
+		else {
+			maxPage1 = floor((n.size() - 1) / barsPerPage);
+		}
+
+		if (maxPage2 > maxPage1) {
+			maxPage = maxPage2;
+		}
+		else {
+			maxPage = maxPage1;
+		}
 
 		//Change page if number of pages has changed and user was on the last page
-		if (prev != maxPage && page == prev) {
-			page = maxPage;
+		if (isSecond && prev2 != maxPage2 && page == prev2) {
+			page = maxPage2;
+		}
+		else if (isSecond == false && prev1 != maxPage1 && page == prev1) {
+			page = maxPage1;
 		}
 
 
-		//Grab bars based on page, 28 bars per page
-		int b1 = 0 + (page * 28);
-		int bEnd = 28 + (page * 28);
+		//Grab bars based on page and number of bars per page
+		int b1 = 0 + (page * barsPerPage);
+		int bEnd = barsPerPage + (page * barsPerPage);
 
 		if (bEnd > n.size()) {
 			bEnd = n.size();
@@ -313,22 +353,52 @@ public:
 		//let arr = []
 		if (page == 0) {
 			start = 0;
+			startLeft = 0;
 		}
 		else {
 			for (int i = 0; i < b1; i++) {
-				start += n[i].length() + 1;
-				startLeft += nLeft[i].length() + 1;
+				if (i < n.size()) {
+					start += n[i].length() + 1;
+					startLeft += nLeft[i].length() + 1;
+				}
+
 			}
 		}
 
 		//Set unused bars as invisible
-		for (int i = bEnd - b1; i < bars.size(); i++) {
-			bars[i].setVisible(false);
+		int bMax = bEnd - b1;
+		if (bMax < 0) {
+			bMax = 0;
+		}
+		for (int i = bMax; i < bars.size(); i++) {
+			if (secondActive ) {
+				int bNum = i;
+				if ((isSecond && i < 4) || (isSecond == false && i >= 4 && i < 8)) {
+					bNum += 4;
+				}
+				else if ((isSecond && i >= 4 && i < 8) || (isSecond == false && i >= 8)) {
+					bNum += 8;
+				}
+				else if (isSecond && i >= 8) {
+					bNum += 12;
+				}
+				if (bNum < bars.size()) {
+					bars[bNum].setVisible(false);
+				}
+			}
+			else if (secondActive == false && isSecond == false) {
+				bars[i].setVisible(false);
+			}
+
 		}
 
 		//Display each chunk of notation
-		if (n[b1].length() > 0) {
+		if (n.size() > b1 && n[b1].length() > 0) {
 			for (int i = 0; i < bEnd - b1; i++) {
+				if (isSecond && secondActive == false) {
+					//Skip the loop if this is the second koto and it's not active
+					break;
+				}
 				//get number of notes in bar
 				int length = n[b1 + i].length();
 				int lengthLeft = 0;
@@ -346,8 +416,21 @@ public:
 				}
 
 				//Update bar contents
-				bars[i].updateInput(arraySlice, arraySliceLeft);
-				bars[i].setVisible(true);
+				int bNum = i;
+				if (secondActive) {
+					if ((isSecond && i < 4) || (isSecond == false && i >= 4 && i < 8)) {
+						bNum += 4;
+					}
+					else if ((isSecond && i >= 4 && i < 8) || (isSecond == false && i >= 8)) {
+						bNum += 8;
+					}
+					else if (isSecond && i >= 8) {
+						bNum += 12;
+					}
+				}
+
+				bars[bNum].updateInput(arraySlice, arraySliceLeft);
+				bars[bNum].setVisible(true);
 				start += length + 1;
 				startLeft += lengthLeft + 1;
 			}
@@ -357,14 +440,16 @@ public:
 	void pageUp() {
 		if (page < maxPage) {
 			page++;
-			writeBars(contents, contentsLeft);
+			writeBars(contents, contentsLeft, false, hasSecondKoto);
+			writeBars(contents2, contentsLeft2, true, hasSecondKoto);
 		}
 	}
 
 	void pageDown() {
 		if (page > 0) {
 			page--;
-			writeBars(contents, contentsLeft);
+			writeBars(contents, contentsLeft, false, hasSecondKoto);
+			writeBars(contents2, contentsLeft2, true, hasSecondKoto);
 		}
 	}
 
@@ -397,6 +482,7 @@ public:
 		addAndMakeVisible(bpmInput);
 		addAndMakeVisible(addKotoButton);
 		addAndMakeVisible(scoreInput);
+		addChildComponent(scoreInput2);
 		addAndMakeVisible(playButton);
 		addAndMakeVisible(stopButton);
 		addAndMakeVisible(pdfButton);
@@ -414,7 +500,15 @@ public:
 		hiraButton.onClick = [this] {toHira(); };
 		infoButton.onClick = [this] {popInfo(); };
 		bpmInput.onTextChange = [this] {changeBPM(); };
-		scoreInput.onTextChange = [this] {changeScore(); };
+		addKotoButton.onStateChange = [this] {addKoto(); };
+		scoreInput.onTextChange = [this] {
+			changeScore(scoreInput.getText().toStdString());
+			changeScore(scoreInput2.getText().toStdString(), true);
+			};
+		scoreInput2.onTextChange = [this] {
+			changeScore(scoreInput.getText().toStdString());
+			changeScore(scoreInput2.getText().toStdString(), true);
+			};
 		playButton.onClick = [this] {playScore(); };
 		stopButton.onClick = [this] {stopScore(); };
 		pdfButton.onClick = [this] {savePDF(); };
@@ -454,6 +548,10 @@ public:
 		scoreInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		scoreInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
 		scoreInput.setMultiLine(true);
+
+		scoreInput2.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+		scoreInput2.setColour(juce::TextEditor::textColourId, juce::Colours::black);
+		scoreInput2.setMultiLine(true);
 
 		playButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
 		playButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
@@ -625,7 +723,13 @@ public:
 
 		bpmInput.setBounds(20, (getHeight() / 10) * 5, getWidth() / 20, 20);
 		addKotoButton.setBounds(bpmInput.getX() + bpmInput.getWidth() + 100, (getHeight() / 10) * 5, 30, 20);
-		scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 2 - 40, (getHeight() - (getHeight() / 10) * 5.5) - 40);
+		if (addKotoButton.getToggleState()) {
+			scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 4 - 30, (getHeight() - (getHeight() / 10) * 5.5) - 40);
+		}
+		else {
+			scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 2 - 40, (getHeight() - (getHeight() / 10) * 5.5) - 40);
+		}
+		scoreInput2.setBounds(scoreInput.getX() + getWidth() / 4 - 10, (getHeight() / 10) * 5.5, getWidth() / 4 - 30, (getHeight() - (getHeight() / 10) * 5.5) - 40);
 		playButton.setBounds(getWidth() / 2 - 12.5, 20, 25, 25);
 		stopButton.setBounds(getWidth() / 2 - 12.5, 50, 25, 25);
 		pdfButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 25, 25, 25);
@@ -664,7 +768,8 @@ public:
 		authOut.setFont(labelFont.withHeight(20.0f), true);
 
 		//Set off process to update bar contents
-		changeScore();
+		changeScore(scoreInput.getText().toStdString());
+		changeScore(scoreInput2.getText().toStdString(), true);
 
 	}
 
@@ -738,13 +843,35 @@ public:
 	}
 	void changeBPM() {
 		if (bpmInput.getText().length() > 0) {
-			changeScore();
+			//Update score which creates the playback array
+			changeScore(scoreInput.getText().toStdString());
+			changeScore(scoreInput2.getText().toStdString(), true);
+		}
+	}
+	void addKoto() {
+		if (addKotoButton.getToggleState()) {
+			//Add input
+			scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 4 - 30, (getHeight() - (getHeight() / 10) * 5.5) - 40);
+			scoreInput2.setVisible(true);
+
+			//Refresh score output
+			changeScore(scoreInput.getText().toStdString());
+			changeScore(scoreInput2.getText().toStdString(), true);
+		}
+		else {
+			//Remove input
+			scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 2 - 40, (getHeight() - (getHeight() / 10) * 5.5) - 40);
+			scoreInput2.setVisible(false);
+
+			//Refresh score output
+			changeScore(scoreInput.getText().toStdString());
+			changeScore(scoreInput2.getText().toStdString(), true);
 		}
 	}
 	void changeNotes() {}
-	void changeScore() {
+	void changeScore(std::string text, bool isSecond = false) {
+		//Get score input
 		std::regex del("(?![^(]*?\\))");
-		std::string text = scoreInput.getText().toStdString();
 		std::sregex_token_iterator it(text.begin(),
 			text.end(), del, -1);
 		std::sregex_token_iterator end;
@@ -755,8 +882,11 @@ public:
 			inputArray.push_back(*it);
 			++it;
 		}
+
+		//Set up arrays to store information
 		std::vector<scoreHolder> outputArray;
 		std::vector<scoreHolder> outputArrayLeft;
+
 		std::vector<std::string> noteArray;
 		std::vector<std::string> ornamentArray;
 		std::vector<std::string> handArray;
@@ -764,6 +894,8 @@ public:
 
 		std::string hand = "r";
 		int length = 4;
+
+		//Iterate through input to create arrays for visualising and playing the score
 		for (int i = 0; i < inputArray.size(); i++) {
 			//get note length
 			if (inputArray[i] == "/") {
@@ -864,11 +996,11 @@ public:
 			}
 		}
 
-		scoreSheet.writeBars(outputArray, outputArrayLeft);
-		updatePlayback(outputArray, outputArrayLeft);
+		scoreSheet.writeBars(outputArray, outputArrayLeft, isSecond, addKotoButton.getToggleState());
+		updatePlayback(outputArray, outputArrayLeft, isSecond);
 	}
 
-	void updatePlayback(std::vector<scoreHolder>& outputArray, std::vector<scoreHolder>& outputArrayLeft) {
+	void updatePlayback(std::vector<scoreHolder>& outputArray, std::vector<scoreHolder>& outputArrayLeft, bool isSecond) {
 		std::vector<scoreHolder> playbackHolder(outputArray.size());
 		std::ranges::copy(outputArray, begin(playbackHolder));
 
@@ -967,7 +1099,7 @@ public:
 		playbackPlaying = emptyScore;
 	}
 	void savePDF() {}
-	void saveFile() { 
+	void saveFile() {
 		//Get contents of inputs
 		//Title
 		juce::String title = titleInput.getText();
@@ -988,7 +1120,7 @@ public:
 		juce::String score = scoreInput.getText();
 
 		//Save contents in txt file
-		
+
 		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + bpm + "\n" + score);
 	}
 	void nextPage() { scoreSheet.pageUp(); }
@@ -1031,11 +1163,12 @@ private:
 	juce::TextEditor notesInput;
 	juce::Label notesOut;
 
-	//Notation input
-	juce::TextEditor scoreInput;
-
 	//Second koto button
 	juce::ToggleButton addKotoButton;
+
+	//Notation input
+	juce::TextEditor scoreInput;
+	juce::TextEditor scoreInput2;
 
 	//Play button
 	juce::TextButton playButton{ u8"▶" };

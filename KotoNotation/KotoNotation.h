@@ -234,8 +234,14 @@ public:
 			addAndMakeVisible(bars[i]);
 		}
 
+		addAndMakeVisible(titleOut);
+		addAndMakeVisible(authOut);
 
+		//Colours
 		sheet.setFill(juce::Colours::white);
+
+		titleOut.setColour(juce::Colours::black);
+		authOut.setColour(juce::Colours::black);
 	}
 
 	void resized() override {
@@ -248,6 +254,21 @@ public:
 		for (int i = 0; i < bars.size(); i++) {
 			bars[i].setBounds(0, 0, w, h);
 		}
+
+		//For Japanese text
+//titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(sheetX + sheetW - (sheetW / 8), sheetY + 20));
+//need to add a converter to add breaks between characters
+//titleOut.setBoundingBox(juce::Rectangle<float>(20, sheetH - 80));
+		
+		titleOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 8), 20));
+		titleOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
+		titleOut.setJustification(juce::Justification::centred);
+		titleOut.setFont(labelFont.withHeight(20.0f), true);
+
+		authOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 20), 40));
+		authOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
+		//authOut.setJustification(juce::Justification::centred);
+		authOut.setFont(labelFont.withHeight(20.0f), true);
 
 	}
 
@@ -337,6 +358,16 @@ public:
 			page = maxPage1;
 		}
 
+		//Hide title and author if page isn't 0
+		if (page != 0) {
+			authOut.setVisible(false);
+			titleOut.setVisible(false);
+		}
+		else {
+			authOut.setVisible(true);
+			titleOut.setVisible(true);
+		}
+
 
 		//Grab bars based on page and number of bars per page
 		int b1 = 0 + (page * barsPerPage);
@@ -371,7 +402,7 @@ public:
 			bMax = 0;
 		}
 		for (int i = bMax; i < bars.size(); i++) {
-			if (secondActive ) {
+			if (secondActive) {
 				int bNum = i;
 				if ((isSecond && i < 4) || (isSecond == false && i >= 4 && i < 8)) {
 					bNum += 4;
@@ -453,11 +484,19 @@ public:
 		}
 	}
 
-	void removeBar() {
+	void updateTitle(juce::String title){ titleOut.setText(title); }
+	void updateAuth(juce::String auth){
+		juce::String a1 = u8"作曲: ";
+		juce::String a2 = auth;
+		authOut.setText(a1 + a2);
 	}
 
 private:
+	juce::FontOptions labelFont{ juce::Typeface::createSystemTypefaceFor(BinaryData::YujiSyukuRegular_ttf, BinaryData::YujiSyukuRegular_ttfSize) };
 
+	//Author and title
+	juce::DrawableText titleOut;
+	juce::DrawableText authOut;
 };
 
 class MainContentComponent : public juce::AudioAppComponent
@@ -468,9 +507,7 @@ public:
 
 		addAndMakeVisible(scoreSheet);
 		addAndMakeVisible(titleInput);
-		addAndMakeVisible(titleOut);
 		addAndMakeVisible(authInput);
-		addAndMakeVisible(authOut);
 		for (int i = 0; i < 13; i++)
 		{
 			addAndMakeVisible(tuneInput[i]);
@@ -519,11 +556,9 @@ public:
 		//Colours
 		titleInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		titleInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
-		titleOut.setColour(juce::Colours::black);
 
 		authInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		authInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
-		authOut.setColour(juce::Colours::black);
 
 		for (int i = 0; i < 13; i++) {
 			tuneInput[i].setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
@@ -752,34 +787,15 @@ public:
 
 		scoreSheet.setBounds(sheetX, sheetY, sheetW, sheetH);
 
-		//For Japanese text
-		//titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(sheetX + sheetW - (sheetW / 8), sheetY + 20));
-		//need to add a converter to add breaks between characters
-		//titleOut.setBoundingBox(juce::Rectangle<float>(20, sheetH - 80));
 
-		titleOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(sheetX + sheetW - (sheetW / 8), sheetY + 20));
-		titleOut.setBoundingBox(juce::Rectangle<float>(sheetH - 80, 20));
-		titleOut.setJustification(juce::Justification::centred);
-		titleOut.setFont(labelFont.withHeight(20.0f), true);
-
-		authOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(sheetX + sheetW - (sheetW / 20), sheetY + 40));
-		authOut.setBoundingBox(juce::Rectangle<float>(sheetH - 80, 20));
-		//authOut.setJustification(juce::Justification::centred);
-		authOut.setFont(labelFont.withHeight(20.0f), true);
 
 		//Set off process to update bar contents
 		changeScore(scoreInput.getText().toStdString());
 		changeScore(scoreInput2.getText().toStdString(), true);
 
 	}
-
-	void changeTitle() { titleOut.setText(titleInput.getText()); }
-	void changeAuth()
-	{
-		juce::String a1 = u8"作曲: ";
-		juce::String a2 = authInput.getText();
-		authOut.setText(a1 + a2);
-	}
+	void changeTitle() { scoreSheet.updateTitle(titleInput.getText()); }
+	void changeAuth() { scoreSheet.updateAuth(authInput.getText()); }
 	void changeTuning() {
 		//Update tuneArray
 		for (int i = 0; i < tuneInput.size(); i++) {
@@ -1074,11 +1090,18 @@ public:
 		//Append sukui
 		playbackHolder.insert(playbackHolder.end(), playbackHolderSukui.begin(), playbackHolderSukui.end());
 
-		playbackHold = playbackHolder;
+		if (isSecond) {
+			playbackHold2 = playbackHolder;
+		}
+		else {
+			playbackHold = playbackHolder;
+		}
+
 	}
 
 	void playScore() {
 		for (int i = 0; i < synthArray.size(); i++) {
+			//Refresh synths
 			synthArray[i].fund = tuneArray[i];
 			synthArray[i].updateFrequency(sr);
 
@@ -1089,9 +1112,24 @@ public:
 
 			synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
 			synthArrayHanOsu[i].updateFrequency(sr);
+
+
+			synthArray2[i].fund = tuneArray[i];
+			synthArray2[i].updateFrequency(sr);
+
+
+			synthArrayOsu2[i].fund = tuneArray[i] * 1.122462;
+			synthArrayOsu2[i].updateFrequency(sr);
+
+
+			synthArrayHanOsu2[i].fund = tuneArray[i] * 1.059463;
+			synthArrayHanOsu2[i].updateFrequency(sr);
 		}
 
 		playbackPlaying = playbackHold;
+
+		//Append second koto
+		playbackPlaying.insert(playbackPlaying.end(), playbackHold2.begin(), playbackHold2.end());
 		playbackPointer = 0;
 	}
 	void stopScore() {
@@ -1139,11 +1177,9 @@ private:
 
 	//Title
 	juce::TextEditor titleInput;
-	juce::DrawableText titleOut;
 
 	//Author
 	juce::TextEditor authInput;
-	juce::DrawableText authOut;
 
 	//Tuning
 	std::array<juce::TextEditor, 13> tuneInput;
@@ -1199,10 +1235,16 @@ private:
 	std::array<kotoSynth, 13>  synthArrayOsu;
 	std::array<kotoSynth, 13>  synthArrayHanOsu;
 
+	//Synths for second koto
+	std::array<kotoSynth, 13>  synthArray2;
+	std::array<kotoSynth, 13>  synthArrayOsu2;
+	std::array<kotoSynth, 13>  synthArrayHanOsu2;
+
 	std::array<double, 13> tuneArray{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 	std::array<double, 13> hiraTuning{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 
 	std::vector<scoreHolder> playbackHold;
+	std::vector<scoreHolder> playbackHold2;
 	std::vector<scoreHolder> playbackPlaying;
 	double sr;
 	double playbackPointer = 0;

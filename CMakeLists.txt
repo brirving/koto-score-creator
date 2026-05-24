@@ -9,7 +9,15 @@ project(KotoNotation VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Point this to your JUCE folder
+include(FetchContent)
+FetchContent_Declare(
+  PDFHummus
+  GIT_REPOSITORY https://github.com/galkahana/PDF-Writer.git
+  GIT_TAG        v4.6.2
+  FIND_PACKAGE_ARGS
+)
+FetchContent_MakeAvailable(PDFHummus)
+
 add_subdirectory("JUCE" JUCE)
 
 juce_add_gui_app(KotoNotation
@@ -37,6 +45,7 @@ target_link_libraries(KotoNotation
         juce::juce_audio_utils
         juce::juce_dsp
         juce::juce_core
+        PDFHummus::PDFWriter
 )
 
 target_compile_definitions(KotoNotation

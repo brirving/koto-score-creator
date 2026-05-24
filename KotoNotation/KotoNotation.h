@@ -160,8 +160,8 @@ public:
 			float xmod = boxW / 6;
 			int size = boxH / 7;
 
-			if (combo2.length() > 1 || note.size() > 2) {
-				size -= combo2.length() * (boxW / 16);
+			if (note.size() > 1) {
+				size -= note.size() * (boxW / 16);
 				xmod = boxW / 12;
 			}
 
@@ -524,6 +524,7 @@ public:
 		addAndMakeVisible(stopButton);
 		addAndMakeVisible(pdfButton);
 		addAndMakeVisible(saveButton);
+		addAndMakeVisible(loadButton);
 		addAndMakeVisible(pageNextButton);
 		addAndMakeVisible(pageBackButton);
 
@@ -550,6 +551,7 @@ public:
 		stopButton.onClick = [this] {stopScore(); };
 		pdfButton.onClick = [this] {savePDF(); };
 		saveButton.onClick = [this] {saveFile(); };
+		loadButton.onClick = [this] {loadFile(); };
 		pageNextButton.onClick = [this] {nextPage(); };
 		pageBackButton.onClick = [this] {prevPage(); };
 
@@ -599,6 +601,9 @@ public:
 
 		saveButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
 		saveButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+
+		loadButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		loadButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 		pageNextButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
 		pageNextButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
@@ -769,6 +774,7 @@ public:
 		stopButton.setBounds(getWidth() / 2 - 12.5, 50, 25, 25);
 		pdfButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 25, 25, 25);
 		saveButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 55, 25, 25);
+		loadButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY(), 25, 25);
 		pageNextButton.setBounds(getWidth() / 2 + ((getWidth() / 4) - 20), getHeight() - 35, 20, 20);
 		pageBackButton.setBounds(pageNextButton.getX() + pageNextButton.getWidth(), pageNextButton.getY(), 20, 20);
 
@@ -1156,10 +1162,14 @@ public:
 
 		//Score
 		juce::String score = scoreInput.getText();
+		juce::String score2 = scoreInput2.getText();
 
 		//Save contents in txt file
 
-		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + bpm + "\n" + score);
+		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + bpm + "\n" + score + "\n" + score2);
+	}
+	void loadFile() { 
+		fileSaver.loadFile(titleInput, authInput, tuneInput, bpmInput, scoreInput, scoreInput2, addKotoButton);
 	}
 	void nextPage() { scoreSheet.pageUp(); }
 	void prevPage() { scoreSheet.pageDown(); }
@@ -1206,6 +1216,9 @@ private:
 	juce::TextEditor scoreInput;
 	juce::TextEditor scoreInput2;
 
+	//Load file button
+	juce::TextButton loadButton{ u8"\U0001F5CE" };
+
 	//Play button
 	juce::TextButton playButton{ u8"▶" };
 
@@ -1213,7 +1226,7 @@ private:
 	juce::TextButton stopButton{ u8"■" };
 
 	//PDF button
-	juce::TextButton pdfButton{ u8"\U00002B73" };
+	juce::TextButton pdfButton{ u8"\U0001F5B6" };
 
 	//Save button
 	juce::TextButton saveButton{ u8"\U0001F5AB" };

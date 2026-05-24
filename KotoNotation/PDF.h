@@ -22,11 +22,11 @@ public:
 	~saver() {}
 
 	void saveFile(juce::String contents) {
-		
-		auto fileToSave = juce::File::createTempFile("saveKotoNotation");
 
-		fc.reset(new juce::FileChooser("Choose a file to save...",
-			juce::File::getCurrentWorkingDirectory().getChildFile(fileToSave.getFileName()),
+		auto fileToSave = juce::File::createTempFile("kotoScore");
+
+		fc.reset(new juce::FileChooser("Choose a save location...",
+			juce::File::getCurrentWorkingDirectory().getChildFile("kotoScore"),
 			"*.txt", true));
 
 		fc->launchAsync(juce::FileBrowserComponent::saveMode | juce::FileBrowserComponent::canSelectFiles,
@@ -53,33 +53,60 @@ public:
 					}
 				}
 #endif
-
-				auto outputStream = result.createOutputStream();
-				outputStream->writeString(contents);
+				//Check the file path is valid
+				if (result.isWellFormed()) {
+					auto outputStream = result.createOutputStream();
+					outputStream->writeString(contents);
+				}
 
 			});
 
-		
+
 	}
 
-	void loadFile() {
-		
+	void loadFile(juce::TextEditor& titleInput, juce::TextEditor& authInput, std::array<juce::TextEditor, 13>& tuneArray,
+		juce::TextEditor& bpmInput, juce::TextEditor& scoreInput, juce::TextEditor& scoreInput2, juce::ToggleButton& addKotoButton) {
+
+
 		fc.reset(new juce::FileChooser("Choose a file to open...", juce::File::getCurrentWorkingDirectory(),
 			"*.txt", true));
 
 		fc->launchAsync(juce::FileBrowserComponent::openMode
 			| juce::FileBrowserComponent::canSelectFiles,
-			[this](const juce::FileChooser& chooser)
+			[this, &titleInput, &authInput, &tuneArray, &bpmInput, &scoreInput, &scoreInput2, &addKotoButton](const juce::FileChooser& chooser)
 			{
-				juce::String chosen;
-				auto results = chooser.getURLResults();
+				auto result = chooser.getURLResult();
 
-				for (auto result : results)
-					chosen << (result.isLocalFile() ? result.getLocalFile().getFullPathName()
-						: result.toString(false)) << "\n";
+				//Check if it's a valid file location
+				if (result.isWellFormed()) {
+					//Get file contents
+					auto inputStream = result.createInputStream(juce::URL::InputStreamOptions(juce::URL::ParameterHandling::inAddress)
+						.withConnectionTimeoutMs(0));
+					std::vector<juce::String> fileString;
+					while (!inputStream->isExhausted()) {
+						fileString.push_back(inputStream->readNextLine());
+					}
+
+					//Send contents to inputs
+					titleInput.setText(fileString[0]);
+					authInput.setText(fileString[1]);
+					auto tunes = juce::StringArray::fromTokens(fileString[2], ",");
+					for (int i = 0; i < tuneArray.size(); i++) {
+						tuneArray[i].setText(tunes[i].dropLastCharacters(4));
+					}
+					bpmInput.setText(fileString[3]);
+					scoreInput.setText(fileString[4]);
+					if (fileString.size() >= 6) {
+						scoreInput2.setText(fileString[5]);
+						if (fileString[5].isNotEmpty()) {
+							addKotoButton.setToggleState(true, juce::sendNotification);
+						}
+					}
+
+				}
+			});
 
 
-			}); 
 	}
 
 private:

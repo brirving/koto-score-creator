@@ -10,22 +10,74 @@
 	<Project Path="BinaryData.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="df2ec460-e209-34a4-ac7b-a51ec5244648">
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 	</Project>
+	<Project Path="_deps/pdfhummus-build/FreeType/FreeType.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d55e2f61-2e67-3eb0-b2d1-33fc34517b06">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/Zlib/Zlib.vcxproj"/>
+	</Project>
 	<Project Path="KotoNotation.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5707fb49-1a4b-3129-aaa1-d243b9222899">
 		<BuildDependency Project="BinaryData.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/FreeType/FreeType.vcxproj"/>
 		<BuildDependency Project="KotoNotation_rc_lib.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/LibAesgm/LibAesgm.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/LibJpeg/LibJpeg.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/LibPng/LibPng.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/LibTiff/LibTiff.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/PDFWriter/PDFWriter.vcxproj"/>
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/Zlib/Zlib.vcxproj"/>
 	</Project>
 	<Project Path="KotoNotation_rc_lib.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e1a77469-7c10-33f4-ad71-f14aee65b349">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/pdfhummus-build/LibAesgm/LibAesgm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="697e9693-07c9-3d2c-a51a-40f7ea7caabb">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/pdfhummus-build/LibJpeg/LibJpeg.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="83a48969-e807-365b-a3ee-2d731392c897">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/pdfhummus-build/LibPng/LibPng.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="01133992-438c-33f1-acdd-dc79c07c9d1b">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/Zlib/Zlib.vcxproj"/>
+	</Project>
+	<Project Path="_deps/pdfhummus-build/LibTiff/LibTiff.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3f0dbb1d-0347-3229-898f-32b1869c2367">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/Zlib/Zlib.vcxproj"/>
+	</Project>
+	<Project Path="_deps/pdfhummus-build/PDFWriter/PDFWriter.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4c1d669d-04cc-3ba4-8ed9-801e903cfbf8">
+		<BuildDependency Project="_deps/pdfhummus-build/FreeType/FreeType.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/LibAesgm/LibAesgm.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/LibJpeg/LibJpeg.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/LibPng/LibPng.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/LibTiff/LibTiff.vcxproj"/>
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/pdfhummus-build/Zlib/Zlib.vcxproj"/>
+	</Project>
+	<Project Path="_deps/pdfhummus-build/Zlib/Zlib.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="81231ffe-a61b-3134-9174-76f92557b33f">
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 	</Project>
 	<Folder Name="/CMakePredefinedTargets/">
 		<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c6e9f215-cc2f-3b1b-ad23-09e8a72a8f52" DefaultStartup="true">
 			<BuildDependency Project="BinaryData.vcxproj"/>
+			<BuildDependency Project="_deps/pdfhummus-build/FreeType/FreeType.vcxproj"/>
 			<BuildDependency Project="KotoNotation.vcxproj"/>
 			<BuildDependency Project="KotoNotation_rc_lib.vcxproj"/>
+			<BuildDependency Project="_deps/pdfhummus-build/LibAesgm/LibAesgm.vcxproj"/>
+			<BuildDependency Project="_deps/pdfhummus-build/LibJpeg/LibJpeg.vcxproj"/>
+			<BuildDependency Project="_deps/pdfhummus-build/LibPng/LibPng.vcxproj"/>
+			<BuildDependency Project="_deps/pdfhummus-build/LibTiff/LibTiff.vcxproj"/>
+			<BuildDependency Project="_deps/pdfhummus-build/PDFWriter/PDFWriter.vcxproj"/>
 			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="_deps/pdfhummus-build/Zlib/Zlib.vcxproj"/>
 		</Project>
 		<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="11e9a3f9-7d8e-3471-b4e8-eafc3b35959c">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="PACKAGE.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="962b5cd3-39d0-3f12-84d4-8b46afd4578b">
 			<BuildDependency Project="ALL_BUILD.vcxproj"/>
 			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 			<Build Solution="Debug|*" Project="false"/>

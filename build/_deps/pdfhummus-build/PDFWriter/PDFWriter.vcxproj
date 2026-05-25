@@ -1,0 +1,698 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4C1D669D-04CC-3BA4-8ED9-801E903CFBF8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>PDFWriter</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\PDFWriter\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PDFWriter.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PDFWriter</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\PDFWriter\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PDFWriter.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PDFWriter</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\PDFWriter\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">PDFWriter.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">PDFWriter</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\PDFWriter\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">PDFWriter.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">PDFWriter</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;FT2_BUILD_LIBRARY=1;FT_CONFIG_OPTION_SYSTEM_ZLIB=1;_CRT_SECURE_NO_DEPRECATE=1;AVOID_WIN32_FILEIO=1;CHECK_JPEG_YCBCR_SUBSAMPLING=1;DEFAULT_EXTRASAMPLE_AS_ALPHA=1;STRIPCHOP_DEFAULT=TIFF_STRIPCHOP;STRIP_SIZE_DEFAULT=8192;PIXARLOG_SUPPORT=1;ZIP_SUPPORT=1;LOGLUV_SUPPORT=1;NEXT_SUPPORT=1;THUNDER_SUPPORT=1;LZW_SUPPORT=1;PACKBITS_SUPPORT=1;CCITT_SUPPORT=1;TIF_PLATFORM_CONSOLE=1;FILLODER_LSB2MSB=1;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;FT2_BUILD_LIBRARY=1;FT_CONFIG_OPTION_SYSTEM_ZLIB=1;_CRT_SECURE_NO_DEPRECATE=1;AVOID_WIN32_FILEIO=1;CHECK_JPEG_YCBCR_SUBSAMPLING=1;DEFAULT_EXTRASAMPLE_AS_ALPHA=1;STRIPCHOP_DEFAULT=TIFF_STRIPCHOP;STRIP_SIZE_DEFAULT=8192;PIXARLOG_SUPPORT=1;ZIP_SUPPORT=1;LOGLUV_SUPPORT=1;NEXT_SUPPORT=1;THUNDER_SUPPORT=1;LZW_SUPPORT=1;PACKBITS_SUPPORT=1;CCITT_SUPPORT=1;TIF_PLATFORM_CONSOLE=1;FILLODER_LSB2MSB=1;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FT2_BUILD_LIBRARY=1;FT_CONFIG_OPTION_SYSTEM_ZLIB=1;_CRT_SECURE_NO_DEPRECATE=1;AVOID_WIN32_FILEIO=1;CHECK_JPEG_YCBCR_SUBSAMPLING=1;DEFAULT_EXTRASAMPLE_AS_ALPHA=1;STRIPCHOP_DEFAULT=TIFF_STRIPCHOP;STRIP_SIZE_DEFAULT=8192;PIXARLOG_SUPPORT=1;ZIP_SUPPORT=1;LOGLUV_SUPPORT=1;NEXT_SUPPORT=1;THUNDER_SUPPORT=1;LZW_SUPPORT=1;PACKBITS_SUPPORT=1;CCITT_SUPPORT=1;TIF_PLATFORM_CONSOLE=1;FILLODER_LSB2MSB=1;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FT2_BUILD_LIBRARY=1;FT_CONFIG_OPTION_SYSTEM_ZLIB=1;_CRT_SECURE_NO_DEPRECATE=1;AVOID_WIN32_FILEIO=1;CHECK_JPEG_YCBCR_SUBSAMPLING=1;DEFAULT_EXTRASAMPLE_AS_ALPHA=1;STRIPCHOP_DEFAULT=TIFF_STRIPCHOP;STRIP_SIZE_DEFAULT=8192;PIXARLOG_SUPPORT=1;ZIP_SUPPORT=1;LOGLUV_SUPPORT=1;NEXT_SUPPORT=1;THUNDER_SUPPORT=1;LZW_SUPPORT=1;PACKBITS_SUPPORT=1;CCITT_SUPPORT=1;TIF_PLATFORM_CONSOLE=1;FILLODER_LSB2MSB=1;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FT2_BUILD_LIBRARY=1;FT_CONFIG_OPTION_SYSTEM_ZLIB=1;_CRT_SECURE_NO_DEPRECATE=1;AVOID_WIN32_FILEIO=1;CHECK_JPEG_YCBCR_SUBSAMPLING=1;DEFAULT_EXTRASAMPLE_AS_ALPHA=1;STRIPCHOP_DEFAULT=TIFF_STRIPCHOP;STRIP_SIZE_DEFAULT=8192;PIXARLOG_SUPPORT=1;ZIP_SUPPORT=1;LOGLUV_SUPPORT=1;NEXT_SUPPORT=1;THUNDER_SUPPORT=1;LZW_SUPPORT=1;PACKBITS_SUPPORT=1;CCITT_SUPPORT=1;TIF_PLATFORM_CONSOLE=1;FILLODER_LSB2MSB=1;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FT2_BUILD_LIBRARY=1;FT_CONFIG_OPTION_SYSTEM_ZLIB=1;_CRT_SECURE_NO_DEPRECATE=1;AVOID_WIN32_FILEIO=1;CHECK_JPEG_YCBCR_SUBSAMPLING=1;DEFAULT_EXTRASAMPLE_AS_ALPHA=1;STRIPCHOP_DEFAULT=TIFF_STRIPCHOP;STRIP_SIZE_DEFAULT=8192;PIXARLOG_SUPPORT=1;ZIP_SUPPORT=1;LOGLUV_SUPPORT=1;NEXT_SUPPORT=1;THUNDER_SUPPORT=1;LZW_SUPPORT=1;PACKBITS_SUPPORT=1;CCITT_SUPPORT=1;TIF_PLATFORM_CONSOLE=1;FILLODER_LSB2MSB=1;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FT2_BUILD_LIBRARY=1;FT_CONFIG_OPTION_SYSTEM_ZLIB=1;_CRT_SECURE_NO_DEPRECATE=1;AVOID_WIN32_FILEIO=1;CHECK_JPEG_YCBCR_SUBSAMPLING=1;DEFAULT_EXTRASAMPLE_AS_ALPHA=1;STRIPCHOP_DEFAULT=TIFF_STRIPCHOP;STRIP_SIZE_DEFAULT=8192;PIXARLOG_SUPPORT=1;ZIP_SUPPORT=1;LOGLUV_SUPPORT=1;NEXT_SUPPORT=1;THUNDER_SUPPORT=1;LZW_SUPPORT=1;PACKBITS_SUPPORT=1;CCITT_SUPPORT=1;TIF_PLATFORM_CONSOLE=1;FILLODER_LSB2MSB=1;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FT2_BUILD_LIBRARY=1;FT_CONFIG_OPTION_SYSTEM_ZLIB=1;_CRT_SECURE_NO_DEPRECATE=1;AVOID_WIN32_FILEIO=1;CHECK_JPEG_YCBCR_SUBSAMPLING=1;DEFAULT_EXTRASAMPLE_AS_ALPHA=1;STRIPCHOP_DEFAULT=TIFF_STRIPCHOP;STRIP_SIZE_DEFAULT=8192;PIXARLOG_SUPPORT=1;ZIP_SUPPORT=1;LOGLUV_SUPPORT=1;NEXT_SUPPORT=1;THUNDER_SUPPORT=1;LZW_SUPPORT=1;PACKBITS_SUPPORT=1;CCITT_SUPPORT=1;TIF_PLATFORM_CONSOLE=1;FILLODER_LSB2MSB=1;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\Zlib;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\FreeType\include;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibAesgm;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibTiff;C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-src/PDFWriter/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/beei/Documents/Uni/NZSM496/KotoNotation -BC:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build --check-stamp-file C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/PDFWriter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\PDFWriter\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-src/PDFWriter/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/beei/Documents/Uni/NZSM496/KotoNotation -BC:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build --check-stamp-file C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/PDFWriter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\PDFWriter\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-src/PDFWriter/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/beei/Documents/Uni/NZSM496/KotoNotation -BC:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build --check-stamp-file C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/PDFWriter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\PDFWriter\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-src/PDFWriter/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/beei/Documents/Uni/NZSM496/KotoNotation -BC:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build --check-stamp-file C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/PDFWriter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\PDFWriter\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AbstractContentContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AbstractWrittenFont.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ANSIFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Ascii7Encoding.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ArrayOfInputStreamsStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CatalogInformation.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFANSIFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFDescendentFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFEmbeddedFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFFileInput.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFPrimitiveReader.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFPrimitiveWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType1Interpreter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType1Tracer.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Flattener.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Interpreter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Tracer.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CIDFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CMYKRGBColor.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DecryptionHelper.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DescendentFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DictionaryContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DocumentContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EncryptionHelper.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EncryptionOptions.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ExtGStateRegistry.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FontDescriptorWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeFaceWrapper.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeOpenTypeWrapper.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeType1Wrapper.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeWrapper.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GraphicState.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GraphicStateStack.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IndirectObjectsReferenceRegistry.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InfoDictionary.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAESDecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAscii85DecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAsciiHexDecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputBufferedStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputByteArrayStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputCharStringDecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputDCTDecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFile.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFileStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFlateDecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputLZWDecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputLimitedStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputOffsetStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputRC4XcodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPFBDecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPredictorPNGOptimumStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPredictorTIFFSubStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStreamSkipperStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStringBufferStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStringStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageHandler.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageInformation.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageParser.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\LayeredGlyphsDrawingContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\LinearGradientShadingPatternWritingTask.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Log.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\MD5Generator.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RC4.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ObjectsContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OpenTypeFileInput.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OpenTypePrimitiveReader.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputAESEncodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputBufferedStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFile.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFileStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFlateDecodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFlateEncodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputRC4XcodeStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputStreamTraits.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputStringBufferStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PageContentContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PageTree.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PaintedGlyphsDrawingContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ParsedPrimitiveHelper.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFArray.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFBoolean.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFCosArray.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFCosDict.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDate.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDictionary.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocEncoding.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocumentCopyingContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocumentHandler.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFFormXObject.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFTiledPattern.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TiledPatternContentContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFHexString.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFImageXObject.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFIndirectObjectReference.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFInteger.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFLiteralString.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFMatrix.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFModifiedPage.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFName.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFNull.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObject.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObjectParser.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPage.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPageInput.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDictionaryIterator.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFArrayIterator.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPageMergingHelper.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParser.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParserTokenizer.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParsingOptions.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFReal.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFRectangle.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFStream.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFStreamInput.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFSymbol.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFTextString.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFUsedFont.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PFMFileReader.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PNGImageHandler.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PrimitiveObjectsWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PSBool.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RadialGradientShadingPatternWritingTask.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RefCountObject.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ResourcesDictionary.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ShadingWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SimpleGlyphsDrawingContext.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SimpleStringTokenizer.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StandardEncoding.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StateReader.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StateWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SweepGradientShadingPatternWritingTask.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TIFFImageHandler.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TiffUsageParameters.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Timer.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TimersRegistry.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Trace.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrailerInformation.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeANSIFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeDescendentFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeEmbeddedFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypePrimitiveWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1Input.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1ToCFFEmbeddedFontWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1ToType2Converter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type2CharStringWriter.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UnicodeString.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UppercaseSequance.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UsedFontsRepository.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WinAnsiEncoding.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontCFF.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontTrueType.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\XCryptionCommon.cpp" />
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\XObjectContentContext.cpp" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AbstractContentContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AbstractWrittenFont.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AdapterIByteReaderWithPositionToIReadPositionProvider.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ANSIFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Ascii7Encoding.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ArrayOfInputStreamsStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\BetweenIncluding.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\BoxingBase.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CatalogInformation.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFANSIFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFDescendentFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFEmbeddedFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFFileInput.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFPrimitiveReader.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFPrimitiveWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringDefinitions.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType1Interpreter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType1Tracer.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Flattener.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Interpreter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Tracer.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CIDFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CMYKRGBColor.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ContainerIterator.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DecryptionHelper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Deletable.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DescendentFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DictionaryContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DictOperand.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DocumentContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DocumentContextExtenderAdapter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EFontStretch.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EHummusImageType.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EncryptionHelper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EncryptionOptions.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EPDFVersion.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EStatusCode.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ETokenSeparator.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ExtGStateRegistry.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FontDescriptorWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeFaceWrapper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeOpenTypeWrapper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeType1Wrapper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeWrapper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FSType.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GlyphUnicodeMapping.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GraphicState.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GraphicStateStack.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IANSIFontWriterHelper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IByteReader.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IByteReaderWithPosition.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IByteWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IByteWriterWithPosition.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IContentContextListener.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IDeletable.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IDescendentFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IDocumentContextExtender.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IFontDescriptorHelper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IFormEndWritingTask.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ITiledPatternEndWritingTask.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IFreeTypeFaceExtender.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IndirectObjectsReferenceRegistry.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InfoDictionary.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAESDecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAscii85DecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAsciiHexDecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputBufferedStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputByteArrayStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputCharStringDecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputDCTDecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFile.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFileStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFlateDecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputLZWDecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputLimitedStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputOffsetStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputRC4XcodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPFBDecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPredictorPNGOptimumStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPredictorTIFFSubStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStreamSkipperStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStringBufferStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStringStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IOBasicTypes.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IObjectEndWritingTask.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IObjectsContextExtender.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IPageEndWritingTask.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IPDFParserExtender.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IReadPositionProvider.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IResourceWritingTask.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IType1InterpreterImplementation.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IType2InterpreterImplementation.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IWrittenFont.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageHandler.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageInformation.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageParser.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\LayeredGlyphsDrawingContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\LinearGradientShadingPatternWritingTask.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Log.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\MapIterator.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\MD5Generator.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RC4.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\MyStringBuf.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ObjectsBasicTypes.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ObjectsContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ObjectsContextExtenderAdapter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OpenTypeFileInput.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OpenTypePrimitiveReader.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputAESEncodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputBufferedStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFile.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFileStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFlateDecodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFlateEncodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputRC4XcodeStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputStreamTraits.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputStringBufferStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PageContentContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PageTree.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PaintedGlyphsDrawingContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ParsedPrimitiveHelper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFArray.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFBoolean.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFCosArray.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFCosDict.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDate.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDictionary.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocEncoding.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocumentCopyingContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocumentHandler.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFEmbedParameterTypes.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFFormXObject.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFTiledPattern.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TiledPatternContentContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFHexString.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFImageXObject.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFIndirectObjectReference.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFInteger.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFLiteralString.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFMatrix.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFModifiedPage.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFName.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFNull.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObject.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObjectCast.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObjectParser.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPage.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPageInput.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDictionaryIterator.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFArrayIterator.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPageMergingHelper.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParser.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParserTokenizer.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParsingOptions.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFReal.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFRectangle.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFStream.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFStreamInput.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFSymbol.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFTextString.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFUsedFont.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PFMFileReader.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PNGImageHandler.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PrimitiveObjectsWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ProcsetResourcesConstants.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PSBool.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RadialGradientShadingPatternWritingTask.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RefCountObject.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RefCountPtr.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ResourcesDictionary.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SafeBufferMacrosDefs.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SimpleGlyphsDrawingContext.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SimpleStringTokenizer.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Singleton.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SingleValueContainerIterator.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ShadingWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StandardEncoding.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StateReader.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StateWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SweepGradientShadingPatternWritingTask.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TIFFImageHandler.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TiffUsageParameters.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Timer.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TimersRegistry.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Trace.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrailerInformation.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeANSIFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeDescendentFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeEmbeddedFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypePrimitiveWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1Input.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1ToCFFEmbeddedFontWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1ToType2Converter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type2CharStringWriter.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UnicodeString.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UppercaseSequance.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UsedFontsRepository.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WinAnsiEncoding.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontCFF.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontRepresentation.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontTrueType.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\XCryptionCommon.h" />
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\XObjectContentContext.h" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\ZERO_CHECK.vcxproj">
+      <Project>{CF59F393-8636-32D0-BE54-D6B7084B2624}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\FreeType\FreeType.vcxproj">
+      <Project>{D55E2F61-2E67-3EB0-B2D1-33FC34517B06}</Project>
+      <Name>FreeType</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\LibAesgm\LibAesgm.vcxproj">
+      <Project>{697E9693-07C9-3D2C-A51A-40F7EA7CAABB}</Project>
+      <Name>LibAesgm</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\LibJpeg\LibJpeg.vcxproj">
+      <Project>{83A48969-E807-365B-A3EE-2D731392C897}</Project>
+      <Name>LibJpeg</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\LibPng\LibPng.vcxproj">
+      <Project>{01133992-438C-33F1-ACDD-DC79C07C9D1B}</Project>
+      <Name>LibPng</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\LibTiff\LibTiff.vcxproj">
+      <Project>{3F0DBB1D-0347-3229-898F-32B1869C2367}</Project>
+      <Name>LibTiff</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\Zlib\Zlib.vcxproj">
+      <Project>{81231FFE-A61B-3134-9174-76F92557B33F}</Project>
+      <Name>Zlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\png.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngerror.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngget.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngmem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngpread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngrio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngrtran.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngrutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngset.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngtrans.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngwio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngwrite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngwtran.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngwutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\png.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngdebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pnginfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pnglibconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngpriv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\pngstruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibPng\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7D679B29-DD16-3C3F-BABA-E0AC90418EDC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4D2A009F-5FEE-3C88-AF04-196E7A61587C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jaricom.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcapimin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcapistd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcarith.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jccoefct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jccolor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcdctmgr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jchuff.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcinit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcmainct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcmarker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcmaster.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcomapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcparam.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcprepct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jcsample.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jctrans.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdapimin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdapistd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdarith.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdatadst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdatasrc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdcoefct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdcolor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jddctmgr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdhuff.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdinput.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdmainct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdmarker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdmaster.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdmerge.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdpostct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdsample.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdtrans.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jerror.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jfdctflt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jfdctfst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jfdctint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jidctflt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jidctfst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jidctint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jmemmgr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jmemnobs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jquant1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jquant2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jutils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jdct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jerror.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jinclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jmemsys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jmorecfg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jpegint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jpeglib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\jversion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\LibJpeg\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7D679B29-DD16-3C3F-BABA-E0AC90418EDC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4D2A009F-5FEE-3C88-AF04-196E7A61587C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

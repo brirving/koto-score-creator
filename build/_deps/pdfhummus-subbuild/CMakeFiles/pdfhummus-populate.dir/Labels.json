@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/pdfhummus-populate"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/7329db28507cfec076e3745b4cef77eb/pdfhummus-populate.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/cd06f7c9430f405519c9165ea026c678/pdfhummus-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/e596e1b51a73236b917d8809cf31ecbe/pdfhummus-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/e596e1b51a73236b917d8809cf31ecbe/pdfhummus-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/e596e1b51a73236b917d8809cf31ecbe/pdfhummus-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/e596e1b51a73236b917d8809cf31ecbe/pdfhummus-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/e596e1b51a73236b917d8809cf31ecbe/pdfhummus-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/e596e1b51a73236b917d8809cf31ecbe/pdfhummus-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/e596e1b51a73236b917d8809cf31ecbe/pdfhummus-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-subbuild/CMakeFiles/e596e1b51a73236b917d8809cf31ecbe/pdfhummus-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"pdfhummus-populate"
+		],
+		"name" : "pdfhummus-populate"
+	}
+}

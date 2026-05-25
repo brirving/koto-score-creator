@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Project Path="FreeType/FreeType.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d55e2f61-2e67-3eb0-b2d1-33fc34517b06">
+		<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="Zlib/Zlib.vcxproj"/>
+	</Project>
+	<Project Path="LibAesgm/LibAesgm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="697e9693-07c9-3d2c-a51a-40f7ea7caabb">
+		<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="LibJpeg/LibJpeg.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="83a48969-e807-365b-a3ee-2d731392c897">
+		<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="LibPng/LibPng.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="01133992-438c-33f1-acdd-dc79c07c9d1b">
+		<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="Zlib/Zlib.vcxproj"/>
+	</Project>
+	<Project Path="LibTiff/LibTiff.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3f0dbb1d-0347-3229-898f-32b1869c2367">
+		<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="Zlib/Zlib.vcxproj"/>
+	</Project>
+	<Project Path="PDFWriter/PDFWriter.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4c1d669d-04cc-3ba4-8ed9-801e903cfbf8">
+		<BuildDependency Project="FreeType/FreeType.vcxproj"/>
+		<BuildDependency Project="LibAesgm/LibAesgm.vcxproj"/>
+		<BuildDependency Project="LibJpeg/LibJpeg.vcxproj"/>
+		<BuildDependency Project="LibPng/LibPng.vcxproj"/>
+		<BuildDependency Project="LibTiff/LibTiff.vcxproj"/>
+		<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="Zlib/Zlib.vcxproj"/>
+	</Project>
+	<Project Path="Zlib/Zlib.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="81231ffe-a61b-3134-9174-76f92557b33f">
+		<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Folder Name="/CMakePredefinedTargets/">
+		<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c6e9f215-cc2f-3b1b-ad23-09e8a72a8f52" DefaultStartup="true">
+			<BuildDependency Project="FreeType/FreeType.vcxproj"/>
+			<BuildDependency Project="LibAesgm/LibAesgm.vcxproj"/>
+			<BuildDependency Project="LibJpeg/LibJpeg.vcxproj"/>
+			<BuildDependency Project="LibPng/LibPng.vcxproj"/>
+			<BuildDependency Project="LibTiff/LibTiff.vcxproj"/>
+			<BuildDependency Project="PDFWriter/PDFWriter.vcxproj"/>
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="Zlib/Zlib.vcxproj"/>
+		</Project>
+		<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="11e9a3f9-7d8e-3471-b4e8-eafc3b35959c">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="PACKAGE.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="962b5cd3-39d0-3f12-84d4-8b46afd4578b">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="../../ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cf59f393-8636-32d0-be54-d6b7084b2624"/>
+	</Folder>
+</Solution>

@@ -196,7 +196,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\ALL_BUILD.vcxproj">
+    <ProjectReference Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-build\ALL_BUILD.vcxproj">
       <Project>{C6E9F215-CC2F-3B1B-AD23-09E8A72A8F52}</Project>
       <Name>ALL_BUILD</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

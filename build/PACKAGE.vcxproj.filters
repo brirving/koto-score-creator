@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\CMakeFiles\593ac3fd0ba01705242503f991227306\PACKAGE_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3AB96D71-F610-34DD-8C0A-E91005D09ACF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

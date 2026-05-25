@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-subbuild\CMakeFiles\7329db28507cfec076e3745b4cef77eb\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3AE2BF0B-2F15-3949-99EA-E1C78E38EDEE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

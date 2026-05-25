@@ -4,14 +4,513 @@
 #pragma once
 
 #include <iostream>
-#include <juce_gui_basics/juce_gui_basics.h>
-#include <juce_audio_utils/juce_audio_utils.h>
-#include <juce_audio_basics/juce_audio_basics.h>
-#include "BinaryData.h"
 #include "Synth.h"
 #include "PDF.h"
-#include <regex>
+#include "BinaryData.h"
 
+
+class scoreHolder {
+public:
+	std::string note;
+	std::string ornament;
+	std::string hand;
+	int length;
+};
+
+
+class Bar : public juce::Component {
+public:
+	int placementModifier;
+	std::array<juce::DrawableText, 68> textHolder;
+	juce::DrawablePath boldLeft;
+
+	Bar(int mod = 0) {
+
+		placementModifier = mod;
+
+		for (int i = 0; i < textHolder.size(); i++) {
+			addAndMakeVisible(textHolder[i]);
+			textHolder[i].setFont(labelFont, true);
+		}
+
+		//Bold left side for demarking two instruments
+		addChildComponent(boldLeft);
+		boldLeft.setStrokeFill(juce::Colours::black);
+		boldLeft.setStrokeThickness(1.2f);
+
+	}
+
+	void resized() override {
+		//Set bar size
+		float boxH = getHeight() / 4.5;
+
+		//Set bar location
+		float x = (7 - floor(placementModifier / 4)) * (getWidth() / 10) - (2 * floor(placementModifier / 4));
+		float y = getHeight() / 14 + (placementModifier % 4 * (getHeight() / 4.5 + 2));
+
+		juce::Path p;
+		p.startNewSubPath(x, y);
+		p.lineTo(x, y + boxH);
+		boldLeft.setPath(p);
+	}
+
+	void paint(juce::Graphics& g) override {
+		//Set bar size
+		float boxW = ((getHeight()) * 0.707) / 10;
+		float boxH = getHeight() / 4.5;
+
+		//Set bar location
+		float w = getWidth();
+		float x = (7 - floor(placementModifier / 4)) * (getWidth() / 10) - (2 * floor(placementModifier / 4));
+		float y = getHeight() / 14 + (placementModifier % 4 * (getHeight() / 4.5 + 2));
+
+		//Draw bar
+		g.setColour(juce::Colours::black);
+		g.drawRect(x, y, boxW, boxH, 0.3f);
+
+		//Draw bar lines
+		for (int i = 1; i < 4; i++) {
+			g.drawLine(x,
+				y + (boxH / 4) * i,
+				x + boxW,
+				y + (boxH / 4) * i,
+				0.3f);
+		}
+
+		for (int i = 1; i < 8; i += 2) {
+			g.drawLine(x,
+				y + (boxH / 8) * i,
+				x + boxW / 2,
+				y + (boxH / 8) * i,
+				0.2f);
+		}
+
+
+	}
+
+	void updateInput(std::vector<scoreHolder> newInfo, std::vector<scoreHolder> newInfoLeft, bool isSecond) {
+		//Set bar size
+		float boxW = ((getHeight()) * 0.707) / 10;
+
+		//Set bar location
+		float x = (7 - floor(placementModifier / 4)) * (getWidth() / 10) - (2 * floor(placementModifier / 4));
+		float xl = x - (boxW / 9);
+		x += (boxW / 3);
+
+		//Clear text
+		for (int i = 0; i < textHolder.size(); i++) {
+			textHolder[i].setVisible(false);
+		}
+
+		if (isSecond) {
+			boldLeft.setVisible(true);
+		}
+		else {
+			boldLeft.setVisible(false);
+		}
+
+
+		fillBars(newInfo, x, 0);
+		fillBars(newInfoLeft, xl, newInfo.size());
+	}
+
+	void fillBars(std::vector<scoreHolder> newInfo, int x, int imod) {
+		//Set bar size
+		float boxW = ((getHeight()) * 0.707) / 10;
+		float boxH = getHeight() / 4.5;
+
+		//Set bar location
+		float w = getWidth();
+		float y = getHeight() / 14 + (placementModifier % 4 * (getHeight() / 4.5 + 2));
+
+		for (int i = 0; i < newInfo.size(); i++) {
+			std::vector<std::string> note(newInfo[i].note.size());
+			std::ranges::copy(newInfo[i].note, begin(note));
+			std::vector<std::string> ornmt(newInfo[i].ornament.size());
+			std::ranges::copy(newInfo[i].ornament, begin(ornmt));
+			int length = newInfo[i].length;
+
+			//Combine notes and ornaments into one string
+			std::vector<std::string> combo;
+			for (int j = 0; j < ornmt.size(); j++) {
+				if (note.size() > j) {
+					combo.push_back(note[j]);
+				}
+				combo.push_back(ornmt[j]);
+			}
+
+			//combo = combo.join("").replaceAll(" ", "")
+			std::string combo1 = std::accumulate(combo.begin(), combo.end(), std::string{});
+			std::string combo2 = std::regex_replace(combo1, std::regex(" "), "");
+
+			//Only keep one staccato for chords
+			if (std::ranges::contains(ornmt, ".")) {
+				std::string comboStac = std::regex_replace(combo2, std::regex("\\."), "");
+				combo2 = comboStac + ".";
+			}
+
+			juce::String comboFinal;
+
+			for (int j = 0; j < combo2.length(); j++) {
+				if (combo2.size() > 0) {
+					std::vector<std::string> c(combo2.size());
+					std::ranges::copy(combo2, begin(c));
+					if (std::ranges::contains(noteInputVals, c[j])) {
+						int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), c[j]));
+						comboFinal.append(notes[n], 1);
+					}
+					else if (std::ranges::contains(ornInputVals, c[j])) {
+						int o = std::distance(ornInputVals.begin(), std::find(ornInputVals.begin(), ornInputVals.end(), c[j]));
+						comboFinal.append(ornaments[o], 1);
+					}
+				}
+			}
+
+
+
+			//Calculate size and placement modifier
+			float mod = (boxH / 8);
+			float xmod = boxW / 6;
+			int size = boxH / 7;
+
+			if (note.size() > 1) {
+				size -= note.size() * (boxW / 16);
+				xmod = boxW / 12;
+			}
+
+			//length overrules chord sizing
+			if (length > 8) {
+				size = (boxH / 8) / (length / 8);
+			}
+
+			if (length > 4) {
+				mod = 0;
+			}
+
+			//Smaller left hand
+			if (newInfo[i].hand == "l") {
+				size -= 1;
+			}
+
+
+			y += boxH / length;
+
+			//Write note out
+			if (i < textHolder.size()) {
+				textHolder[i + imod].setFontHeight(size);
+				textHolder[i + imod].setBoundingBox(juce::Rectangle(x + xmod, (y - mod - size), boxW, float(size)));
+				textHolder[i + imod].setText(comboFinal);
+				textHolder[i + imod].setVisible(true);
+			}
+
+		}
+	}
+
+private:
+	juce::FontOptions labelFont{ juce::Typeface::createSystemTypefaceFor(BinaryData::YujiSyukuRegular_ttf, BinaryData::YujiSyukuRegular_ttfSize) };
+
+	//Reference arrays
+	std::array<std::string, 16> noteInputVals{ "1", "2", "3", "4", "5", "6", "7", "8",
+		"9", "q", "w", "e", "r", "0", "-", "," };
+	std::array < juce::String, 16> notes{ u8"一", u8"二", u8"三", u8"四", u8"五", u8"六", u8"七", u8"八",
+		u8"九", u8"十", u8"斗", u8"為", u8"巾", u8"⦿", u8"〇", u8"," };
+	std::array < juce::String, 5> ornaments{ u8"ｵ", u8"ｦ", u8"ﾋ", u8"ｽ", u8"・" };
+	std::array < std::string, 5> ornInputVals{ "o", "p", "h", "s", "." };
+};
+
+
+class scoreComponent : public juce::Component {
+public:
+
+	juce::DrawableRectangle sheet;
+	std::array<Bar, 28> bars;
+	std::array<Bar, 14> bars2;
+	int page = 0;
+	int maxPage = 0;
+	int maxPage1 = 0;
+	int maxPage2 = 0;
+
+	std::vector<scoreHolder> contents;
+	std::vector<scoreHolder> contentsLeft;
+
+	std::vector<scoreHolder> contents2;
+	std::vector<scoreHolder> contentsLeft2;
+
+	bool hasSecondKoto;
+
+	scoreComponent() {
+
+		addAndMakeVisible(sheet);
+		for (int i = 0; i < bars.max_size(); i++) {
+			std::vector<scoreHolder> info;
+			bars[i].placementModifier = i;
+			addAndMakeVisible(bars[i]);
+		}
+
+		addAndMakeVisible(titleOut);
+		addAndMakeVisible(authOut);
+
+		//Colours
+		sheet.setFill(juce::Colours::white);
+
+		titleOut.setColour(juce::Colours::black);
+		authOut.setColour(juce::Colours::black);
+	}
+
+	void resized() override {
+		float w = getWidth();
+		float h = getHeight();
+		sheet.setRectangle(juce::Rectangle(0.0f, 0.0f, w, h));
+
+
+
+		for (int i = 0; i < bars.size(); i++) {
+			bars[i].setBounds(0, 0, w, h);
+		}
+
+		//For Japanese text
+//titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(sheetX + sheetW - (sheetW / 8), sheetY + 20));
+//need to add a converter to add breaks between characters
+//titleOut.setBoundingBox(juce::Rectangle<float>(20, sheetH - 80));
+
+		titleOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 8), 20));
+		titleOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
+		titleOut.setJustification(juce::Justification::centred);
+		titleOut.setFont(labelFont.withHeight(20.0f), true);
+
+		authOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 20), 40));
+		authOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
+		//authOut.setJustification(juce::Justification::centred);
+		authOut.setFont(labelFont.withHeight(20.0f), true);
+
+	}
+
+	void writeBars(std::vector<scoreHolder> outputArray, std::vector<scoreHolder> outputArrayLeft, bool isSecond, bool secondActive) {
+		if (isSecond) {
+			contents2 = outputArray;
+			contentsLeft2 = outputArrayLeft;
+			hasSecondKoto = secondActive;
+		}
+		else {
+			contents = outputArray;
+			contentsLeft = outputArrayLeft;
+			hasSecondKoto = secondActive;
+		}
+
+		//Set number of bars for each koto per page
+		int barsPerPage = 28;
+		if (secondActive) {
+			barsPerPage = 12;
+		}
+
+		//Take in notation input and draw the bars with the notes
+		std::string text;
+		for (int i = 0; i < outputArray.size(); i++) {
+			if (outputArray[i].note == ",") {
+				text += ",";
+			}
+			else if (outputArray[i].note != "") {
+				text += "0";
+			}
+		}
+
+		std::string textLeft;
+		for (int i = 0; i < outputArrayLeft.size(); i++) {
+			if (outputArrayLeft[i].note == ",") {
+				textLeft += ",";
+			}
+			else if (outputArrayLeft[i].note != "") {
+				textLeft += "0";
+			}
+		}
+
+		std::vector<std::string> n;
+		std::vector<std::string> nLeft;
+
+		std::regex del(",");
+		std::sregex_token_iterator it(text.begin(),
+			text.end(), del, -1);
+		std::sregex_token_iterator itLeft(textLeft.begin(),
+			textLeft.end(), del, -1);
+		std::sregex_token_iterator end;
+		std::sregex_token_iterator endLeft;
+
+		// Iterating through each token
+		while (it != end) {
+			n.push_back(*it);
+			++it;
+		}
+		while (itLeft != endLeft) {
+			nLeft.push_back(*itLeft);
+			++itLeft;
+		}
+
+		//Refresh number of pages
+		int prev1 = maxPage1;
+		int prev2 = maxPage2;
+
+		if (isSecond) {
+			maxPage2 = floor((n.size() - 1) / barsPerPage);
+		}
+		else {
+			maxPage1 = floor((n.size() - 1) / barsPerPage);
+		}
+
+		if (maxPage2 > maxPage1) {
+			maxPage = maxPage2;
+		}
+		else {
+			maxPage = maxPage1;
+		}
+
+		//Change page if number of pages has changed and user was on the last page
+		if (isSecond && prev2 != maxPage2 && page == prev2) {
+			page = maxPage2;
+		}
+		else if (isSecond == false && prev1 != maxPage1 && page == prev1) {
+			page = maxPage1;
+		}
+
+		//Hide title and author if page isn't 0
+		if (page != 0) {
+			authOut.setVisible(false);
+			titleOut.setVisible(false);
+		}
+		else {
+			authOut.setVisible(true);
+			titleOut.setVisible(true);
+		}
+
+
+		//Grab bars based on page and number of bars per page
+		int b1 = 0 + (page * barsPerPage);
+		int bEnd = barsPerPage + (page * barsPerPage);
+
+		if (bEnd > n.size()) {
+			bEnd = n.size();
+		}
+
+		//Get start position
+		//https://stackoverflow.com/questions/48584267/get-the-indexes-of-javascript-array-elements-that-satisfy-condition
+		int start = 0;
+		int startLeft = 0;
+		//let arr = []
+		if (page == 0) {
+			start = 0;
+			startLeft = 0;
+		}
+		else {
+			for (int i = 0; i < b1; i++) {
+				if (i < n.size()) {
+					start += n[i].length() + 1;
+					startLeft += nLeft[i].length() + 1;
+				}
+
+			}
+		}
+
+		//Set unused bars as invisible
+		int bMax = bEnd - b1;
+		if (bMax < 0) {
+			bMax = 0;
+		}
+		for (int i = bMax; i < bars.size(); i++) {
+			if (secondActive) {
+				int bNum = i;
+				if ((isSecond && i < 4) || (isSecond == false && i >= 4 && i < 8)) {
+					bNum += 4;
+				}
+				else if ((isSecond && i >= 4 && i < 8) || (isSecond == false && i >= 8)) {
+					bNum += 8;
+				}
+				else if (isSecond && i >= 8) {
+					bNum += 12;
+				}
+				if (bNum < bars.size()) {
+					bars[bNum].setVisible(false);
+				}
+			}
+			else if (secondActive == false && isSecond == false) {
+				bars[i].setVisible(false);
+			}
+
+		}
+
+		//Display each chunk of notation
+		if (n.size() > b1 && n[b1].length() > 0) {
+			for (int i = 0; i < bEnd - b1; i++) {
+				if (isSecond && secondActive == false) {
+					//Skip the loop if this is the second koto and it's not active
+					break;
+				}
+				//get number of notes in bar
+				int length = n[b1 + i].length();
+				int lengthLeft = 0;
+
+				//Slice notes in given bar from arrays
+				std::vector<scoreHolder> arraySlice(length + 1);
+				std::vector<scoreHolder> arraySliceLeft;
+				std::ranges::copy(outputArray.begin() + start, outputArray.begin() + start + length, begin(arraySlice));
+
+				//Get left hand
+				if (nLeft.size() > b1 + i) {
+					lengthLeft = nLeft[b1 + i].length();
+					arraySliceLeft.resize(lengthLeft + 1);
+					std::ranges::copy(outputArrayLeft.begin() + startLeft, outputArrayLeft.begin() + startLeft + lengthLeft, begin(arraySliceLeft));
+				}
+
+				//Update bar contents
+				int bNum = i;
+				if (secondActive) {
+					if ((isSecond && i < 4) || (isSecond == false && i >= 4 && i < 8)) {
+						bNum += 4;
+					}
+					else if ((isSecond && i >= 4 && i < 8) || (isSecond == false && i >= 8)) {
+						bNum += 8;
+					}
+					else if (isSecond && i >= 8) {
+						bNum += 12;
+					}
+				}
+
+				bars[bNum].updateInput(arraySlice, arraySliceLeft, isSecond);
+				bars[bNum].setVisible(true);
+				start += length + 1;
+				startLeft += lengthLeft + 1;
+			}
+		}
+	}
+
+	void pageUp() {
+		if (page < maxPage) {
+			page++;
+			writeBars(contents, contentsLeft, false, hasSecondKoto);
+			writeBars(contents2, contentsLeft2, true, hasSecondKoto);
+		}
+	}
+
+	void pageDown() {
+		if (page > 0) {
+			page--;
+			writeBars(contents, contentsLeft, false, hasSecondKoto);
+			writeBars(contents2, contentsLeft2, true, hasSecondKoto);
+		}
+	}
+
+	void updateTitle(juce::String title) { titleOut.setText(title); }
+	void updateAuth(juce::String auth) {
+		juce::String a1 = u8"作曲: ";
+		juce::String a2 = auth;
+		authOut.setText(a1 + a2);
+	}
+
+private:
+	juce::FontOptions labelFont{ juce::Typeface::createSystemTypefaceFor(BinaryData::YujiSyukuRegular_ttf, BinaryData::YujiSyukuRegular_ttfSize) };
+
+	//Author and title
+	juce::DrawableText titleOut;
+	juce::DrawableText authOut;
+};
 
 
 class MainContentComponent : public juce::AudioAppComponent
@@ -23,9 +522,14 @@ public:
 		addAndMakeVisible(scoreSheet);
 		addAndMakeVisible(titleInput);
 		addAndMakeVisible(authInput);
+		addChildComponent(tuneKoto2);
 		for (int i = 0; i < 13; i++)
 		{
 			addAndMakeVisible(tuneInput[i]);
+		}
+		for (int i = 0; i < 13; i++)
+		{
+			addChildComponent(tuneInput2[i]);
 		}
 		addAndMakeVisible(hiraButton);
 		addAndMakeVisible(infoButton);
@@ -46,9 +550,14 @@ public:
 		//Reactivity
 		titleInput.onTextChange = [this] {changeTitle(); };
 		authInput.onTextChange = [this] {changeAuth(); };
+		tuneKoto2.onStateChange = [this] {showTuning2(); };
 		for (int i = 0; i < 13; i++)
 		{
 			tuneInput[i].onTextChange = [this] {changeTuning(); };
+		}
+		for (int i = 0; i < 13; i++)
+		{
+			tuneInput2[i].onTextChange = [this] {changeTuning(true); };
 		}
 		hiraButton.onClick = [this] {toHira(); };
 		infoButton.onClick = [this] {popInfo(); };
@@ -77,14 +586,24 @@ public:
 		authInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		authInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
 
+		tuneKoto2.setColour(juce::ToggleButton::tickDisabledColourId, juce::Colours::white);
+		tuneKoto2.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		tuneKoto2.setColour(juce::ToggleButton::tickColourId, juce::Colours::black);
+
 		for (int i = 0; i < 13; i++) {
 			tuneInput[i].setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 			tuneInput[i].setColour(juce::TextEditor::textColourId, juce::Colours::black);
 		}
+		for (int i = 0; i < 13; i++) {
+			tuneInput2[i].setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+			tuneInput2[i].setColour(juce::TextEditor::textColourId, juce::Colours::black);
+		}
 		hiraButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		hiraButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		hiraButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 		infoButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		infoButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		infoButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 		//infoButton.setToggleable(true);
 		infoBox.setFill(juce::Colours::white);
@@ -106,24 +625,31 @@ public:
 		scoreInput2.setMultiLine(true);
 
 		playButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		playButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		playButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 		stopButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		stopButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		stopButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 		pdfButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		pdfButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		pdfButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 		saveButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		saveButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		saveButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 		loadButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		loadButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		loadButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 		pageNextButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		pageNextButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		pageNextButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 		pageBackButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		pageBackButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		pageBackButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
 
 
@@ -225,6 +751,12 @@ public:
 		//Tuning
 		g.drawSingleLineText(u8"調子・Tuning (Hz)", 20, tuneInput[1].getY() - 5);
 
+		if (addKotoButton.getToggleState()) {
+			g.drawSingleLineText(u8"二箏調子・2nd Instrument Tuning", 
+				tuneKoto2.getX() + tuneKoto2.getWidth(),
+				tuneKoto2.getY() + (tuneKoto2.getHeight() - 5));
+		}
+
 		//BPM
 		g.drawSingleLineText(u8"一拍・BPM",
 			bpmInput.getX() + bpmInput.getWidth() + 10,
@@ -234,9 +766,6 @@ public:
 		g.drawSingleLineText(u8"第二箏",
 			addKotoButton.getX() + addKotoButton.getWidth(),
 			addKotoButton.getY() + (addKotoButton.getHeight() - 5));
-
-		//Notes
-		g.drawSingleLineText(u8"その他・Notes", notesInput.getX(), notesInput.getY() - 5);
 
 	}
 
@@ -317,7 +846,8 @@ public:
 	}
 	void changeTitle() { scoreSheet.updateTitle(titleInput.getText()); }
 	void changeAuth() { scoreSheet.updateAuth(authInput.getText()); }
-	void changeTuning() {
+	void showTuning2() {}
+	void changeTuning(bool secondKoto = false) {
 		//Update tuneArray
 		for (int i = 0; i < tuneInput.size(); i++) {
 			if (tuneInput[i].getText().length() > 0) {
@@ -657,7 +1187,23 @@ public:
 		std::vector<scoreHolder> emptyScore;
 		playbackPlaying = emptyScore;
 	}
-	void savePDF() { pdfMaker.savePDF(scoreSheet); }
+	void savePDF() { 
+		//Get size of page to modify for PDF, doubled to reduce pixelation
+		double mod = 2*(595.0f / (scoreSheet.getWidth()));
+		
+		//Create array of page images
+		std::vector<juce::Image> imgArray;
+		scoreSheet.page = 1;
+		prevPage();
+		for (int i = 0; i <= scoreSheet.maxPage; i++) {
+			juce::Image snap = scoreSheet.createComponentSnapshot(juce::Rectangle(scoreSheet.getWidth(), scoreSheet.getHeight()), true, mod);
+			imgArray.push_back(snap);
+			nextPage();
+		}
+		
+		//Write pdf
+ 		pdfMaker.savePDF(imgArray); 
+	}
 	void saveFile() {
 		//Get contents of inputs
 		//Title
@@ -708,6 +1254,9 @@ private:
 
 	//Tuning
 	std::array<juce::TextEditor, 13> tuneInput;
+	std::array<juce::TextEditor, 13> tuneInput2;
+
+	juce::ToggleButton tuneKoto2;
 
 	//Set to hirachōshi D
 	juce::TextButton hiraButton{ u8"平調子D" };
@@ -719,10 +1268,6 @@ private:
 
 	//BPM
 	juce::TextEditor bpmInput;
-
-	//Notes
-	juce::TextEditor notesInput;
-	juce::Label notesOut;
 
 	//Second koto button
 	juce::ToggleButton addKotoButton;
@@ -769,6 +1314,7 @@ private:
 	std::array<kotoSynth, 13>  synthArrayHanOsu2;
 
 	std::array<double, 13> tuneArray{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
+	std::array<double, 13> tuneArray2{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 	std::array<double, 13> hiraTuning{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 
 	std::vector<scoreHolder> playbackHold;

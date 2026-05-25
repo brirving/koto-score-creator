@@ -34,6 +34,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/cmake_install.cmake")
 endif()
 

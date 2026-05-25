@@ -1,0 +1,1176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AbstractContentContext.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AbstractWrittenFont.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ANSIFontWriter.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Ascii7Encoding.cpp">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ArrayOfInputStreamsStream.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CatalogInformation.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFANSIFontWriter.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFDescendentFontWriter.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFEmbeddedFontWriter.cpp">
+      <Filter>Text\CFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFFileInput.cpp">
+      <Filter>Text\CFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFPrimitiveReader.cpp">
+      <Filter>Text\CFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFPrimitiveWriter.cpp">
+      <Filter>Text\CFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType1Interpreter.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType1Tracer.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Flattener.cpp">
+      <Filter>Text\CFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Interpreter.cpp">
+      <Filter>Text\CFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Tracer.cpp">
+      <Filter>Text\CFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CIDFontWriter.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CMYKRGBColor.cpp">
+      <Filter>Infrastructure\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DecryptionHelper.cpp">
+      <Filter>XCryption</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DescendentFontWriter.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DictionaryContext.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DocumentContext.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EncryptionHelper.cpp">
+      <Filter>XCryption</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EncryptionOptions.cpp">
+      <Filter>XCryption</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ExtGStateRegistry.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FontDescriptorWriter.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeFaceWrapper.cpp">
+      <Filter>Text\FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeOpenTypeWrapper.cpp">
+      <Filter>Text\FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeType1Wrapper.cpp">
+      <Filter>Text\FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeWrapper.cpp">
+      <Filter>Text\FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GraphicState.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GraphicStateStack.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IndirectObjectsReferenceRegistry.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InfoDictionary.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAESDecodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAscii85DecodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAsciiHexDecodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputBufferedStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputByteArrayStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputCharStringDecodeStream.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputDCTDecodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFile.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFileStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFlateDecodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputLZWDecodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputLimitedStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputOffsetStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputRC4XcodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPFBDecodeStream.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPredictorPNGOptimumStream.cpp">
+      <Filter>PDF Embedding\PredictionFilters</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPredictorTIFFSubStream.cpp">
+      <Filter>PDF Embedding\PredictionFilters</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStreamSkipperStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStringBufferStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStringStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageHandler.cpp">
+      <Filter>Images\JPG</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageInformation.cpp">
+      <Filter>Images\JPG</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageParser.cpp">
+      <Filter>Images\JPG</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\LayeredGlyphsDrawingContext.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\LinearGradientShadingPatternWritingTask.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Log.cpp">
+      <Filter>Infrastructure\Trace and Log</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\MD5Generator.cpp">
+      <Filter>Infrastructure\Encryption</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RC4.cpp">
+      <Filter>Infrastructure\Encryption</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ObjectsContext.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OpenTypeFileInput.cpp">
+      <Filter>Text\OpenType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OpenTypePrimitiveReader.cpp">
+      <Filter>Text\OpenType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputAESEncodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputBufferedStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFile.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFileStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFlateDecodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFlateEncodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputRC4XcodeStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputStreamTraits.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputStringBufferStream.cpp">
+      <Filter>Infrastructure\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PageContentContext.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PageTree.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PaintedGlyphsDrawingContext.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ParsedPrimitiveHelper.cpp">
+      <Filter>PDF Embedding\Parsed objects Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFArray.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFBoolean.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFCosArray.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFCosDict.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDate.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDictionary.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocEncoding.cpp">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocumentCopyingContext.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocumentHandler.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFFormXObject.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFTiledPattern.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TiledPatternContentContext.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFHexString.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFImageXObject.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFIndirectObjectReference.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFInteger.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFLiteralString.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFMatrix.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFModifiedPage.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFName.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFNull.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObject.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObjectParser.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPage.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPageInput.cpp">
+      <Filter>PDF Embedding\Parsed objects Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDictionaryIterator.cpp">
+      <Filter>PDF Embedding\Parsed objects Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFArrayIterator.cpp">
+      <Filter>PDF Embedding\Parsed objects Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPageMergingHelper.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParser.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParserTokenizer.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParsingOptions.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFReal.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFRectangle.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFStream.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFStreamInput.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFSymbol.cpp">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFTextString.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFUsedFont.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFWriter.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PFMFileReader.cpp">
+      <Filter>Text\FreeType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PNGImageHandler.cpp">
+      <Filter>Images\PNG</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PrimitiveObjectsWriter.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PSBool.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RadialGradientShadingPatternWritingTask.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RefCountObject.cpp">
+      <Filter>Infrastructure\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ResourcesDictionary.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ShadingWriter.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SimpleGlyphsDrawingContext.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SimpleStringTokenizer.cpp">
+      <Filter>PDF Embedding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StandardEncoding.cpp">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StateReader.cpp">
+      <Filter>State Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StateWriter.cpp">
+      <Filter>State Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SweepGradientShadingPatternWritingTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TIFFImageHandler.cpp">
+      <Filter>Images\TIFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TiffUsageParameters.cpp">
+      <Filter>Images\TIFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Timer.cpp">
+      <Filter>Infrastructure\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TimersRegistry.cpp">
+      <Filter>Infrastructure\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Trace.cpp">
+      <Filter>Infrastructure\Trace and Log</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrailerInformation.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeANSIFontWriter.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeDescendentFontWriter.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeEmbeddedFontWriter.cpp">
+      <Filter>Text\TrueType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypePrimitiveWriter.cpp">
+      <Filter>Text\TrueType</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1Input.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1ToCFFEmbeddedFontWriter.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1ToType2Converter.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type2CharStringWriter.cpp">
+      <Filter>Text\Type1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UnicodeString.cpp">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UppercaseSequance.cpp">
+      <Filter>Objects Context Level</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UsedFontsRepository.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WinAnsiEncoding.cpp">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontCFF.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontTrueType.cpp">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\XCryptionCommon.cpp">
+      <Filter>XCryption</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\XObjectContentContext.cpp">
+      <Filter>Document Context Level</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AbstractContentContext.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AbstractWrittenFont.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\AdapterIByteReaderWithPositionToIReadPositionProvider.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ANSIFontWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Ascii7Encoding.h">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ArrayOfInputStreamsStream.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\BetweenIncluding.h">
+      <Filter>Infrastructure\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\BoxingBase.h">
+      <Filter>Infrastructure\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CatalogInformation.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFANSIFontWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFDescendentFontWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFEmbeddedFontWriter.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFFileInput.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFPrimitiveReader.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CFFPrimitiveWriter.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringDefinitions.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType1Interpreter.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType1Tracer.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Flattener.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Interpreter.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CharStringType2Tracer.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CIDFontWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CMYKRGBColor.h">
+      <Filter>Infrastructure\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ContainerIterator.h">
+      <Filter>Infrastructure\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DecryptionHelper.h">
+      <Filter>XCryption</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Deletable.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DescendentFontWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DictionaryContext.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DictOperand.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DocumentContext.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\DocumentContextExtenderAdapter.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EFontStretch.h">
+      <Filter>Text\FreeType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EHummusImageType.h">
+      <Filter>Infrastructure\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EncryptionHelper.h">
+      <Filter>XCryption</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EncryptionOptions.h">
+      <Filter>XCryption</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EPDFVersion.h">
+      <Filter>Infrastructure\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\EStatusCode.h">
+      <Filter>Infrastructure\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ETokenSeparator.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ExtGStateRegistry.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FontDescriptorWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeFaceWrapper.h">
+      <Filter>Text\FreeType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeOpenTypeWrapper.h">
+      <Filter>Text\FreeType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeType1Wrapper.h">
+      <Filter>Text\FreeType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FreeTypeWrapper.h">
+      <Filter>Text\FreeType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\FSType.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GlyphUnicodeMapping.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GraphicState.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\GraphicStateStack.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IANSIFontWriterHelper.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IByteReader.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IByteReaderWithPosition.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IByteWriter.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IByteWriterWithPosition.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IContentContextListener.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IDeletable.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IDescendentFontWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IDocumentContextExtender.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IFontDescriptorHelper.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IFormEndWritingTask.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ITiledPatternEndWritingTask.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IFreeTypeFaceExtender.h">
+      <Filter>Text\FreeType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IndirectObjectsReferenceRegistry.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InfoDictionary.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAESDecodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAscii85DecodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputAsciiHexDecodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputBufferedStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputByteArrayStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputCharStringDecodeStream.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputDCTDecodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFile.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFileStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputFlateDecodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputLZWDecodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputLimitedStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputOffsetStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputRC4XcodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPFBDecodeStream.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPredictorPNGOptimumStream.h">
+      <Filter>PDF Embedding\PredictionFilters</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputPredictorTIFFSubStream.h">
+      <Filter>PDF Embedding\PredictionFilters</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStreamSkipperStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStringBufferStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\InputStringStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IOBasicTypes.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IObjectEndWritingTask.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IObjectsContextExtender.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IPageEndWritingTask.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IPDFParserExtender.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IReadPositionProvider.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IResourceWritingTask.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IType1InterpreterImplementation.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IType2InterpreterImplementation.h">
+      <Filter>Text\CFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\IWrittenFont.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageHandler.h">
+      <Filter>Images\JPG</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageInformation.h">
+      <Filter>Images\JPG</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\JPEGImageParser.h">
+      <Filter>Images\JPG</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\LayeredGlyphsDrawingContext.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\LinearGradientShadingPatternWritingTask.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Log.h">
+      <Filter>Infrastructure\Trace and Log</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\MapIterator.h">
+      <Filter>Infrastructure\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\MD5Generator.h">
+      <Filter>Infrastructure\Encryption</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RC4.h">
+      <Filter>Infrastructure\Encryption</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\MyStringBuf.h">
+      <Filter>Infrastructure\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ObjectsBasicTypes.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ObjectsContext.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ObjectsContextExtenderAdapter.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OpenTypeFileInput.h">
+      <Filter>Text\OpenType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OpenTypePrimitiveReader.h">
+      <Filter>Text\OpenType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputAESEncodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputBufferedStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFile.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFileStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFlateDecodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputFlateEncodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputRC4XcodeStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputStreamTraits.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\OutputStringBufferStream.h">
+      <Filter>Infrastructure\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PageContentContext.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PageTree.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PaintedGlyphsDrawingContext.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ParsedPrimitiveHelper.h">
+      <Filter>PDF Embedding\Parsed objects Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFArray.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFBoolean.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFCosArray.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFCosDict.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDate.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDictionary.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocEncoding.h">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocumentCopyingContext.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDocumentHandler.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFEmbedParameterTypes.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFFormXObject.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFTiledPattern.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TiledPatternContentContext.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFHexString.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFImageXObject.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFIndirectObjectReference.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFInteger.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFLiteralString.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFMatrix.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFModifiedPage.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFName.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFNull.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObject.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObjectCast.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFObjectParser.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPage.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPageInput.h">
+      <Filter>PDF Embedding\Parsed objects Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFDictionaryIterator.h">
+      <Filter>PDF Embedding\Parsed objects Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFArrayIterator.h">
+      <Filter>PDF Embedding\Parsed objects Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFPageMergingHelper.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParser.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParserTokenizer.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFParsingOptions.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFReal.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFRectangle.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFStream.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFStreamInput.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFSymbol.h">
+      <Filter>PDF Embedding\Parsed Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFTextString.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFUsedFont.h">
+      <Filter>Text</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PDFWriter.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PFMFileReader.h">
+      <Filter>Text\FreeType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PNGImageHandler.h">
+      <Filter>Images\PNG</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PrimitiveObjectsWriter.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ProcsetResourcesConstants.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\PSBool.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RadialGradientShadingPatternWritingTask.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RefCountObject.h">
+      <Filter>Infrastructure\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\RefCountPtr.h">
+      <Filter>Infrastructure\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ResourcesDictionary.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SafeBufferMacrosDefs.h">
+      <Filter>Infrastructure\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SimpleGlyphsDrawingContext.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SimpleStringTokenizer.h">
+      <Filter>PDF Embedding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Singleton.h">
+      <Filter>Infrastructure\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SingleValueContainerIterator.h">
+      <Filter>Infrastructure\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\ShadingWriter.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StandardEncoding.h">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StateReader.h">
+      <Filter>State Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\StateWriter.h">
+      <Filter>State Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\SweepGradientShadingPatternWritingTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TIFFImageHandler.h">
+      <Filter>Images\TIFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TiffUsageParameters.h">
+      <Filter>Images\TIFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Timer.h">
+      <Filter>Infrastructure\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TimersRegistry.h">
+      <Filter>Infrastructure\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Trace.h">
+      <Filter>Infrastructure\Trace and Log</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrailerInformation.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeANSIFontWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeDescendentFontWriter.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypeEmbeddedFontWriter.h">
+      <Filter>Text\TrueType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\TrueTypePrimitiveWriter.h">
+      <Filter>Text\TrueType</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1Input.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1ToCFFEmbeddedFontWriter.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type1ToType2Converter.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\Type2CharStringWriter.h">
+      <Filter>Text\Type1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UnicodeString.h">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UppercaseSequance.h">
+      <Filter>Objects Context Level</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\UsedFontsRepository.h">
+      <Filter>Text</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WinAnsiEncoding.h">
+      <Filter>Infrastructure\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontCFF.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontRepresentation.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\WrittenFontTrueType.h">
+      <Filter>Text\PDF Font Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\XCryptionCommon.h">
+      <Filter>XCryption</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\XObjectContentContext.h">
+      <Filter>Document Context Level</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\build\_deps\pdfhummus-src\PDFWriter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Document Context Level">
+      <UniqueIdentifier>{20CA9A08-1E1A-3CC5-878F-984D780B5539}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7D679B29-DD16-3C3F-BABA-E0AC90418EDC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{31B738CC-C4E2-3EA7-A4E4-C6E201FB4900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images\JPG">
+      <UniqueIdentifier>{3DBBFE4F-70E6-3725-9FBC-FE797C5A5B8D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images\PNG">
+      <UniqueIdentifier>{C2E38D5A-76D1-393E-9E4E-87A5963661EE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images\TIFF">
+      <UniqueIdentifier>{353B8BD3-16BB-302C-AB7A-170E9D39EA78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure">
+      <UniqueIdentifier>{B994B79E-EDA4-399B-A3CB-FFDF2806A9D1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure\Basics">
+      <UniqueIdentifier>{92635A57-438D-3CA3-B289-AB971F6B33A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure\Encoding">
+      <UniqueIdentifier>{09E3C11A-A8F5-3482-8D16-03E1205944CE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure\Encryption">
+      <UniqueIdentifier>{338F3D82-2968-3A51-A90D-28061866F470}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure\IO">
+      <UniqueIdentifier>{2451241D-ABA1-3315-A5D5-2F6B007FC4A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure\Patterns">
+      <UniqueIdentifier>{07C86D0F-BEE7-39A5-B94D-D308BFB09A23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure\Timers">
+      <UniqueIdentifier>{D7CA9F1D-F0D8-39AE-80B7-815887687802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure\Trace and Log">
+      <UniqueIdentifier>{3BEA2798-579E-3980-A022-05C7AD5E1E61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{0D1C20BE-9E1E-3D92-9647-EB56E093A3F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects Context Level">
+      <UniqueIdentifier>{34CC81B5-2EB7-334D-B16E-856851446F93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PDF Embedding">
+      <UniqueIdentifier>{FE550088-F931-3F79-86B1-CF66FDAC6750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PDF Embedding\Parsed Objects">
+      <UniqueIdentifier>{42606469-55CE-3FF8-B65A-4CAB134E504B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PDF Embedding\Parsed objects Helpers">
+      <UniqueIdentifier>{78BA7B32-4EAF-3689-B5E6-F968CEF4F5DA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PDF Embedding\PredictionFilters">
+      <UniqueIdentifier>{0A59CC0D-2AA4-3B21-ACA4-EED26ECA350C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4D2A009F-5FEE-3C88-AF04-196E7A61587C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="State Serialization">
+      <UniqueIdentifier>{5922A917-CAD9-3DA1-8956-3550C63DA117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text">
+      <UniqueIdentifier>{030F92A1-4F65-3AC9-965B-1BE214638B76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text\CFF">
+      <UniqueIdentifier>{71400AC2-EE36-3450-957E-1BAB0C624FFE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text\FreeType">
+      <UniqueIdentifier>{B89DFFBA-7478-3DB1-870E-4C4792EDB6E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text\OpenType">
+      <UniqueIdentifier>{05FA4BE7-AC94-38AB-8D90-2ED2DD6FC8CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text\PDF Font Definitions">
+      <UniqueIdentifier>{82C61028-26ED-3858-978E-DF4E2FF6FB7A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text\TrueType">
+      <UniqueIdentifier>{350A8E65-5215-389F-B397-BE18248A88F3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text\Type1">
+      <UniqueIdentifier>{3C52C5BC-A7C7-36C1-90C6-C19A0F438803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XCryption">
+      <UniqueIdentifier>{2375DE89-16E2-3451-9B40-053258EFD164}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

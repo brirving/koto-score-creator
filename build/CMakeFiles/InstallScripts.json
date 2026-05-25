@@ -2,6 +2,14 @@
 	"InstallScripts" : 
 	[
 		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/cmake_install.cmake",
+		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/cmake_install.cmake",
+		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/Zlib/cmake_install.cmake",
+		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/FreeType/cmake_install.cmake",
+		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/LibAesgm/cmake_install.cmake",
+		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/LibJpeg/cmake_install.cmake",
+		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/LibTiff/cmake_install.cmake",
+		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/LibPng/cmake_install.cmake",
+		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/_deps/pdfhummus-build/PDFWriter/cmake_install.cmake",
 		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/cmake_install.cmake",
 		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/modules/cmake_install.cmake",
 		"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/extras/Build/cmake_install.cmake",

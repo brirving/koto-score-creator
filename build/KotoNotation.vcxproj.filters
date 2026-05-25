@@ -55,6 +55,9 @@
     <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\JUCE\modules\juce_audio_devices\juce_audio_devices.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\JUCE\modules\juce_dsp\juce_dsp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\beei\Documents\Uni\NZSM496\KotoNotation\CMakeLists.txt" />

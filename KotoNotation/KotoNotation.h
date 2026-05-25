@@ -15,6 +15,7 @@ public:
 	std::string ornament;
 	std::string hand;
 	int length;
+	bool isSecond = false;
 };
 
 
@@ -522,7 +523,7 @@ public:
 		addAndMakeVisible(scoreSheet);
 		addAndMakeVisible(titleInput);
 		addAndMakeVisible(authInput);
-		addChildComponent(tuneKoto2);
+		addAndMakeVisible(tuneKoto2);
 		for (int i = 0; i < 13; i++)
 		{
 			addAndMakeVisible(tuneInput[i]);
@@ -553,11 +554,11 @@ public:
 		tuneKoto2.onStateChange = [this] {showTuning2(); };
 		for (int i = 0; i < 13; i++)
 		{
-			tuneInput[i].onTextChange = [this] {changeTuning(); };
+			tuneInput[i].onTextChange = [this] {changeTuning(tuneInput, tuneArray, synthArray, synthArrayOsu, synthArrayHanOsu); };
 		}
 		for (int i = 0; i < 13; i++)
 		{
-			tuneInput2[i].onTextChange = [this] {changeTuning(true); };
+			tuneInput2[i].onTextChange = [this] {changeTuning(tuneInput2, tuneArray2, synthArray2, synthArrayOsu2, synthArrayHanOsu2); };
 		}
 		hiraButton.onClick = [this] {toHira(); };
 		infoButton.onClick = [this] {popInfo(); };
@@ -660,6 +661,9 @@ public:
 		for (int i = 0; i < tuneInput.size(); i++) {
 			tuneInput[i].setInputRestrictions(7, "1234567890.");
 		}
+		for (int i = 0; i < tuneInput.size(); i++) {
+			tuneInput2[i].setInputRestrictions(7, "1234567890.");
+		}
 
 
 		setSize(900, 600);
@@ -679,13 +683,22 @@ public:
 			synthArray[i].fund = tuneArray[i];
 			synthArray[i].updateFrequency(sr);
 
+			synthArray2[i].fund = tuneArray[i];
+			synthArray2[i].updateFrequency(sr);
+
 			//Update full string press synths
 			synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
 			synthArrayOsu[i].updateFrequency(sr);
 
+			synthArrayOsu2[i].fund = tuneArray[i] * 1.122462;
+			synthArrayOsu2[i].updateFrequency(sr);
+
 			//Update half string press synths
 			synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
 			synthArrayHanOsu[i].updateFrequency(sr);
+
+			synthArrayHanOsu2[i].fund = tuneArray[i] * 1.059463;
+			synthArrayHanOsu2[i].updateFrequency(sr);
 		}
 	}
 
@@ -695,25 +708,44 @@ public:
 	{
 
 		for (int i = 0; i < playbackPlaying.size(); i++) {
+			//Skip if note is ,
 			if (playbackPlaying[i].note == ",") {
 				continue;
 			}
+
+			//If the assigned start point (length) is within the current buffer, play the note
 			if (playbackPlaying[i].length >= playbackPointer && playbackPlaying[i].length < (playbackPointer + bufferToFill.numSamples)) {
 				int n = std::stoi(playbackPlaying[i].note);
 				std::string orn = playbackPlaying[i].ornament;
 
 
-
+				//Make sure the note is paired with a valid synth
 				if (n >= 0 && n < 13) {
-					if (std::regex_search(orn, std::regex("o"))) {
-						synthArrayOsu[n].playNote();
-					}
-					else if (std::regex_search(orn, std::regex("p"))) {
-						synthArrayHanOsu[n].playNote();
+					//Check wich set of synths to play
+					if (playbackPlaying[i].isSecond) {
+						//If there's a string press, play the relevant pressed synth, otherwise play the regular one
+						if (std::regex_search(orn, std::regex("o"))) {
+							synthArrayOsu2[n].playNote();
+						}
+						else if (std::regex_search(orn, std::regex("p"))) {
+							synthArrayHanOsu2[n].playNote();
+						}
+						else {
+							synthArray2[n].playNote();
+						}
 					}
 					else {
-						synthArray[n].playNote();
+						if (std::regex_search(orn, std::regex("o"))) {
+							synthArrayOsu[n].playNote();
+						}
+						else if (std::regex_search(orn, std::regex("p"))) {
+							synthArrayHanOsu[n].playNote();
+						}
+						else {
+							synthArray[n].playNote();
+						}
 					}
+					
 				}
 
 			}
@@ -749,13 +781,11 @@ public:
 			authInput.getY() + (authInput.getHeight() - 5));
 
 		//Tuning
-		g.drawSingleLineText(u8"調子・Tuning (Hz)", 20, tuneInput[1].getY() - 5);
+		g.drawSingleLineText(u8"調子・Tuning (Hz)", 20, tuneInput[1].getY() - 10);
 
-		if (addKotoButton.getToggleState()) {
-			g.drawSingleLineText(u8"二箏調子・2nd Instrument Tuning", 
-				tuneKoto2.getX() + tuneKoto2.getWidth(),
-				tuneKoto2.getY() + (tuneKoto2.getHeight() - 5));
-		}
+		g.drawSingleLineText(u8"二箏調子・2nd Instrument Tuning",
+			tuneKoto2.getX() + tuneKoto2.getWidth(),
+			tuneKoto2.getY() + (tuneKoto2.getHeight() - 5));
 
 		//BPM
 		g.drawSingleLineText(u8"一拍・BPM",
@@ -783,8 +813,21 @@ public:
 				y = 0;
 			}
 			tuneInput[i].setBounds((((getWidth() / 2) / 7) - 2.857) * (i % 7) + 20,
-				(getHeight() / 10) * 3 + y, ((getWidth() / 2) / 7) - 20, 20);
+				(getHeight() / 10) * 3.25 + y, ((getWidth() / 2) / 7) - 20, 20);
 		}
+		for (int i = 0; i < 13; i++) {
+			int y;
+			if (i >= 7) {
+				y = 30;
+			}
+			else {
+				y = 0;
+			}
+			tuneInput2[i].setBounds((((getWidth() / 2) / 7) - 2.857) * (i % 7) + 20,
+				(getHeight() / 10) * 3.25 + y, ((getWidth() / 2) / 7) - 20, 20);
+		}
+		juce::Font f = labelFont;
+		tuneKoto2.setBounds(80 + f.getStringWidth(u8"調子・Tuning(Hz)"), tuneInput[1].getY() - 25, 30, 20);
 		hiraButton.setBounds(tuneInput[12].getX() + (((getWidth() / 2) / 7) - 2.857), tuneInput[12].getY(), 60, 20);
 		infoButton.setBounds(20, (getHeight() / 10) * 4.5, 20, 20);
 		infoBox.setRectangle(juce::Rectangle<float>((getWidth() / 2) + 20, 20, (getWidth() / 2) - 40, getHeight() - 60));
@@ -846,14 +889,32 @@ public:
 	}
 	void changeTitle() { scoreSheet.updateTitle(titleInput.getText()); }
 	void changeAuth() { scoreSheet.updateAuth(authInput.getText()); }
-	void showTuning2() {}
-	void changeTuning(bool secondKoto = false) {
+	void showTuning2() {
+		if (tuneKoto2.getToggleState()) {
+			for (int i = 0; i < 13; i++)
+			{
+				tuneInput2[i].setVisible(true);
+				tuneInput[i].setVisible(false);
+			}
+		}
+		else {
+			for (int i = 0; i < 13; i++)
+			{
+				tuneInput2[i].setVisible(false);
+				tuneInput[i].setVisible(true);
+			}
+		}
+	}
+	void changeTuning(std::array<juce::TextEditor, 13>& tuneInputChange, std::array<double, 13>& tuneArrayChange,
+		std::array<kotoSynth, 13>& synthArrayChange, std::array<kotoSynth, 13>& synthArrayOsuChange,
+		std::array<kotoSynth, 13>& synthArrayHanOsuChange) {
+
 		//Update tuneArray
-		for (int i = 0; i < tuneInput.size(); i++) {
-			if (tuneInput[i].getText().length() > 0) {
+		for (int i = 0; i < tuneInputChange.size(); i++) {
+			if (tuneInputChange[i].getText().length() > 0) {
 				try
 				{
-					tuneArray[i] = std::stod(tuneInput[i].getText().toStdString());
+					tuneArrayChange[i] = std::stod(tuneInputChange[i].getText().toStdString());
 				}
 				catch (const std::exception&)
 				{
@@ -864,38 +925,60 @@ public:
 		}
 
 		//Update synths
-		for (int i = 0; i < synthArray.size(); i++) {
+		for (int i = 0; i < synthArrayChange.size(); i++) {
 			//Update main synths
-			synthArray[i].fund = tuneArray[i];
-			synthArray[i].updateFrequency(sr);
+			synthArrayChange[i].fund = tuneArrayChange[i];
+			synthArrayChange[i].updateFrequency(sr);
 
 			//Update full string press synths
-			synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
-			synthArrayOsu[i].updateFrequency(sr);
+			synthArrayOsuChange[i].fund = tuneArrayChange[i] * 1.122462;
+			synthArrayOsuChange[i].updateFrequency(sr);
 
 			//Update half string press synths
-			synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
-			synthArrayHanOsu[i].updateFrequency(sr);
+			synthArrayHanOsuChange[i].fund = tuneArrayChange[i] * 1.059463;
+			synthArrayHanOsuChange[i].updateFrequency(sr);
 		}
 	}
 	void toHira() {
-		//Return tuneArray to default hirachōshi tuning
-		tuneArray = hiraTuning;
+		if (tuneKoto2.getToggleState()) {
+			//Return tuneArray to default hirachōshi tuning
+			tuneArray2 = hiraTuning;
 
-		//Update synths
-		for (int i = 0; i < synthArray.size(); i++) {
-			//Update main synths
-			synthArray[i].fund = tuneArray[i];
-			synthArray[i].updateFrequency(sr);
+			//Update synths
+			for (int i = 0; i < synthArray2.size(); i++) {
+				//Update main synths
+				synthArray2[i].fund = tuneArray2[i];
+				synthArray2[i].updateFrequency(sr);
 
-			//Update full string press synths
-			synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
-			synthArrayOsu[i].updateFrequency(sr);
+				//Update full string press synths
+				synthArrayOsu2[i].fund = tuneArray[i] * 1.122462;
+				synthArrayOsu2[i].updateFrequency(sr);
 
-			//Update half string press synths
-			synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
-			synthArrayHanOsu[i].updateFrequency(sr);
+				//Update half string press synths
+				synthArrayHanOsu2[i].fund = tuneArray[i] * 1.059463;
+				synthArrayHanOsu2[i].updateFrequency(sr);
+			}
 		}
+		else {
+			//Return tuneArray to default hirachōshi tuning
+			tuneArray = hiraTuning;
+
+			//Update synths
+			for (int i = 0; i < synthArray.size(); i++) {
+				//Update main synths
+				synthArray[i].fund = tuneArray[i];
+				synthArray[i].updateFrequency(sr);
+
+				//Update full string press synths
+				synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
+				synthArrayOsu[i].updateFrequency(sr);
+
+				//Update half string press synths
+				synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
+				synthArrayHanOsu[i].updateFrequency(sr);
+			}
+		}
+
 	}
 	void popInfo()
 	{
@@ -1107,6 +1190,11 @@ public:
 
 			//add note length to playtime
 			timeToPlay += t;
+
+			//assign instrument
+			if (isSecond) {
+				playbackHolder[i].isSecond = true;
+			}
 		}
 
 
@@ -1133,6 +1221,11 @@ public:
 
 			//add note length to playtime
 			timeToPlay += t;
+
+			//assign instrument
+			if (isSecond) {
+				playbackHolderLeft[i].isSecond = true;
+			}
 		}
 
 		//Append left hand
@@ -1165,15 +1258,15 @@ public:
 			synthArrayHanOsu[i].updateFrequency(sr);
 
 
-			synthArray2[i].fund = tuneArray[i];
+			synthArray2[i].fund = tuneArray2[i];
 			synthArray2[i].updateFrequency(sr);
 
 
-			synthArrayOsu2[i].fund = tuneArray[i] * 1.122462;
+			synthArrayOsu2[i].fund = tuneArray2[i] * 1.122462;
 			synthArrayOsu2[i].updateFrequency(sr);
 
 
-			synthArrayHanOsu2[i].fund = tuneArray[i] * 1.059463;
+			synthArrayHanOsu2[i].fund = tuneArray2[i] * 1.059463;
 			synthArrayHanOsu2[i].updateFrequency(sr);
 		}
 
@@ -1187,10 +1280,10 @@ public:
 		std::vector<scoreHolder> emptyScore;
 		playbackPlaying = emptyScore;
 	}
-	void savePDF() { 
+	void savePDF() {
 		//Get size of page to modify for PDF, doubled to reduce pixelation
-		double mod = 2*(595.0f / (scoreSheet.getWidth()));
-		
+		double mod = 2 * (595.0f / (scoreSheet.getWidth()));
+
 		//Create array of page images
 		std::vector<juce::Image> imgArray;
 		scoreSheet.page = 1;
@@ -1200,9 +1293,9 @@ public:
 			imgArray.push_back(snap);
 			nextPage();
 		}
-		
+
 		//Write pdf
- 		pdfMaker.savePDF(imgArray); 
+		pdfMaker.savePDF(imgArray);
 	}
 	void saveFile() {
 		//Get contents of inputs
@@ -1229,7 +1322,7 @@ public:
 
 		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + bpm + "\n" + score + "\n" + score2);
 	}
-	void loadFile() { 
+	void loadFile() {
 		fileSaver.loadFile(titleInput, authInput, tuneInput, bpmInput, scoreInput, scoreInput2, addKotoButton);
 	}
 	void nextPage() { scoreSheet.pageUp(); }

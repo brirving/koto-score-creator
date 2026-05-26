@@ -104,6 +104,10 @@ public:
         };
 
 
+        if (freq > sampleRate / 4) {
+            freq = sampleRate/4;
+        }
+
         filter.coefficients = juce::dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, freq * 1.5);
     }
 

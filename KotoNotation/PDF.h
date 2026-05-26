@@ -140,8 +140,10 @@ public:
 #endif
 				//Check the file path is valid
 				if (result.isWellFormed()) {
-					auto outputStream = result.createOutputStream();
-					outputStream->writeString(contents);
+					juce::FileOutputStream outputStream(result.getLocalFile());
+					outputStream.setPosition(0);
+					outputStream.writeText(contents, false, false, "\n");
+					outputStream.flush();
 				}
 
 			});
@@ -149,7 +151,7 @@ public:
 
 	}
 
-	void loadFile(juce::TextEditor& titleInput, juce::TextEditor& authInput, std::array<juce::TextEditor, 13>& tuneArray,
+	void loadFile(juce::TextEditor& titleInput, juce::TextEditor& authInput, std::array<juce::TextEditor, 13>& tuneInput, std::array<juce::TextEditor, 13>& tuneInput2,
 		juce::TextEditor& bpmInput, juce::TextEditor& scoreInput, juce::TextEditor& scoreInput2, juce::ToggleButton& addKotoButton) {
 
 
@@ -158,7 +160,7 @@ public:
 
 		fc->launchAsync(juce::FileBrowserComponent::openMode
 			| juce::FileBrowserComponent::canSelectFiles,
-			[this, &titleInput, &authInput, &tuneArray, &bpmInput, &scoreInput, &scoreInput2, &addKotoButton](const juce::FileChooser& chooser)
+			[this, &titleInput, &authInput, &tuneInput, &tuneInput2, &bpmInput, &scoreInput, &scoreInput2, &addKotoButton](const juce::FileChooser& chooser)
 			{
 				auto result = chooser.getURLResult();
 
@@ -176,13 +178,17 @@ public:
 					titleInput.setText(fileString[0]);
 					authInput.setText(fileString[1]);
 					auto tunes = juce::StringArray::fromTokens(fileString[2], ",");
-					for (int i = 0; i < tuneArray.size(); i++) {
-						tuneArray[i].setText(tunes[i].dropLastCharacters(4));
+					for (int i = 0; i < tuneInput.size(); i++) {
+						tuneInput[i].setText(tunes[i].dropLastCharacters(4));
 					}
-					bpmInput.setText(fileString[3]);
-					scoreInput.setText(fileString[4]);
+					auto tunes2 = juce::StringArray::fromTokens(fileString[3], ",");
+					for (int i = 0; i < tuneInput2.size(); i++) {
+						tuneInput2[i].setText(tunes2[i].dropLastCharacters(4));
+					}
+					bpmInput.setText(fileString[4]);
+					scoreInput.setText(fileString[5]);
 					if (fileString.size() >= 6) {
-						scoreInput2.setText(fileString[5]);
+						scoreInput2.setText(fileString[6]);
 						if (fileString[5].isNotEmpty()) {
 							addKotoButton.setToggleState(true, juce::sendNotification);
 						}

@@ -920,7 +920,6 @@ public:
 				{
 					continue;
 				}
-
 			}
 		}
 
@@ -1310,6 +1309,10 @@ public:
 		for (int i = 0; i < tuneArray.size(); i++) {
 			tune += std::to_string(tuneArray[i]) + ", ";
 		}
+		std::string tune2;
+		for (int i = 0; i < tuneArray2.size(); i++) {
+			tune2 += std::to_string(tuneArray2[i]) + ", ";
+		}
 
 		//BPM
 		juce::String bpm = bpmInput.getText();
@@ -1320,10 +1323,10 @@ public:
 
 		//Save contents in txt file
 
-		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + bpm + "\n" + score + "\n" + score2);
+		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + juce::String(tune2) + "\n" + bpm + "\n" + score + "\n" + score2);
 	}
 	void loadFile() {
-		fileSaver.loadFile(titleInput, authInput, tuneInput, bpmInput, scoreInput, scoreInput2, addKotoButton);
+		fileSaver.loadFile(titleInput, authInput, tuneInput, tuneInput2, bpmInput, scoreInput, scoreInput2, addKotoButton);
 	}
 	void nextPage() { scoreSheet.pageUp(); }
 	void prevPage() { scoreSheet.pageDown(); }

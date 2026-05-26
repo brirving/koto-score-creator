@@ -770,6 +770,12 @@ public:
 		g.setFont(labelFont.withHeight(getWidth() / 25));
 		g.drawSingleLineText("Koto score creator", 20, (getWidth() / 25) + 10);
 
+		//Watermark
+		g.setColour(juce::Colours::black);
+		g.setFont(labelFont.withHeight(18));
+		g.drawSingleLineText("built by Briar Irving", 20, (getWidth() / 25) + 30);
+
+
 		//Inputs
 		//Song title
 		g.setFont(labelFont.withHeight(20));
@@ -796,6 +802,13 @@ public:
 		g.drawSingleLineText(u8"第二箏",
 			addKotoButton.getX() + addKotoButton.getWidth(),
 			addKotoButton.getY() + (addKotoButton.getHeight() - 5));
+
+		//Github
+		g.setFont(labelFont.withHeight(18));
+		g.drawSingleLineText("See github brirving for code and walkthrough",
+			scoreInput.getX(),
+			scoreInput.getY() + (scoreInput.getHeight() + 25));
+
 
 	}
 

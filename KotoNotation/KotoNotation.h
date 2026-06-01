@@ -383,10 +383,20 @@ public:
 			//Combine notes and ornaments into one string
 			std::vector<std::string> combo;
 			for (int j = 0; j < ornmt.size(); j++) {
+				//write left side ornaments
+				if (ornmt[j] == "o" || ornmt[j] == "p" || ornmt[j] == "." || ornmt[j] == "h") {
+					combo.push_back(ornmt[j]);
+				}
+
+				//Write notes
 				if (note.size() > j) {
 					combo.push_back(note[j]);
 				}
-				combo.push_back(ornmt[j]);
+
+				//Write lower ornaments
+				if (ornmt[j] == "s") {
+					combo.push_back("\n" + ornmt[j]);
+				}
 			}
 
 			//combo = combo.join("").replaceAll(" ", "")
@@ -396,7 +406,7 @@ public:
 			//Only keep one staccato for chords
 			if (std::ranges::contains(ornmt, ".")) {
 				std::string comboStac = std::regex_replace(combo2, std::regex("\\."), "");
-				combo2 = comboStac + ".";
+				combo2 = "." + comboStac;
 			}
 
 			juce::String comboFinal;
@@ -413,6 +423,9 @@ public:
 						int o = std::distance(ornInputVals.begin(), std::find(ornInputVals.begin(), ornInputVals.end(), c[j]));
 						comboFinal.append(ornaments[o], 1);
 					}
+					else if(c[j] == "\n") {
+						comboFinal.append("\n", 2);
+					}
 				}
 			}
 
@@ -428,6 +441,8 @@ public:
 				xmod = boxW / 12;
 			}
 
+
+
 			//length overrules chord sizing
 			if (length > 8) {
 				size = (boxH / 8) / (length / 8);
@@ -442,13 +457,28 @@ public:
 				size -= 1;
 			}
 
+			float h = size;
+
+			//Shift left and change text height with staccato
+			if (std::ranges::contains(ornmt, "s")) {
+				if (length > 4) {
+					size /= 2;
+					mod = size;
+				}
+				else {
+					h *= 2.0f;
+				}
+
+			}
+
 
 			y += boxH / length;
+
 
 			//Write note out
 			if (i < textHolder.size()) {
 				textHolder[i + imod].setFontHeight(size);
-				textHolder[i + imod].setBoundingBox(juce::Rectangle(x + xmod, (y - mod - size), boxW, float(size)));
+				textHolder[i + imod].setBoundingBox(juce::Rectangle(x + xmod, (y - mod - size), boxW, h));
 				textHolder[i + imod].setText(comboFinal);
 				textHolder[i + imod].setVisible(true);
 			}

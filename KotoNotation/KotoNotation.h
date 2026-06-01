@@ -18,6 +18,254 @@ public:
 	bool isSecond = false;
 };
 
+class vertLabel : public juce::Label {
+public:
+	vertLabel() {};
+
+	void copyColourIfSpecified(Label& l, juce::TextEditor& ed, int colourID, int targetColourID)
+	{
+		if (l.isColourSpecified(colourID) || l.getLookAndFeel().isColourSpecified(colourID))
+			ed.setColour(targetColourID, l.findColour(colourID));
+	}
+
+	juce::TextEditor* createEditorComponent() override
+	{
+		auto* ed = new juce::TextEditor(getName());
+		ed->applyFontToAllText(getLookAndFeel().getLabelFont(*this));
+		copyAllExplicitColoursTo(*ed);
+
+		copyColourIfSpecified(*this, *ed, textWhenEditingColourId, juce::TextEditor::textColourId);
+		copyColourIfSpecified(*this, *ed, backgroundWhenEditingColourId, juce::TextEditor::backgroundColourId);
+		copyColourIfSpecified(*this, *ed, outlineWhenEditingColourId, juce::TextEditor::focusedOutlineColourId);
+
+		ed->setMultiLine(true);
+
+		return ed;
+	}
+};
+
+class DragButton : public juce::TextButton,
+	public juce::ComponentDragger {
+public:
+	DragButton(juce::String text) :TextButton(text) { ; }
+
+	void mouseDown(const juce::MouseEvent& event) override {
+		startDraggingComponent(getParentComponent(), event);
+	}
+
+	void mouseDrag(const juce::MouseEvent& event) override {
+		dragComponent(getParentComponent(), event, nullptr);
+	}
+
+	void mouseUp(const juce::MouseEvent& event) override {
+		triggerClick();
+	}
+};
+
+class freeText : public juce::Component {
+public:
+	//Visibility
+	int page = 0;
+	bool deleted = false;
+
+	//Text and state
+	vertLabel label;
+	bool rotated = false;
+	bool vertical = false;
+
+	//Coordinates
+	juce::Point<int> xyPoint;
+
+	float ogWidth;
+	float ogHeight;
+
+	freeText(juce::Point<int> xy, int p, int w, int h) {
+		xyPoint = xy;
+		page = p;
+		ogWidth = w;
+		ogHeight = h;
+
+
+		addAndMakeVisible(label);
+		addChildComponent(moveButton);
+		addChildComponent(rotateButton);
+		addChildComponent(verticalButton);
+		addChildComponent(deleteButton);
+
+		label.setText("Click to change text", juce::NotificationType::dontSendNotification);
+		label.setEditable(true);
+
+		label.onEditorShow = [this] {
+			label.getCurrentTextEditor()->setMultiLine(true);
+			showButtons(); };
+		moveButton.onClick = [this] { dragText(); };
+		rotateButton.onClick = [this] { rotateText(); };
+		verticalButton.onClick = [this] { setVertical(); };
+		deleteButton.onClick = [this] { setVisible(false); deleted = true; };
+		label.onEditorHide = [this] { updateVertical(); hideButtons(); };
+
+
+		label.setColour(juce::Label::backgroundColourId, juce::Colour(0.0f, 0.0f, 0.0f, 0.0f));
+		label.setColour(juce::Label::textColourId, juce::Colours::black);
+		label.setColour(juce::Label::textWhenEditingColourId, juce::Colours::black);
+
+
+		moveButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		moveButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
+		moveButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+
+
+		rotateButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		rotateButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
+		rotateButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+
+		verticalButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		verticalButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
+		verticalButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+
+		deleteButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		deleteButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
+		deleteButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+
+
+	}
+
+	~freeText() {}
+
+	void resized() {
+		label.setBounds(0, 25, getWidth(), 20);
+		label.setFont(labelFont.withHeight(ogHeight / 50.0f));
+
+		moveButton.setBounds(0, 0, 20, 20);
+		rotateButton.setBounds(30, 0, 20, 20);
+		verticalButton.setBounds(60, 0, 30, 20);
+		deleteButton.setBounds(120, 0, 20, 20);
+	}
+
+
+	void showButtons() {
+		moveButton.setVisible(true);
+		rotateButton.setVisible(true);
+		verticalButton.setVisible(true);
+		deleteButton.setVisible(true);
+	}
+
+	void hideButtons() {
+		if (!(moveButton.isMouseOver() || rotateButton.isMouseOver() || verticalButton.isMouseOver() || deleteButton.isMouseOver())) {
+			moveButton.setVisible(false);
+			rotateButton.setVisible(false);
+			verticalButton.setVisible(false);
+			deleteButton.setVisible(false);
+		}
+	}
+
+	void rotateText() {
+		if (rotated) {
+			//Rotate horizontal
+			setTransform(juce::AffineTransform::rotation(0).translated(xyPoint.getX(), xyPoint.getY()));
+			setBounds(juce::Rectangle<int>(ogWidth, 50));
+
+			rotated = false;
+		}
+		else {
+			//Rotate vertical
+			setTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(xyPoint.getX(), xyPoint.getY()));
+			setBounds(juce::Rectangle<int>(ogWidth, 50));
+
+			rotated = true;
+		}
+
+	}
+
+	void dragText() {
+
+		//Update location
+		xyPoint = getBoundsInParent().getTopLeft();
+	}
+
+	void setVertical() {
+
+		//Rotate label
+		if (vertical) {
+			//Make wide
+			label.setTransform(juce::AffineTransform::rotation(0).translated(0, 0));
+			label.setBounds(juce::Rectangle<int>(0, 25, getWidth(), 20));
+			label.setJustificationType(juce::Justification::bottomLeft);
+
+			label.setColour(juce::Label::backgroundColourId, juce::Colour(0.0f, 0.0f, 0.0f, 0.0f));
+			label.setColour(juce::Label::textColourId, juce::Colours::black);
+			label.setColour(juce::Label::textWhenEditingColourId, juce::Colours::black);
+
+			//Remove line breaks
+			juce::String output = label.getText().replace("\n", "");
+
+			label.setText(output, juce::NotificationType::dontSendNotification);
+
+			vertical = false;
+		}
+		else {
+			//Make tall 
+			label.setTransform(juce::AffineTransform::rotation(-juce::MathConstants<double>::halfPi).translated(0, 50));
+			label.setBounds(juce::Rectangle<int>(0, 0, 25, getWidth()));
+			label.setJustificationType(juce::Justification::topLeft);
+
+			label.setColour(juce::Label::backgroundColourId, juce::Colour(0.0f, 0.0f, 0.0f, 0.0f));
+			label.setColour(juce::Label::textColourId, juce::Colours::black);
+			label.setColour(juce::Label::textWhenEditingColourId, juce::Colours::black);
+
+			//add line breaks
+			juce::String output;
+			auto start = label.getText().begin();
+			auto end = label.getText().end();
+
+			// Iterating through each token
+			while (start != end) {
+				output += start.getAndAdvance();
+				output += "\n";
+			}
+			output += "\0";
+			label.setText(output, juce::NotificationType::dontSendNotification);
+
+			vertical = true;
+		}
+
+	}
+
+	void updateVertical() {
+		if (vertical) {
+			//Remove line breaks
+			juce::String input = label.getText().replace("\n", "");
+
+			//Re-add line breaks to new text
+			juce::String output;
+			auto start = input.begin();
+			auto end = input.end();
+
+			// Iterating through each token
+			while (start != end) {
+				output += start.getAndAdvance();
+				output += "\n";
+			}
+			label.setText(output, juce::NotificationType::dontSendNotification);
+		}
+	}
+
+	void mouseExit(const juce::MouseEvent& event) override {
+		hideButtons();
+	}
+
+private:
+	juce::FontOptions labelFont{ juce::Typeface::createSystemTypefaceFor(BinaryData::YujiSyukuRegular_ttf, BinaryData::YujiSyukuRegular_ttfSize) };
+
+
+	//Buttons
+	DragButton moveButton{ u8"\u2725" };
+	juce::TextButton rotateButton{ u8"\u2b6f" };
+	juce::TextButton verticalButton{ u8"A\u2193" };
+	juce::TextButton deleteButton{ "X" };
+
+};
+
 
 class Bar : public juce::Component {
 public:
@@ -38,6 +286,7 @@ public:
 		addChildComponent(boldLeft);
 		boldLeft.setStrokeFill(juce::Colours::black);
 		boldLeft.setStrokeThickness(1.2f);
+		setInterceptsMouseClicks(false, false);
 
 	}
 
@@ -225,19 +474,23 @@ public:
 
 	juce::DrawableRectangle sheet;
 	std::array<Bar, 28> bars;
-	std::array<Bar, 14> bars2;
 	int page = 0;
 	int maxPage = 0;
 	int maxPage1 = 0;
 	int maxPage2 = 0;
 
+	//Holders for inputs
 	std::vector<scoreHolder> contents;
 	std::vector<scoreHolder> contentsLeft;
 
 	std::vector<scoreHolder> contents2;
 	std::vector<scoreHolder> contentsLeft2;
 
+	//Is there a second instrument
 	bool hasSecondKoto;
+
+	//Free text holder
+	std::vector<std::unique_ptr<freeText>> freeTextHolder;
 
 	scoreComponent() {
 
@@ -269,20 +522,50 @@ public:
 			bars[i].setBounds(0, 0, w, h);
 		}
 
-		//For Japanese text
-//titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(sheetX + sheetW - (sheetW / 8), sheetY + 20));
-//need to add a converter to add breaks between characters
-//titleOut.setBoundingBox(juce::Rectangle<float>(20, sheetH - 80));
+		for (int i = 0; i < freeTextHolder.size(); i++) {
 
-		titleOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 8), 20));
-		titleOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
-		titleOut.setJustification(juce::Justification::centred);
-		titleOut.setFont(labelFont.withHeight(20.0f), true);
+			float w = static_cast<float>(getWidth()) / freeTextHolder[i]->ogWidth;
+			float h = static_cast<float>(getHeight()) / freeTextHolder[i]->ogHeight;
 
-		authOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 20), 40));
-		authOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
-		//authOut.setJustification(juce::Justification::centred);
-		authOut.setFont(labelFont.withHeight(20.0f), true);
+
+			juce::Point xy = freeTextHolder[i]->xyPoint;
+			xy.applyTransform(juce::AffineTransform(freeTextHolder[i]->getTransform()).translated(xy));
+
+			auto x = freeTextHolder[i]->xyPoint.getX() * w;
+			auto y = freeTextHolder[i]->xyPoint.getY() * h;
+
+			freeTextHolder[i]->setBounds(x, y, freeTextHolder[i]->getWidth(), freeTextHolder[i]->getHeight());
+			freeTextHolder[i]->ogWidth = getWidth();
+			freeTextHolder[i]->ogHeight = getHeight();
+
+
+			freeTextHolder[i]->label.setFont(labelFont.withHeight(getHeight() / 50));
+
+		}
+
+		//Maintain vertical or horizontal text direction on resize
+		if (titleToggleState) {
+			titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(getWidth() - (getWidth() / 8), 20));
+			titleOut.setBoundingBox(juce::Rectangle<float>(20, getHeight() - 80));
+		}
+		else {
+			titleOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 8), 20));
+			titleOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
+			titleOut.setJustification(juce::Justification::centred);
+			titleOut.setFont(labelFont.withHeight(20.0f), true);
+		}
+
+		if (authToggleState) {
+			authOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(getWidth() - (getWidth() / 20), 40));
+			authOut.setBoundingBox(juce::Rectangle<float>(20, getHeight() - 80));
+		}
+		else {
+			authOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 20), 40));
+			authOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
+			authOut.setFont(labelFont.withHeight(20.0f), true);
+		}
+
+
 
 	}
 
@@ -367,9 +650,29 @@ public:
 		//Change page if number of pages has changed and user was on the last page
 		if (isSecond && prev2 != maxPage2 && page == prev2) {
 			page = maxPage2;
+
+			//Rewrite free text
+			for (int i = 0; i < freeTextHolder.size(); i++) {
+				if (freeTextHolder[i]->page == page && freeTextHolder[i]->deleted == false) {
+					freeTextHolder[i]->setVisible(true);
+				}
+				else {
+					freeTextHolder[i]->setVisible(false);
+				}
+			}
 		}
 		else if (isSecond == false && prev1 != maxPage1 && page == prev1) {
 			page = maxPage1;
+
+			//Rewrite free text
+			for (int i = 0; i < freeTextHolder.size(); i++) {
+				if (freeTextHolder[i]->page == page && freeTextHolder[i]->deleted == false) {
+					freeTextHolder[i]->setVisible(true);
+				}
+				else {
+					freeTextHolder[i]->setVisible(false);
+				}
+			}
 		}
 
 		//Hide title and author if page isn't 0
@@ -487,6 +790,15 @@ public:
 			page++;
 			writeBars(contents, contentsLeft, false, hasSecondKoto);
 			writeBars(contents2, contentsLeft2, true, hasSecondKoto);
+
+			for (int i = 0; i < freeTextHolder.size(); i++) {
+				if (freeTextHolder[i]->page == page && freeTextHolder[i]->deleted == false) {
+					freeTextHolder[i]->setVisible(true);
+				}
+				else {
+					freeTextHolder[i]->setVisible(false);
+				}
+			}
 		}
 	}
 
@@ -495,14 +807,173 @@ public:
 			page--;
 			writeBars(contents, contentsLeft, false, hasSecondKoto);
 			writeBars(contents2, contentsLeft2, true, hasSecondKoto);
+
+			for (int i = 0; i < freeTextHolder.size(); i++) {
+				if (freeTextHolder[i]->page == page && freeTextHolder[i]->deleted == false) {
+					freeTextHolder[i]->setVisible(true);
+				}
+				else {
+					freeTextHolder[i]->setVisible(false);
+				}
+			}
 		}
 	}
 
-	void updateTitle(juce::String title) { titleOut.setText(title); }
+	void updateTitle(juce::String title) {
+		if (titleToggleState) {
+			//Remove line breaks
+			juce::String input = title.replace("\n", "");
+
+			//Re-add line breaks to new text
+			juce::String output;
+			auto start = input.begin();
+			auto end = input.end();
+
+			// Iterating through each token
+			while (start != end) {
+				output += start.getAndAdvance();
+				output += "\n";
+			}
+			titleOut.setText(output);
+		}
+		else {
+			titleOut.setText(title);
+		}
+
+	}
 	void updateAuth(juce::String auth) {
-		juce::String a1 = u8"作曲: ";
-		juce::String a2 = auth;
-		authOut.setText(a1 + a2);
+		if (authToggleState) {
+			//Remove line breaks
+			juce::String input = auth.replace("\n", "").replace("作曲..", "");
+
+			//Re-add line breaks to new text
+			juce::String output = u8"作\n曲\n..\n";
+			auto start = input.begin();
+			auto end = input.end();
+
+			// Iterating through each token
+			while (start != end) {
+				output += start.getAndAdvance();
+				output += "\n";
+			}
+			authOut.setText(output);
+		}
+		else {
+			juce::String a1 = u8"作曲: ";
+			juce::String a2 = auth;
+			authOut.setText(a1 + a2);
+		}
+	}
+
+	void toggleCursor(bool toggleState) {
+		//Update state
+		freeTextActive = toggleState;
+		//Change cursor to I beam when over the scoresheet if free text is enabled
+		if (toggleState) {
+			setMouseCursor(juce::MouseCursor::StandardCursorType(4));
+		}
+		else {
+			setMouseCursor(juce::MouseCursor::StandardCursorType(0));
+		}
+	}
+
+	void mouseDown(const juce::MouseEvent& event) override {
+		if (event.mouseWasClicked() && freeTextActive) {
+			auto pointClicked = event.getMouseDownPosition();
+			addFreeText(pointClicked);
+		}
+	}
+
+	void addFreeText(juce::Point<int> xy) {
+		//Create new freeText component
+		freeTextHolder.emplace_back(new freeText(xy, page, getWidth(), getHeight()));
+
+		//Set the location
+		freeTextHolder.back()->setBounds(xy.getX(), xy.getY(), getWidth(), 50);
+
+		//Add as child component of the score
+		addAndMakeVisible(*freeTextHolder.back());
+	}
+
+	void mouseExit(const juce::MouseEvent& event) override {
+		//Close free text buttons if any are still open
+		for (int i = 0; i < freeTextHolder.size(); i++) {
+			freeTextHolder[i]->hideButtons();
+		}
+	}
+
+	void setVertical(std::string value, bool vertToggleState) {
+		if (vertToggleState) {
+			//Set long
+			if (value == "title") {
+				titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(getWidth() - (getWidth() / 8) - 20, 20));
+				titleOut.setBoundingBox(juce::Rectangle<float>(20, getHeight() - 80));
+
+				//add line breaks
+				juce::String output;
+				auto start = titleOut.getText().begin();
+				auto end = titleOut.getText().end();
+
+				// Iterating through each token
+				while (start != end) {
+					output += start.getAndAdvance();
+					output += "\n";
+				}
+				output += "\0";
+				titleOut.setText(output);
+
+				titleToggleState = vertToggleState;
+			}
+			else {
+				authOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(getWidth() - (getWidth() / 20) - 20, 40));
+				authOut.setJustification(juce::Justification::topLeft);
+				authOut.setBoundingBox(juce::Rectangle<float>(20, getHeight() - 80));
+
+				//add line breaks
+				juce::String output;
+				auto start = authOut.getText().begin();
+				auto end = authOut.getText().end();
+
+				// Iterating through each token
+				while (start != end) {
+					output += start.getAndAdvance();
+					output += "\n";
+				}
+				output += "\0";
+				authOut.setText(output.replace(":\n ", ".."));
+
+				authToggleState = vertToggleState;
+			}
+
+
+		}
+		else {
+			//Set wide
+			if (value == "title") {
+				titleOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 8), 20));
+				titleOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
+				titleOut.setJustification(juce::Justification::centred);
+				titleOut.setFont(labelFont.withHeight(20.0f), true);
+
+				//Remove line breaks
+				juce::String output = titleOut.getText().replace("\n", "");
+				titleOut.setText(output);
+
+				titleToggleState = vertToggleState;
+			}
+			else {
+				authOut.setDrawableTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(getWidth() - (getWidth() / 20), 40));
+				authOut.setBoundingBox(juce::Rectangle<float>(getHeight() - 80, 20));
+				authOut.setJustification(juce::Justification::topLeft);
+				authOut.setFont(labelFont.withHeight(20.0f), true);
+
+				//Remove line breaks
+				juce::String output = authOut.getText().replace("\n", "");
+				authOut.setText(output.replace("..", ": "));
+
+				authToggleState = vertToggleState;
+			}
+		}
 	}
 
 private:
@@ -511,6 +982,13 @@ private:
 	//Author and title
 	juce::DrawableText titleOut;
 	juce::DrawableText authOut;
+
+	//Is free text enabled
+	bool freeTextActive = false;
+
+	//Direction of author and title text
+	bool titleToggleState = false;
+	bool authToggleState = false;
 };
 
 
@@ -522,7 +1000,9 @@ public:
 
 		addAndMakeVisible(scoreSheet);
 		addAndMakeVisible(titleInput);
+		addAndMakeVisible(titleVertButton);
 		addAndMakeVisible(authInput);
+		addAndMakeVisible(authVertButton);
 		addAndMakeVisible(tuneKoto2);
 		for (int i = 0; i < 13; i++)
 		{
@@ -542,6 +1022,7 @@ public:
 		addChildComponent(scoreInput2);
 		addAndMakeVisible(playButton);
 		addAndMakeVisible(stopButton);
+		addAndMakeVisible(freeTextButton);
 		addAndMakeVisible(pdfButton);
 		addAndMakeVisible(saveButton);
 		addAndMakeVisible(loadButton);
@@ -550,7 +1031,9 @@ public:
 
 		//Reactivity
 		titleInput.onTextChange = [this] {changeTitle(); };
+		titleVertButton.onClick = [this] {scoreSheet.setVertical("title", titleVertButton.getToggleState()); };
 		authInput.onTextChange = [this] {changeAuth(); };
+		authVertButton.onClick = [this] {scoreSheet.setVertical("auth", authVertButton.getToggleState()); };
 		tuneKoto2.onStateChange = [this] {showTuning2(); };
 		for (int i = 0; i < 13; i++)
 		{
@@ -574,9 +1057,11 @@ public:
 			};
 		playButton.onClick = [this] {playScore(); };
 		stopButton.onClick = [this] {stopScore(); };
+		freeTextButton.onClick = [this] {textBoxToggled(); };
 		pdfButton.onClick = [this] {savePDF(); };
 		saveButton.onClick = [this] {saveFile(); };
 		loadButton.onClick = [this] {loadFile(); };
+		freeTextPlaceHolder.onTextChange = [this] {updateFreeText(); };
 		pageNextButton.onClick = [this] {nextPage(); };
 		pageBackButton.onClick = [this] {prevPage(); };
 
@@ -584,8 +1069,18 @@ public:
 		titleInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		titleInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
 
+		titleVertButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		titleVertButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
+		titleVertButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+		titleVertButton.setClickingTogglesState(true);
+
 		authInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		authInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
+
+		authVertButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		authVertButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
+		authVertButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+		authVertButton.setClickingTogglesState(true);
 
 		tuneKoto2.setColour(juce::ToggleButton::tickDisabledColourId, juce::Colours::white);
 		tuneKoto2.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
@@ -632,6 +1127,12 @@ public:
 		stopButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
 		stopButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		stopButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+
+		freeTextButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
+		freeTextButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 190, 120));
+		freeTextButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+		freeTextButton.setToggleable(true);
+		freeTextButton.setClickingTogglesState(true);
 
 		pdfButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
 		pdfButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
@@ -745,7 +1246,7 @@ public:
 							synthArray[n].playNote();
 						}
 					}
-					
+
 				}
 
 			}
@@ -783,7 +1284,7 @@ public:
 
 		//Author
 		g.drawSingleLineText(u8"作曲・Author",
-			authInput.getX() + authInput.getWidth() + 10,
+			authVertButton.getX() + authVertButton.getWidth() + 10,
 			authInput.getY() + (authInput.getHeight() - 5));
 
 		//Tuning
@@ -814,9 +1315,10 @@ public:
 
 	void resized() override
 	{
-		//playNote.setBounds(0, 0, getWidth(), getHeight());
-		titleInput.setBounds(20, ((getHeight() / 20) * 3), (getWidth() / 2) - 40, 20);
+		titleInput.setBounds(20, ((getHeight() / 20) * 3), (getWidth() / 3) - 40, 20);
+		titleVertButton.setBounds(titleInput.getWidth() + 25, titleInput.getY(), 30, 20);
 		authInput.setBounds(20, ((getHeight() / 20) * 4), (getWidth() / 4) - 40, 20);
+		authVertButton.setBounds(authInput.getWidth() + 25, authInput.getY(), 30, 20);
 		for (int i = 0; i < 13; i++) {
 			int y;
 			if (i >= 7) {
@@ -872,6 +1374,7 @@ public:
 		scoreInput2.setBounds(scoreInput.getX() + getWidth() / 4 - 10, (getHeight() / 10) * 5.5, getWidth() / 4 - 30, (getHeight() - (getHeight() / 10) * 5.5) - 40);
 		playButton.setBounds(getWidth() / 2 - 12.5, 20, 25, 25);
 		stopButton.setBounds(getWidth() / 2 - 12.5, 50, 25, 25);
+		freeTextButton.setBounds(getWidth() / 2 - 12.5, titleInput.getY() + 50, 25, 25);
 		pdfButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 25, 25, 25);
 		saveButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 55, 25, 25);
 		loadButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY(), 25, 25);
@@ -900,8 +1403,11 @@ public:
 		changeScore(scoreInput2.getText().toStdString(), true);
 
 	}
+
 	void changeTitle() { scoreSheet.updateTitle(titleInput.getText()); }
+
 	void changeAuth() { scoreSheet.updateAuth(authInput.getText()); }
+
 	void showTuning2() {
 		if (tuneKoto2.getToggleState()) {
 			for (int i = 0; i < 13; i++)
@@ -1292,6 +1798,7 @@ public:
 		std::vector<scoreHolder> emptyScore;
 		playbackPlaying = emptyScore;
 	}
+	void textBoxToggled() { scoreSheet.toggleCursor(freeTextButton.getToggleState()); }
 	void savePDF() {
 		//Get size of page to modify for PDF, doubled to reduce pixelation
 		double mod = 2 * (595.0f / (scoreSheet.getWidth()));
@@ -1320,11 +1827,11 @@ public:
 		//Tuning
 		std::string tune;
 		for (int i = 0; i < tuneArray.size(); i++) {
-			tune += std::to_string(tuneArray[i]) + ", ";
+			tune += std::to_string(tuneArray[i]) + ",";
 		}
 		std::string tune2;
 		for (int i = 0; i < tuneArray2.size(); i++) {
-			tune2 += std::to_string(tuneArray2[i]) + ", ";
+			tune2 += std::to_string(tuneArray2[i]) + ",";
 		}
 
 		//BPM
@@ -1334,12 +1841,90 @@ public:
 		juce::String score = scoreInput.getText();
 		juce::String score2 = scoreInput2.getText();
 
+		//Free text
+		std::string freeTextString;
+		for (int i = 0; i < scoreSheet.freeTextHolder.size(); i++) {
+
+			//Visibility
+			freeTextString += std::to_string(scoreSheet.freeTextHolder[i]->page) + "|";
+			freeTextString += std::to_string(scoreSheet.freeTextHolder[i]->deleted) + "|";
+
+			//Text and state
+			freeTextString += scoreSheet.freeTextHolder[i]->label.getText().replace("\n", "").toStdString() + "|";
+			freeTextString += std::to_string(scoreSheet.freeTextHolder[i]->rotated) + "|";
+			freeTextString += std::to_string(scoreSheet.freeTextHolder[i]->vertical) + "|";
+
+			//Coordinates
+			//Undo transformations before grabbing coordinates
+			freeTextString += scoreSheet.freeTextHolder[i]->xyPoint.toString().toStdString() + "|";
+
+			freeTextString += std::to_string(scoreSheet.freeTextHolder[i]->ogWidth) + "|";
+			freeTextString += std::to_string(scoreSheet.freeTextHolder[i]->ogHeight) + "\n";
+		}
+
+
 		//Save contents in txt file
 
-		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + juce::String(tune2) + "\n" + bpm + "\n" + score + "\n" + score2);
+		fileSaver.saveFile(title + "\n" + auth + "\n" + juce::String(tune) + "\n" + juce::String(tune2) + "\n" + bpm + "\n" + score + "\n" + score2 + "\n" + freeTextString);
 	}
 	void loadFile() {
-		fileSaver.loadFile(titleInput, authInput, tuneInput, tuneInput2, bpmInput, scoreInput, scoreInput2, addKotoButton);
+		juce::String freeTextString = "placeholder";
+		fileSaver.loadFile(titleInput, authInput, tuneInput, tuneInput2, bpmInput, scoreInput, scoreInput2, addKotoButton, freeTextPlaceHolder);
+	}
+	void updateFreeText() {
+		juce::String freeTextString = freeTextPlaceHolder.getText();
+
+		if (freeTextString != "placeholder") {
+			scoreSheet.freeTextHolder.clear();
+
+			auto freeTextArray = juce::StringArray::fromTokens(freeTextString, "@", "");
+
+			for (int i = 0; i < freeTextArray.size(); i++) {
+				auto freeTextSub = juce::StringArray::fromTokens(freeTextArray[i], "|", "");
+
+				if (freeTextSub.size() == 8) {
+					//Visibility
+					auto page = std::stoi(freeTextSub[0].toStdString());
+					bool deleted = std::stoi(freeTextSub[1].toStdString());
+
+					//Text and state
+					auto labelText = freeTextSub[2];
+					bool rotated = std::stoi(freeTextSub[3].toStdString());
+					bool vertical = std::stoi(freeTextSub[4].toStdString());
+
+					//Coordinates
+					auto xyString = juce::StringArray::fromTokens(freeTextSub[5], ",", "");
+					auto x = std::stoi(xyString[0].toStdString());
+					auto y = std::stoi(xyString[1].toStdString());
+					juce::Point<int> xy(x, y);
+
+					auto ogWidth = std::stoi(freeTextSub[6].toStdString());
+					auto ogHeight = std::stoi(freeTextSub[7].toStdString());
+
+					//Create the free text with the above values
+					scoreSheet.freeTextHolder.emplace_back(new freeText(xy, page, ogWidth, ogHeight));
+					scoreSheet.freeTextHolder[i]->deleted = deleted;
+					scoreSheet.freeTextHolder[i]->label.setText(labelText, juce::dontSendNotification);
+
+					//Set location
+					scoreSheet.freeTextHolder.back()->setBounds(x, y, scoreSheet.getWidth(), 50);
+					if (vertical) {
+						scoreSheet.freeTextHolder[i]->setVertical();
+					}
+					if (rotated) {
+						scoreSheet.freeTextHolder[i]->rotateText();
+					}
+
+					//Add as child component of the score
+					if (!deleted && page == scoreSheet.page) {
+						scoreSheet.addAndMakeVisible(*scoreSheet.freeTextHolder.back());
+					}
+					else {
+						scoreSheet.addChildComponent(*scoreSheet.freeTextHolder.back());
+					}
+				}
+			}
+		}
 	}
 	void nextPage() { scoreSheet.pageUp(); }
 	void prevPage() { scoreSheet.pageDown(); }
@@ -1357,9 +1942,11 @@ private:
 
 	//Title
 	juce::TextEditor titleInput;
+	juce::TextButton titleVertButton{ u8"A\u2193" };
 
 	//Author
 	juce::TextEditor authInput;
+	juce::TextButton authVertButton{ u8"A\u2193" };
 
 	//Tuning
 	std::array<juce::TextEditor, 13> tuneInput;
@@ -1393,6 +1980,9 @@ private:
 
 	//Stop button
 	juce::TextButton stopButton{ u8"■" };
+
+	//Free text button
+	juce::TextButton freeTextButton{ u8"\U0001F130" };
 
 	//PDF button
 	juce::TextButton pdfButton{ u8"\U0001F5B6" };
@@ -1435,6 +2025,7 @@ private:
 	//Component for saving and loading files
 	saver fileSaver;
 	pdfCreator pdfMaker;
+	juce::Label freeTextPlaceHolder{ "placeholder" };
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainContentComponent)
 };

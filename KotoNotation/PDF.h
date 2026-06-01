@@ -7,7 +7,6 @@
 #include <regex>
 #include <juce_gui_basics/juce_gui_basics.h>
 
-
 class pdfCreator {
 public:
 
@@ -50,7 +49,7 @@ public:
 				if (result.isWellFormed()) {
 					std::string location = std::regex_replace(result.toString(false).toStdString(), std::regex("%3A"), ":");
 					location = std::regex_replace(location, std::regex("file:/*"), "");
-					
+
 					//Create pdf to write to
 					pdfWriter.StartPDF(location, ePDFVersion13);
 
@@ -87,7 +86,7 @@ public:
 
 						pdfWriter.WritePageAndRelease(pdfPage);
 					}
-					
+
 					pdfWriter.EndPDF();
 				}
 
@@ -152,7 +151,7 @@ public:
 	}
 
 	void loadFile(juce::TextEditor& titleInput, juce::TextEditor& authInput, std::array<juce::TextEditor, 13>& tuneInput, std::array<juce::TextEditor, 13>& tuneInput2,
-		juce::TextEditor& bpmInput, juce::TextEditor& scoreInput, juce::TextEditor& scoreInput2, juce::ToggleButton& addKotoButton) {
+		juce::TextEditor& bpmInput, juce::TextEditor& scoreInput, juce::TextEditor& scoreInput2, juce::ToggleButton& addKotoButton, juce::Label& freeTextString) {
 
 
 		fc.reset(new juce::FileChooser("Choose a file to open...", juce::File::getCurrentWorkingDirectory(),
@@ -160,7 +159,7 @@ public:
 
 		fc->launchAsync(juce::FileBrowserComponent::openMode
 			| juce::FileBrowserComponent::canSelectFiles,
-			[this, &titleInput, &authInput, &tuneInput, &tuneInput2, &bpmInput, &scoreInput, &scoreInput2, &addKotoButton](const juce::FileChooser& chooser)
+			[this, &titleInput, &authInput, &tuneInput, &tuneInput2, &bpmInput, &scoreInput, &scoreInput2, &addKotoButton, &freeTextString](const juce::FileChooser& chooser)
 			{
 				auto result = chooser.getURLResult();
 
@@ -177,27 +176,27 @@ public:
 					//Send contents to inputs
 					titleInput.setText(fileString[0]);
 					authInput.setText(fileString[1]);
-					auto tunes = juce::StringArray::fromTokens(fileString[2], ",");
+					auto tunes = juce::StringArray::fromTokens(fileString[2], ",", "");
 					for (int i = 0; i < tuneInput.size(); i++) {
 						tuneInput[i].setText(tunes[i].dropLastCharacters(4));
 					}
-					auto tunes2 = juce::StringArray::fromTokens(fileString[3], ",");
+					auto tunes2 = juce::StringArray::fromTokens(fileString[3], ",", "");
 					for (int i = 0; i < tuneInput2.size(); i++) {
 						tuneInput2[i].setText(tunes2[i].dropLastCharacters(4));
 					}
 					bpmInput.setText(fileString[4]);
 					scoreInput.setText(fileString[5]);
-					if (fileString.size() >= 6) {
-						scoreInput2.setText(fileString[6]);
-						if (fileString[5].isNotEmpty()) {
-							addKotoButton.setToggleState(true, juce::sendNotification);
-						}
+					scoreInput2.setText(fileString[6]);
+					if (fileString[5].isNotEmpty()) {
+						addKotoButton.setToggleState(true, juce::sendNotification);
 					}
-
+					juce::String freeTextHolder;
+					for(int i = 7; i < fileString.size(); i++){
+						freeTextHolder += fileString[i] + "@";
+					}
+					freeTextString.setText(freeTextHolder, juce::NotificationType::sendNotification);
 				}
 			});
-
-
 	}
 
 private:

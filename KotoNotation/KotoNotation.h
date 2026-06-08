@@ -180,7 +180,16 @@ public:
 	void dragText() {
 
 		//Update location
-		xyPoint = getBoundsInParent().getTopLeft();
+		juce::Rectangle<int> parentBounds = getBoundsInParent();
+
+		//Adjust grabbed point based on where the "real" top left is
+		if (rotated) {
+			xyPoint = parentBounds.getTopRight();
+		}
+		else {
+			xyPoint = parentBounds.getTopLeft();
+		}
+		
 	}
 
 	void setVertical() {
@@ -555,18 +564,22 @@ public:
 		for (int i = 0; i < freeTextHolder.size(); i++) {
 
 			float w = static_cast<float>(getWidth()) / freeTextHolder[i]->ogWidth;
-			float h = static_cast<float>(getHeight()) / freeTextHolder[i]->ogHeight;
 
 
-			juce::Point xy = freeTextHolder[i]->xyPoint;
-			xy.applyTransform(juce::AffineTransform(freeTextHolder[i]->getTransform()).translated(xy));
+			juce::Point xyTranslated = freeTextHolder[i]->getPosition();
+			juce::Point xyPlain = freeTextHolder[i]->xyPoint;
 
-			auto x = freeTextHolder[i]->xyPoint.getX() * w;
-			auto y = freeTextHolder[i]->xyPoint.getY() * h;
 
-			freeTextHolder[i]->setBounds(x, y, freeTextHolder[i]->getWidth(), freeTextHolder[i]->getHeight());
+			auto xyT = xyTranslated * w;
+			auto xyP = xyPlain * w;
+
+
+			freeTextHolder[i]->setBounds(xyT.getX(), xyT.getY(), freeTextHolder[i]->getWidth(), freeTextHolder[i]->getHeight());
+
+			//Pass in new position
 			freeTextHolder[i]->ogWidth = getWidth();
 			freeTextHolder[i]->ogHeight = getHeight();
+			freeTextHolder[i]->xyPoint = xyP;
 
 
 			freeTextHolder[i]->label.setFont(labelFont.withHeight(getHeight() / 50));
@@ -575,7 +588,7 @@ public:
 
 		//Maintain vertical or horizontal text direction on resize
 		if (titleToggleState) {
-			titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(getWidth() - (getWidth() / 8), 20));
+			titleOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(getWidth() - (getWidth() / 8) - 20, 20));
 			titleOut.setBoundingBox(juce::Rectangle<float>(20, getHeight() - 80));
 		}
 		else {
@@ -586,7 +599,7 @@ public:
 		}
 
 		if (authToggleState) {
-			authOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(getWidth() - (getWidth() / 20), 40));
+			authOut.setDrawableTransform(juce::AffineTransform::rotation(0).translated(getWidth() - (getWidth() / 20) - 20, 40));
 			authOut.setBoundingBox(juce::Rectangle<float>(20, getHeight() - 80));
 		}
 		else {
@@ -1042,7 +1055,7 @@ public:
 		{
 			addChildComponent(tuneInput2[i]);
 		}
-		addAndMakeVisible(hiraButton);
+		addAndMakeVisible(tuneDropDown);
 		addAndMakeVisible(infoButton);
 		addChildComponent(infoBox);
 		addChildComponent(infoContent);
@@ -1073,7 +1086,7 @@ public:
 		{
 			tuneInput2[i].onTextChange = [this] {changeTuning(tuneInput2, tuneArray2, synthArray2, synthArrayOsu2, synthArrayHanOsu2); };
 		}
-		hiraButton.onClick = [this] {toHira(); };
+		tuneDropDown.onChange = [this] {toSetTune(); };
 		infoButton.onClick = [this] {popInfo(); };
 		bpmInput.onTextChange = [this] {changeBPM(); };
 		addKotoButton.onStateChange = [this] {addKoto(); };
@@ -1124,9 +1137,12 @@ public:
 			tuneInput2[i].setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 			tuneInput2[i].setColour(juce::TextEditor::textColourId, juce::Colours::black);
 		}
-		hiraButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
-		hiraButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
-		hiraButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
+		tuneDropDown.setColour(juce::ComboBox::buttonColourId, juce::Colour(250, 210, 150));
+		tuneDropDown.setColour(juce::ComboBox::backgroundColourId, juce::Colour(250, 210, 150));
+		tuneDropDown.setColour(juce::PopupMenu::backgroundColourId, juce::Colour(250, 210, 150));
+		tuneDropDown.setColour(juce::PopupMenu::highlightedBackgroundColourId, juce::Colour(250, 190, 150));
+		tuneDropDown.setColour(juce::ComboBox::textColourId, juce::Colours::black);
+		tuneDropDown.setColour(juce::PopupMenu::textColourId, juce::Colours::black);
 
 		infoButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
 		infoButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
@@ -1195,6 +1211,16 @@ public:
 		for (int i = 0; i < tuneInput.size(); i++) {
 			tuneInput2[i].setInputRestrictions(7, "1234567890.");
 		}
+
+		//Drop-down setup
+		tuneDropDown.addItem(u8"平調子", 1); //hira
+		tuneDropDown.addItem(u8"雲井調子", 2); //kumoi
+		tuneDropDown.addItem(u8"本雲井調子", 3); //honkumoi
+		tuneDropDown.addItem(u8"半雲井調子", 4); //hankumoi
+		tuneDropDown.addItem(u8"楽調子", 5); //raku
+		tuneDropDown.addItem(u8"乃木調子", 6); //nogi
+		tuneDropDown.addItem(u8"中空調子", 7); //chūkū
+		tuneDropDown.addItem(u8"古今調子", 8); //kokon
 
 
 		setSize(900, 600);
@@ -1358,7 +1384,7 @@ public:
 				y = 0;
 			}
 			tuneInput[i].setBounds((((getWidth() / 2) / 7) - 2.857) * (i % 7) + 20,
-				(getHeight() / 10) * 3.25 + y, ((getWidth() / 2) / 7) - 20, 20);
+				(getHeight() / 10) * 3 + y, ((getWidth() / 2) / 7) - 20, 20);
 		}
 		for (int i = 0; i < 13; i++) {
 			int y;
@@ -1369,11 +1395,11 @@ public:
 				y = 0;
 			}
 			tuneInput2[i].setBounds((((getWidth() / 2) / 7) - 2.857) * (i % 7) + 20,
-				(getHeight() / 10) * 3.25 + y, ((getWidth() / 2) / 7) - 20, 20);
+				(getHeight() / 10) * 3 + y, ((getWidth() / 2) / 7) - 20, 20);
 		}
 		juce::Font f = labelFont;
 		tuneKoto2.setBounds(80 + f.getStringWidth(u8"調子・Tuning(Hz)"), tuneInput[1].getY() - 25, 30, 20);
-		hiraButton.setBounds(tuneInput[12].getX() + (((getWidth() / 2) / 7) - 2.857), tuneInput[12].getY(), 60, 20);
+		tuneDropDown.setBounds(20, tuneInput[12].getY() + 25, getWidth() / 5, 20);
 		infoButton.setBounds(20, (getHeight() / 10) * 4.5, 20, 20);
 		infoBox.setRectangle(juce::Rectangle<float>((getWidth() / 2) + 20, 20, (getWidth() / 2) - 40, getHeight() - 60));
 		infoContent.setBoundingBox(juce::Rectangle<float>((getWidth() / 2) + 40, 40, (getWidth() / 2) - 80, getHeight() - 80));
@@ -1487,43 +1513,26 @@ public:
 			synthArrayHanOsuChange[i].updateFrequency(sr);
 		}
 	}
-	void toHira() {
+	void toSetTune() {
 		if (tuneKoto2.getToggleState()) {
-			//Return tuneArray to default hirachōshi tuning
-			tuneArray2 = hiraTuning;
-
-			//Update synths
-			for (int i = 0; i < synthArray2.size(); i++) {
-				//Update main synths
-				synthArray2[i].fund = tuneArray2[i];
-				synthArray2[i].updateFrequency(sr);
-
-				//Update full string press synths
-				synthArrayOsu2[i].fund = tuneArray[i] * 1.122462;
-				synthArrayOsu2[i].updateFrequency(sr);
-
-				//Update half string press synths
-				synthArrayHanOsu2[i].fund = tuneArray[i] * 1.059463;
-				synthArrayHanOsu2[i].updateFrequency(sr);
+			//Return tuneArray to default hira chōshi tuning
+			tuneArray2 = setTuneArray[tuneDropDown.getSelectedId()-1];
+			
+			//Update inputs
+			for (int i = 0; i < tuneArray2.size(); i++) {
+				std::string fund = std::to_string(tuneArray2[i]).substr(0, 6);
+				tuneInput2[i].setText(fund);
 			}
+
 		}
 		else {
 			//Return tuneArray to default hirachōshi tuning
-			tuneArray = hiraTuning;
+			tuneArray = setTuneArray[tuneDropDown.getSelectedId()-1];
 
-			//Update synths
-			for (int i = 0; i < synthArray.size(); i++) {
-				//Update main synths
-				synthArray[i].fund = tuneArray[i];
-				synthArray[i].updateFrequency(sr);
-
-				//Update full string press synths
-				synthArrayOsu[i].fund = tuneArray[i] * 1.122462;
-				synthArrayOsu[i].updateFrequency(sr);
-
-				//Update half string press synths
-				synthArrayHanOsu[i].fund = tuneArray[i] * 1.059463;
-				synthArrayHanOsu[i].updateFrequency(sr);
+			//Update inputs
+			for (int i = 0; i < tuneArray.size(); i++) {
+				std::string fund = std::to_string(tuneArray[i]).substr(0, 6);
+				tuneInput[i].setText(fund);
 			}
 		}
 
@@ -1931,6 +1940,10 @@ public:
 					auto ogWidth = std::stoi(freeTextSub[6].toStdString());
 					auto ogHeight = std::stoi(freeTextSub[7].toStdString());
 
+					if (scoreSheet.getWidth() != ogWidth) {
+						xy *= static_cast<float>(scoreSheet.getWidth()) / ogWidth;
+					}
+
 					//Create the free text with the above values
 					scoreSheet.freeTextHolder.emplace_back(new freeText(xy, page, ogWidth, ogHeight));
 					scoreSheet.freeTextHolder[i]->deleted = deleted;
@@ -1952,6 +1965,8 @@ public:
 					else {
 						scoreSheet.addChildComponent(*scoreSheet.freeTextHolder.back());
 					}
+
+					freeTextPlaceHolder.setText("placeholder", juce::dontSendNotification);
 				}
 			}
 		}
@@ -1985,7 +2000,7 @@ private:
 	juce::ToggleButton tuneKoto2;
 
 	//Set to hirachōshi D
-	juce::TextButton hiraButton{ u8"平調子D" };
+	juce::ComboBox tuneDropDown;
 
 	//Info
 	juce::TextButton infoButton{ "?" };
@@ -2044,8 +2059,19 @@ private:
 
 	std::array<double, 13> tuneArray{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 	std::array<double, 13> tuneArray2{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
-	std::array<double, 13> hiraTuning{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
 
+	//Tunings
+	std::array<double, 13> hiraTuning{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 440, 466.16, 587.33, 622.25, 783.99, 880 };
+	std::array<double, 13> kumoiTuning{ 146.83, 196, 207.65, 261.63, 293.66, 311.13, 392, 415.3, 523.25, 587.33, 622.25, 783.99, 880 };
+	std::array<double, 13> honkumoiTuning{ 146.83, 196, 207.65, 261.63, 293.66, 311.13, 392, 415.3, 523.25, 587.33, 622.25, 783.99, 830.61 };
+	std::array<double, 13> hankumoiTuning{ 146.83, 196, 220, 233.08, 293.66, 311.13, 392, 415.3, 523.25, 587.33, 622.25, 783.99, 880 };
+	std::array<double, 13> rakuTuning{ 146.83, 196, 220, 261.63, 293.66, 329.63, 392, 440, 523.25, 587.33, 659.25, 783.99, 880 };
+	std::array<double, 13> nogiTuning{ 146.83, 196, 220, 246.94, 293.66, 329.63, 392, 440, 493.88, 587.33, 659.25, 783.99, 880 };
+	std::array<double, 13> chukuTuning{ 146.83, 196, 220, 233.08, 293.66, 329.63, 349.23, 440, 466.16, 587.33, 659.25, 698.46, 880 };
+	std::array<double, 13> kokonTuning{ 146.83, 196, 220, 261.63, 293.66, 311.13, 392, 440, 523.25, 587.33, 622.25, 783.99, 880 };
+	std::array<std::array<double, 13>, 8> setTuneArray{ hiraTuning, kumoiTuning, honkumoiTuning, hankumoiTuning, rakuTuning, nogiTuning, chukuTuning, kokonTuning };
+
+	//Playback
 	std::vector<scoreHolder> playbackHold;
 	std::vector<scoreHolder> playbackHold2;
 	std::vector<scoreHolder> playbackPlaying;

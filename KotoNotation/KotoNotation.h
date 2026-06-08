@@ -85,7 +85,6 @@ public:
 		ogWidth = w;
 		ogHeight = h;
 
-
 		addAndMakeVisible(label);
 		addChildComponent(moveButton);
 		addChildComponent(rotateButton);
@@ -132,7 +131,7 @@ public:
 
 	~freeText() {}
 
-	void resized() {
+	void resized() override {
 		label.setBounds(0, 25, getWidth(), 20);
 		label.setFont(labelFont.withHeight(ogHeight / 50.0f));
 
@@ -141,7 +140,6 @@ public:
 		verticalButton.setBounds(60, 0, 30, 20);
 		deleteButton.setBounds(120, 0, 20, 20);
 	}
-
 
 	void showButtons() {
 		moveButton.setVisible(true);
@@ -162,15 +160,15 @@ public:
 	void rotateText() {
 		if (rotated) {
 			//Rotate horizontal
-			setTransform(juce::AffineTransform::rotation(0).translated(xyPoint.getX(), xyPoint.getY()));
-			setBounds(juce::Rectangle<int>(ogWidth, 50));
+			setTransform(juce::AffineTransform::rotation(0));
 
 			rotated = false;
 		}
 		else {
 			//Rotate vertical
-			setTransform(juce::AffineTransform::rotation(juce::MathConstants<double>::halfPi).translated(xyPoint.getX(), xyPoint.getY()));
-			setBounds(juce::Rectangle<int>(ogWidth, 50));
+			setTransform(juce::AffineTransform::fromTargetPoints(xyPoint.getX(), xyPoint.getY(), xyPoint.getX() + getHeight(), xyPoint.getY(),
+				xyPoint.getX() + getWidth(), xyPoint.getY(), xyPoint.getX() + getHeight(), xyPoint.getY() + getWidth(),
+				xyPoint.getX(), xyPoint.getY() + getHeight(), xyPoint.getX(), xyPoint.getY()));
 
 			rotated = true;
 		}
@@ -180,15 +178,7 @@ public:
 	void dragText() {
 
 		//Update location
-		juce::Rectangle<int> parentBounds = getBoundsInParent();
-
-		//Adjust grabbed point based on where the "real" top left is
-		if (rotated) {
-			xyPoint = parentBounds.getTopRight();
-		}
-		else {
-			xyPoint = parentBounds.getTopLeft();
-		}
+		xyPoint = getBoundsInParent().getTopLeft();
 		
 	}
 
@@ -197,7 +187,7 @@ public:
 		//Rotate label
 		if (vertical) {
 			//Make wide
-			label.setTransform(juce::AffineTransform::rotation(0).translated(0, 0));
+			label.setTransform(juce::AffineTransform::rotation(0));
 			label.setBounds(juce::Rectangle<int>(0, 25, getWidth(), 20));
 			label.setJustificationType(juce::Justification::bottomLeft);
 
@@ -214,8 +204,10 @@ public:
 		}
 		else {
 			//Make tall 
-			label.setTransform(juce::AffineTransform::rotation(-juce::MathConstants<double>::halfPi).translated(0, 50));
-			label.setBounds(juce::Rectangle<int>(0, 0, 25, getWidth()));
+			label.setTransform(juce::AffineTransform::fromTargetPoints(label.getX(), label.getY(), label.getX(), label.getY() + label.getHeight(),
+				label.getX() + (float) label.getWidth(), label.getY(), label.getX(), label.getY() - label.getWidth(),
+				label.getX(), label.getY() + (float)label.getHeight(), label.getX() + label.getHeight(), label.getY() + label.getHeight()));
+			label.setBounds(0, 25, 20, getWidth());
 			label.setJustificationType(juce::Justification::topLeft);
 
 			label.setColour(juce::Label::backgroundColourId, juce::Colour(0.0f, 0.0f, 0.0f, 0.0f));
@@ -566,15 +558,21 @@ public:
 			float w = static_cast<float>(getWidth()) / freeTextHolder[i]->ogWidth;
 
 
-			juce::Point xyTranslated = freeTextHolder[i]->getPosition();
 			juce::Point xyPlain = freeTextHolder[i]->xyPoint;
 
 
-			auto xyT = xyTranslated * w;
 			auto xyP = xyPlain * w;
 
 
-			freeTextHolder[i]->setBounds(xyT.getX(), xyT.getY(), freeTextHolder[i]->getWidth(), freeTextHolder[i]->getHeight());
+			
+			if (freeTextHolder[i]->rotated) {
+				freeTextHolder[i]->setTransform(juce::AffineTransform::fromTargetPoints(xyP.getX(), xyP.getY(), xyP.getX() + freeTextHolder[i]->getHeight(), xyP.getY(),
+					xyP.getX() + freeTextHolder[i]->getWidth(), xyP.getY(), xyP.getX() + freeTextHolder[i]->getHeight(), xyP.getY() + freeTextHolder[i]->getWidth(),
+					xyP.getX(), xyP.getY() + freeTextHolder[i]->getHeight(), xyP.getX(), xyP.getY()));
+			}
+			
+ 			freeTextHolder[i]->setBounds(xyP.getX(), xyP.getY(), freeTextHolder[i]->getWidth(), freeTextHolder[i]->getHeight());
+			
 
 			//Pass in new position
 			freeTextHolder[i]->ogWidth = getWidth();
@@ -1945,12 +1943,12 @@ public:
 					}
 
 					//Create the free text with the above values
-					scoreSheet.freeTextHolder.emplace_back(new freeText(xy, page, ogWidth, ogHeight));
+					scoreSheet.freeTextHolder.emplace_back(new freeText(xy, page, scoreSheet.getWidth(), scoreSheet.getHeight()));
 					scoreSheet.freeTextHolder[i]->deleted = deleted;
 					scoreSheet.freeTextHolder[i]->label.setText(labelText, juce::dontSendNotification);
 
 					//Set location
-					scoreSheet.freeTextHolder.back()->setBounds(x, y, scoreSheet.getWidth(), 50);
+					scoreSheet.freeTextHolder.back()->setBounds(xy.getX(), xy.getY(), scoreSheet.getWidth(), 50);
 					if (vertical) {
 						scoreSheet.freeTextHolder[i]->setVertical();
 					}

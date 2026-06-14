@@ -55,7 +55,7 @@ public:
         double EI = (2.52 * juce::MathConstants<double>::pi * 0.0000522) / 4;
         double a = (EI * 9.8596) / (2 * 215 * pow(length, 2));
         float attk = 0.001f;
-        float dec = 2.0f;
+        float dec = 1.5f;
 
         for (int i = 0; i < oscArray.size(); i++) {
             oscArray[i].prepare(spec);
@@ -68,7 +68,7 @@ public:
 
             freq = ((i + 1) * fund) * (1 + (a * (pow((i + 1), 2))));
             attk -= 0.0018;
-            dec /= 2;
+            dec /= 3.0f;
 
 
         };
@@ -90,7 +90,7 @@ public:
         double EI = (2.52 * juce::MathConstants<double>::pi * 0.0000522) / 4;
         double a = (EI * 9.8596) / (2 * 215 * pow(length, 2));
         float attk = 0.001f;
-        float dec = 2.0f;
+        float dec = 1.5f;
 
         for (int i = 0; i < oscArray.size(); i++) {
             oscArray[i].setFrequency(freq);
@@ -100,7 +100,7 @@ public:
 
             freq = ((i + 1) * fund) * (1 + (a * (pow((i + 1), 2))));
             attk -= 0.0018;
-            dec /= 2;
+            dec /= 3.0f;
         };
 
 

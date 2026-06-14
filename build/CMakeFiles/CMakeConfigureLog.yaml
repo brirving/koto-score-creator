@@ -4,18 +4,18 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:212 (message)"
       - "CMakeLists.txt:7 (project)"
     message: |
       The system is: Windows - 10.0.26200 - AMD64
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:7 (project)"
     mode: "file"
     variable: "src_in"
@@ -31,8 +31,8 @@ events:
     names:
       - "CMakeCCompilerId.c.in"
     candidate_directories:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/"
-    found: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/"
+    found: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeCCompilerId.c.in"
     search_context:
       ENV{PATH}:
         - "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX86\\x86"
@@ -83,9 +83,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:7 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
@@ -95,10 +95,10 @@ events:
       
       The output was:
       0
-      MSBuild version 18.6.3+84d3e95b4 for .NET Framework
-      Build started 25/05/2026 12:29:31 pm.
+      MSBuild version 18.7.1+024f5b037 for .NET Framework
+      Build started 11/06/2026 3:54:48 pm.
       
-      Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.2.3-msvc3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
         Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
@@ -111,7 +111,7 @@ events:
         CMakeCCompilerId.c
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
-        CompilerIdC.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.2.3-msvc3\\CompilerIdC\\CompilerIdC.exe
+        CompilerIdC.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdC\\CompilerIdC.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
         :VCEnd
@@ -119,13 +119,13 @@ events:
       FinalizeBuildStatus:
         Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
         Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
-      Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.2.3-msvc3\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
       
       Build succeeded.
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.89
+      Time Elapsed 00:00:00.93
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -133,15 +133,15 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
       
       The C compiler identification is MSVC, found in:
-        C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/4.2.3-msvc3/CompilerIdC/CompilerIdC.exe
+        C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/4.3.1-msvc1/CompilerIdC/CompilerIdC.exe
       
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
@@ -230,10 +230,10 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
@@ -411,8 +411,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
@@ -501,8 +501,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_MT"
@@ -618,8 +618,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_AR"
@@ -708,11 +708,11 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:7 (project)"
     mode: "file"
     variable: "src_in"
@@ -728,8 +728,8 @@ events:
     names:
       - "CMakeCXXCompilerId.cpp.in"
     candidate_directories:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/"
-    found: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/"
+    found: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeCXXCompilerId.cpp.in"
     search_context:
       ENV{PATH}:
         - "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX86\\x86"
@@ -780,9 +780,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:7 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
@@ -792,10 +792,10 @@ events:
       
       The output was:
       0
-      MSBuild version 18.6.3+84d3e95b4 for .NET Framework
-      Build started 25/05/2026 12:29:32 pm.
+      MSBuild version 18.7.1+024f5b037 for .NET Framework
+      Build started 11/06/2026 3:54:49 pm.
       
-      Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.2.3-msvc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
         Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
@@ -808,7 +808,7 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.2.3-msvc3\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -816,13 +816,13 @@ events:
       FinalizeBuildStatus:
         Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
         Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
-      Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.2.3-msvc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
       
       Build succeeded.
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.91
+      Time Elapsed 00:00:00.93
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -830,15 +830,15 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/4.2.3-msvc3/CompilerIdCXX/CompilerIdCXX.exe
+        C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/4.3.1-msvc1/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
       - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
@@ -1016,11 +1016,11 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake:584 (enable_language)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake:557 (__windows_compiler_msvc_enable_rc)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC-C.cmake:5 (__windows_compiler_msvc)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeCInformation.cmake:48 (include)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC.cmake:596 (enable_language)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC.cmake:569 (__windows_compiler_msvc_enable_rc)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC-C.cmake:5 (__windows_compiler_msvc)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeCInformation.cmake:48 (include)"
       - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_RC_COMPILER"
@@ -1150,15 +1150,16 @@ events:
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:7 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-owwo5p"
-      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-owwo5p"
+      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-nhw8qe"
+      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-nhw8qe"
     cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -1166,46 +1167,46 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-owwo5p'
+        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-nhw8qe'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d1081.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
-        MSBuild version 18.6.3+84d3e95b4 for .NET Framework
-        Build started 25/05/2026 12:29:34 pm.
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d1193.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.7.1+024f5b037 for .NET Framework
+        Build started 11/06/2026 3:54:51 pm.
         
-        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-owwo5p\\cmTC_d1081.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nhw8qe\\cmTC_d1193.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-owwo5p\\Debug\\".
-          Creating directory "cmTC_d1081.dir\\Debug\\cmTC_d1081.tlog\\".
+          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nhw8qe\\Debug\\".
+          Creating directory "cmTC_d1193.dir\\Debug\\cmTC_d1193.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_d1081.dir\\Debug\\cmTC_d1081.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_d1081.dir\\Debug\\cmTC_d1081.tlog\\unsuccessfulbuild".
+          Creating "cmTC_d1193.dir\\Debug\\cmTC_d1193.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_d1193.dir\\Debug\\cmTC_d1193.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_d1081.dir\\Debug\\\\" /Fd"cmTC_d1081.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36244 for x64
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_d1193.dir\\Debug\\\\" /Fd"cmTC_d1193.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36247 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_d1081.dir\\Debug\\\\" /Fd"cmTC_d1081.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_d1193.dir\\Debug\\\\" /Fd"cmTC_d1193.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-owwo5p\\Debug\\cmTC_d1081.exe" /INCREMENTAL /ILK:"cmTC_d1081.dir\\Debug\\cmTC_d1081.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-owwo5p/Debug/cmTC_d1081.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-owwo5p/Debug/cmTC_d1081.lib" /MACHINE:X64  /machine:x64 cmTC_d1081.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_d1081.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-owwo5p\\Debug\\cmTC_d1081.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nhw8qe\\Debug\\cmTC_d1193.exe" /INCREMENTAL /ILK:"cmTC_d1193.dir\\Debug\\cmTC_d1193.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-nhw8qe/Debug/cmTC_d1193.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-nhw8qe/Debug/cmTC_d1193.lib" /MACHINE:X64  /machine:x64 cmTC_d1193.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_d1193.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nhw8qe\\Debug\\cmTC_d1193.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_d1081.dir\\Debug\\cmTC_d1081.tlog\\unsuccessfulbuild".
-          Touching "cmTC_d1081.dir\\Debug\\cmTC_d1081.tlog\\cmTC_d1081.lastbuildstate".
-        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-owwo5p\\cmTC_d1081.vcxproj" (default targets).
+          Deleting file "cmTC_d1193.dir\\Debug\\cmTC_d1193.tlog\\unsuccessfulbuild".
+          Touching "cmTC_d1193.dir\\Debug\\cmTC_d1193.tlog\\cmTC_d1193.lastbuildstate".
+        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nhw8qe\\cmTC_d1193.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.83
+        Time Elapsed 00:00:00.92
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:7 (project)"
     message: |
       Parsed C implicit link information:
@@ -1221,74 +1222,75 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:7 (project)"
     message: |
       Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/HostX64/x64/link.exe" "-v"
-      Microsoft (R) Incremental Linker Version 14.51.36244.0
+      Microsoft (R) Incremental Linker Version 14.51.36247.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:7 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-y6f903"
-      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-y6f903"
+      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-u5t04g"
+      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-u5t04g"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
     buildResult:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-y6f903'
+        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-u5t04g'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_17e64.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
-        MSBuild version 18.6.3+84d3e95b4 for .NET Framework
-        Build started 25/05/2026 12:29:35 pm.
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_abc9e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.7.1+024f5b037 for .NET Framework
+        Build started 11/06/2026 3:54:53 pm.
         
-        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-y6f903\\cmTC_17e64.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u5t04g\\cmTC_abc9e.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-y6f903\\Debug\\".
-          Creating directory "cmTC_17e64.dir\\Debug\\cmTC_17e64.tlog\\".
+          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u5t04g\\Debug\\".
+          Creating directory "cmTC_abc9e.dir\\Debug\\cmTC_abc9e.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_17e64.dir\\Debug\\cmTC_17e64.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_17e64.dir\\Debug\\cmTC_17e64.tlog\\unsuccessfulbuild".
+          Creating "cmTC_abc9e.dir\\Debug\\cmTC_abc9e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_abc9e.dir\\Debug\\cmTC_abc9e.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_17e64.dir\\Debug\\\\" /Fd"cmTC_17e64.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36244 for x64
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_abc9e.dir\\Debug\\\\" /Fd"cmTC_abc9e.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36247 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_17e64.dir\\Debug\\\\" /Fd"cmTC_17e64.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_abc9e.dir\\Debug\\\\" /Fd"cmTC_abc9e.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-y6f903\\Debug\\cmTC_17e64.exe" /INCREMENTAL /ILK:"cmTC_17e64.dir\\Debug\\cmTC_17e64.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-y6f903/Debug/cmTC_17e64.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-y6f903/Debug/cmTC_17e64.lib" /MACHINE:X64  /machine:x64 cmTC_17e64.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_17e64.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-y6f903\\Debug\\cmTC_17e64.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u5t04g\\Debug\\cmTC_abc9e.exe" /INCREMENTAL /ILK:"cmTC_abc9e.dir\\Debug\\cmTC_abc9e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-u5t04g/Debug/cmTC_abc9e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-u5t04g/Debug/cmTC_abc9e.lib" /MACHINE:X64  /machine:x64 cmTC_abc9e.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_abc9e.vcxproj -> C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u5t04g\\Debug\\cmTC_abc9e.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_17e64.dir\\Debug\\cmTC_17e64.tlog\\unsuccessfulbuild".
-          Touching "cmTC_17e64.dir\\Debug\\cmTC_17e64.tlog\\cmTC_17e64.lastbuildstate".
-        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-y6f903\\cmTC_17e64.vcxproj" (default targets).
+          Deleting file "cmTC_abc9e.dir\\Debug\\cmTC_abc9e.tlog\\unsuccessfulbuild".
+          Touching "cmTC_abc9e.dir\\Debug\\cmTC_abc9e.tlog\\cmTC_abc9e.lastbuildstate".
+        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u5t04g\\cmTC_abc9e.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.87
+        Time Elapsed 00:00:00.90
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:7 (project)"
     message: |
       Parsed CXX implicit link information:
@@ -1304,22 +1306,28 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:7 (project)"
     message: |
       Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/HostX64/x64/link.exe" "-v"
-      Microsoft (R) Incremental Linker Version 14.51.36244.0
+      Microsoft (R) Incremental Linker Version 14.51.36247.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
   -
     kind: "find_package-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/FetchContent.cmake:2482 (find_package)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/FetchContent.cmake:2372 (__FetchContent_MakeAvailable_find_package)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/FetchContent.cmake:2499 (find_package)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/FetchContent.cmake:2377 (__FetchContent_MakeAvailable_find_package)"
       - "CMakeLists.txt:19 (FetchContent_MakeAvailable)"
     name: "PDFHummus"
     configs:
+      -
+        filename: "PDFHummus.cps"
+        kind: "cps"
+      -
+        filename: "pdfhummus.cps"
+        kind: "cps"
       -
         filename: "PDFHummusConfig.cmake"
         kind: "cmake"
@@ -1358,12 +1366,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/pkgRedirects/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/pkgRedirects/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/pkgRedirects/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/pkgRedirects/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx86/x86/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx86/x86/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx86/x86/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx86/x86/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx86/x86/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx86/x86/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/vcpackages/PDFHummusConfig.cmake"
@@ -1374,12 +1414,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/vcpackages/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/vcpackages/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/vcpackages/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/vcpackages/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TeamFoundation/Team Explorer/PDFHummusConfig.cmake"
@@ -1390,12 +1462,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TeamFoundation/Team Explorer/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TeamFoundation/Team Explorer/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TeamFoundation/Team Explorer/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/TeamFoundation/Team Explorer/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/Roslyn/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/Roslyn/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/Roslyn/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/Roslyn/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/Roslyn/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/Roslyn/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files (x86)/Microsoft SDKs/Windows/v10.0A/bin/NETFX 4.8 Tools/PDFHummusConfig.cmake"
@@ -1406,12 +1510,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files (x86)/Microsoft SDKs/Windows/v10.0A/bin/NETFX 4.8 Tools/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Microsoft SDKs/Windows/v10.0A/bin/NETFX 4.8 Tools/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Microsoft SDKs/Windows/v10.0A/bin/NETFX 4.8 Tools/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Microsoft SDKs/Windows/v10.0A/bin/NETFX 4.8 Tools/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Team Tools/DiagnosticsHub/Collector/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Team Tools/DiagnosticsHub/Collector/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Team Tools/DiagnosticsHub/Collector/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Team Tools/DiagnosticsHub/Collector/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Team Tools/DiagnosticsHub/Collector/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Team Tools/DiagnosticsHub/Collector/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/Extensions/Microsoft/CodeCoverage.Console/PDFHummusConfig.cmake"
@@ -1422,12 +1558,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/Extensions/Microsoft/CodeCoverage.Console/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/Extensions/Microsoft/CodeCoverage.Console/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/Extensions/Microsoft/CodeCoverage.Console/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/Extensions/Microsoft/CodeCoverage.Console/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x86/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x86/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x86/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x86/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x86/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x86/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files (x86)/Windows Kits/10/bin/x86/PDFHummusConfig.cmake"
@@ -1438,12 +1606,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files (x86)/Windows Kits/10/bin/x86/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/bin/x86/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/bin/x86/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/bin/x86/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Windows/Microsoft.NET/Framework/v4.0.30319/PDFHummusConfig.cmake"
@@ -1454,12 +1654,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Windows/Microsoft.NET/Framework/v4.0.30319/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/Microsoft.NET/Framework/v4.0.30319/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/Microsoft.NET/Framework/v4.0.30319/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/Microsoft.NET/Framework/v4.0.30319/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/Tools/PDFHummusConfig.cmake"
@@ -1470,12 +1702,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/Tools/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/Tools/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/Tools/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/Tools/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/ffmpeg/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/ffmpeg/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/ffmpeg/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/ffmpeg/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/ffmpeg/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/ffmpeg/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Windows/System32/PDFHummusConfig.cmake"
@@ -1486,12 +1750,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Windows/System32/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Windows/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Windows/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Windows/System32/wbem/PDFHummusConfig.cmake"
@@ -1502,12 +1798,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Windows/System32/wbem/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/wbem/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/wbem/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/wbem/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Windows/System32/WindowsPowerShell/v1.0/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Windows/System32/WindowsPowerShell/v1.0/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/WindowsPowerShell/v1.0/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/WindowsPowerShell/v1.0/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/WindowsPowerShell/v1.0/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/WindowsPowerShell/v1.0/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Windows/System32/OpenSSH/PDFHummusConfig.cmake"
@@ -1518,12 +1846,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Windows/System32/OpenSSH/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/OpenSSH/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/OpenSSH/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/OpenSSH/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/dotnet/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/dotnet/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/dotnet/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/dotnet/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/dotnet/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/dotnet/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Users/beei/AppData/Local/Microsoft/WindowsApps/PDFHummusConfig.cmake"
@@ -1534,12 +1894,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Users/beei/AppData/Local/Microsoft/WindowsApps/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/beei/AppData/Local/Microsoft/WindowsApps/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/beei/AppData/Local/Microsoft/WindowsApps/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Users/beei/AppData/Local/Microsoft/WindowsApps/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Git/cmd/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Git/cmd/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Git/cmd/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Git/cmd/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Git/cmd/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Git/cmd/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/PDFHummusConfig.cmake"
@@ -1550,12 +1942,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/PDFHummusConfig.cmake"
@@ -1566,12 +1990,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/Linux/bin/ConnectionManagerExe/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/Linux/bin/ConnectionManagerExe/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/Linux/bin/ConnectionManagerExe/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/Linux/bin/ConnectionManagerExe/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/Linux/bin/ConnectionManagerExe/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/VC/Linux/bin/ConnectionManagerExe/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
       -
         path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/vcpkg/PDFHummusConfig.cmake"
@@ -1582,6 +2038,22 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/vcpkg/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/vcpkg/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/vcpkg/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/vcpkg/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
@@ -1590,12 +2062,44 @@ events:
         mode: "config"
         reason: "no_exist"
       -
+        path: "C:/Program Files/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/share/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
         path: "C:/Program Files (x86)/PDFHummusConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
         path: "C:/Program Files (x86)/pdfhummus-config.cmake"
         mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/lib/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/lib/cps/pdfhummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/share/cps/PDFHummus.cps"
+        mode: "cps"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/share/cps/pdfhummus.cps"
+        mode: "cps"
         reason: "no_exist"
     found: null
     search_context:
@@ -1644,12 +2148,12 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/FindGit.cmake:111 (find_program)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/FetchContent.cmake:1884 (find_package)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/FetchContent.cmake:1619 (__FetchContent_populateSubbuild)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/FetchContent.cmake:2155:EVAL:2 (__FetchContent_doPopulation)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/FetchContent.cmake:2155 (cmake_language)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/FetchContent.cmake:2394 (__FetchContent_Populate)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/FindGit.cmake:111 (find_program)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/FetchContent.cmake:1887 (find_package)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/FetchContent.cmake:1622 (__FetchContent_populateSubbuild)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/FetchContent.cmake:2158:EVAL:2 (__FetchContent_doPopulation)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/FetchContent.cmake:2158 (cmake_language)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/FetchContent.cmake:2399 (__FetchContent_Populate)"
       - "CMakeLists.txt:19 (FetchContent_MakeAvailable)"
     mode: "program"
     variable: "GIT_EXECUTABLE"
@@ -1949,14 +2453,15 @@ events:
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CheckIncludeFile.cmake:174 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIncludeFile.cmake:174 (try_compile)"
       - "build/_deps/pdfhummus-src/Zlib/CMakeLists.txt:45 (check_include_file)"
     checks:
       - "Looking for unistd.h"
     directories:
-      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-mnkvy6"
-      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-mnkvy6"
+      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-zkk9xe"
+      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-zkk9xe"
     cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -1965,51 +2470,53 @@ events:
       variable: "Z_HAVE_UNISTD_H"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-mnkvy6'
+        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-zkk9xe'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_15f8e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
-        MSBuild version 18.6.3+84d3e95b4 for .NET Framework
-        Build started 25/05/2026 12:31:33 pm.
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c4607.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.7.1+024f5b037 for .NET Framework
+        Build started 11/06/2026 3:57:12 pm.
         
-        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\cmTC_15f8e.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\cmTC_c4607.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\Debug\\".
-          Creating directory "cmTC_15f8e.dir\\Debug\\cmTC_15f8e.tlog\\".
+          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\Debug\\".
+          Creating directory "cmTC_c4607.dir\\Debug\\cmTC_c4607.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_15f8e.dir\\Debug\\cmTC_15f8e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_15f8e.dir\\Debug\\cmTC_15f8e.tlog\\unsuccessfulbuild".
+          Creating "cmTC_c4607.dir\\Debug\\cmTC_c4607.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_c4607.dir\\Debug\\cmTC_c4607.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_15f8e.dir\\Debug\\\\" /Fd"cmTC_15f8e.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\CheckIncludeFile.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_c4607.dir\\Debug\\\\" /Fd"cmTC_c4607.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\CheckIncludeFile.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36247 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_15f8e.dir\\Debug\\\\" /Fd"cmTC_15f8e.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\CheckIncludeFile.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_c4607.dir\\Debug\\\\" /Fd"cmTC_c4607.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\CheckIncludeFile.c"
           CheckIncludeFile.c
-        C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\cmTC_15f8e.vcxproj]
-        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\cmTC_15f8e.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\cmTC_c4607.vcxproj]
+        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\cmTC_c4607.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\cmTC_15f8e.vcxproj" (default target) (1) ->
+        "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\cmTC_c4607.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mnkvy6\\cmTC_15f8e.vcxproj]
+          C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zkk9xe\\cmTC_c4607.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.52
+        Time Elapsed 00:00:00.82
         
       exitCode: 1
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/CheckIncludeFile.cmake:174 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIncludeFile.cmake:174 (try_compile)"
       - "build/_deps/pdfhummus-src/LibTiff/CMakeLists.txt:75 (check_include_file)"
     checks:
       - "Looking for unistd.h"
     directories:
-      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-mejyon"
-      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-mejyon"
+      source: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-igafnx"
+      binary: "C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-igafnx"
     cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -2018,44 +2525,44 @@ events:
       variable: "T_HAVE_UNISTD_H"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-mejyon'
+        Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/CMakeFiles/CMakeScratch/TryCompile-igafnx'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_08bdd.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
-        MSBuild version 18.6.3+84d3e95b4 for .NET Framework
-        Build started 25/05/2026 12:31:34 pm.
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_37b5d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.7.1+024f5b037 for .NET Framework
+        Build started 11/06/2026 3:57:14 pm.
         
-        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\cmTC_08bdd.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\cmTC_37b5d.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\Debug\\".
-          Creating directory "cmTC_08bdd.dir\\Debug\\cmTC_08bdd.tlog\\".
+          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\Debug\\".
+          Creating directory "cmTC_37b5d.dir\\Debug\\cmTC_37b5d.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_08bdd.dir\\Debug\\cmTC_08bdd.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_08bdd.dir\\Debug\\cmTC_08bdd.tlog\\unsuccessfulbuild".
+          Creating "cmTC_37b5d.dir\\Debug\\cmTC_37b5d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_37b5d.dir\\Debug\\cmTC_37b5d.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_08bdd.dir\\Debug\\\\" /Fd"cmTC_08bdd.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\CheckIncludeFile.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_37b5d.dir\\Debug\\\\" /Fd"cmTC_37b5d.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\CheckIncludeFile.c"
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_08bdd.dir\\Debug\\\\" /Fd"cmTC_08bdd.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\CheckIncludeFile.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_37b5d.dir\\Debug\\\\" /Fd"cmTC_37b5d.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\CheckIncludeFile.c"
           CheckIncludeFile.c
-        C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\cmTC_08bdd.vcxproj]
-        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\cmTC_08bdd.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\cmTC_37b5d.vcxproj]
+        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\cmTC_37b5d.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\cmTC_08bdd.vcxproj" (default target) (1) ->
+        "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\cmTC_37b5d.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mejyon\\cmTC_08bdd.vcxproj]
+          C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\CheckIncludeFile.c(1,10): error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-igafnx\\cmTC_37b5d.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.56
+        Time Elapsed 00:00:00.83
         
       exitCode: 1
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.2/Modules/InstallRequiredSystemLibraries.cmake:326 (find_path)"
+      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/InstallRequiredSystemLibraries.cmake:326 (find_path)"
       - "build/_deps/pdfhummus-src/CMakeLists.txt:164 (include)"
     mode: "path"
     variable: "MSVC_REDIST_DIR"
@@ -2233,6 +2740,7 @@ events:
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
     buildResult:
       variable: "compile_result"
@@ -2240,50 +2748,49 @@ events:
       stdout: |
         Change Dir: 'C:/Users/beei/Documents/Uni/NZSM496/KotoNotation/build/JUCE/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1b0c4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
-        MSBuild version 18.6.3+84d3e95b4 for .NET Framework
-        Build started 25/05/2026 12:31:35 pm.
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_eaade.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.7.1+024f5b037 for .NET Framework
+        Build started 11/06/2026 3:57:16 pm.
         
-        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_1b0c4.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_eaade.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
           Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\Debug\\".
-          Creating directory "cmTC_1b0c4.dir\\Debug\\cmTC_1b0c4.tlog\\".
+          Creating directory "cmTC_eaade.dir\\Debug\\cmTC_eaade.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_1b0c4.dir\\Debug\\cmTC_1b0c4.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_1b0c4.dir\\Debug\\cmTC_1b0c4.tlog\\unsuccessfulbuild".
+          Creating "cmTC_eaade.dir\\Debug\\cmTC_eaade.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_eaade.dir\\Debug\\cmTC_eaade.tlog\\unsuccessfulbuild".
         ComputeStdModulesCompileInputs:
           Reading library manifest file 'C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\modules\\modules.json' which provides data for library 'microsoft/STL'.
           Adding module source 'C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\modules\\std.ixx' from library 'microsoft/STL' to be built with this project.
           Adding module source 'C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\modules\\std.compat.ixx' from library 'microsoft/STL' to be built with this project.
         MakeDirsForCl:
-          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_1b0c4.dir\\Debug\\microsoft\\STL".
+          Creating directory "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_eaade.dir\\Debug\\microsoft\\STL".
         SetModuleDependencies:
-          Creating directory "cmTC_1b0c4.dir\\Debug\\cmTC_1b0c4_MD.tlog\\".
+          Creating directory "cmTC_eaade.dir\\Debug\\cmTC_eaade_MD.tlog\\".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++latest /Fo"cmTC_1b0c4.dir\\Debug\\\\" /Fd"cmTC_1b0c4.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36244 for x64
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++latest /Fo"cmTC_eaade.dir\\Debug\\\\" /Fd"cmTC_eaade.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp
           Copyright (C) Microsoft Corporation.  All rights reserved.
           /std:c++latest is provided as a preview of language features from the latest C++
           working draft, and we're eager to hear about bugs and suggestions for improvements.
           However, note that these features are provided as-is without support, and subject
           to changes or removal as the working draft evolves. See
           https://go.microsoft.com/fwlink/?linkid=2045807 for details.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++latest /Fo"cmTC_1b0c4.dir\\Debug\\\\" /Fd"cmTC_1b0c4.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /std:c++latest /Fo"cmTC_eaade.dir\\Debug\\\\" /Fd"cmTC_eaade.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp
           juce_runtime_arch_detection.cpp
-        C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp(56,3): error C1189: #error:  JUCE_ARCH x86_64 [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_1b0c4.vcxproj]
-        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_1b0c4.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp(56,3): error C1189: #error:  JUCE_ARCH x86_64 [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_eaade.vcxproj]
+        Done Building Project "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_eaade.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_1b0c4.vcxproj" (default target) (1) ->
+        "C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_eaade.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp(56,3): error C1189: #error:  JUCE_ARCH x86_64 [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_1b0c4.vcxproj]
+          C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\JUCE\\extras\\Build\\CMake\\juce_runtime_arch_detection.cpp(56,3): error C1189: #error:  JUCE_ARCH x86_64 [C:\\Users\\beei\\Documents\\Uni\\NZSM496\\KotoNotation\\build\\JUCE\\CMakeFiles\\CMakeTmp\\cmTC_eaade.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.61
+        Time Elapsed 00:00:00.84
         
       exitCode: 1
 ...

@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Synth.h"
 #include "PDF.h"
+#include "HelpBox.h"
 #include "BinaryData.h"
 
 
@@ -1055,8 +1056,6 @@ public:
 		}
 		addAndMakeVisible(tuneDropDown);
 		addAndMakeVisible(infoButton);
-		addChildComponent(infoBox);
-		addChildComponent(infoContent);
 		addAndMakeVisible(bpmInput);
 		addAndMakeVisible(addKotoButton);
 		addAndMakeVisible(scoreInput);
@@ -1145,9 +1144,6 @@ public:
 		infoButton.setColour(juce::TextButton::buttonColourId, juce::Colour(250, 210, 150));
 		infoButton.setColour(juce::TextButton::buttonOnColourId, juce::Colour(250, 210, 150));
 		infoButton.setColour(juce::TextButton::textColourOffId, juce::Colours::black);
-		//infoButton.setToggleable(true);
-		infoBox.setFill(juce::Colours::white);
-		infoContent.setColour(juce::Colours::black);
 
 		bpmInput.setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
 		bpmInput.setColour(juce::TextEditor::textColourId, juce::Colours::black);
@@ -1371,8 +1367,10 @@ public:
 	{
 		titleInput.setBounds(20, ((getHeight() / 20) * 3), (getWidth() / 3) - 40, 20);
 		titleVertButton.setBounds(titleInput.getWidth() + 25, titleInput.getY(), 30, 20);
+
 		authInput.setBounds(20, ((getHeight() / 20) * 4), (getWidth() / 4) - 40, 20);
 		authVertButton.setBounds(authInput.getWidth() + 25, authInput.getY(), 30, 20);
+
 		for (int i = 0; i < 13; i++) {
 			int y;
 			if (i >= 7) {
@@ -1395,29 +1393,15 @@ public:
 			tuneInput2[i].setBounds((((getWidth() / 2) / 7) - 2.857) * (i % 7) + 20,
 				(getHeight() / 10) * 3 + y, ((getWidth() / 2) / 7) - 20, 20);
 		}
+
 		juce::Font f = labelFont;
 		tuneKoto2.setBounds(80 + f.getStringWidth(u8"調子・Tuning(Hz)"), tuneInput[1].getY() - 25, 30, 20);
 		tuneDropDown.setBounds(20, tuneInput[12].getY() + 25, getWidth() / 5, 20);
-		infoButton.setBounds(20, (getHeight() / 10) * 4.5, 20, 20);
-		infoBox.setRectangle(juce::Rectangle<float>((getWidth() / 2) + 20, 20, (getWidth() / 2) - 40, getHeight() - 60));
-		infoContent.setBoundingBox(juce::Rectangle<float>((getWidth() / 2) + 40, 40, (getWidth() / 2) - 80, getHeight() - 80));
-		infoContent.setFont(labelFont.withHeight(20.0f), true);
-		juce::String info1 = u8"\n\n1, 2, 3...    =    一, 二, 三...";
-		juce::String info2 = u8"\nq, w, e, r    =    十, 斗, 為, 巾";
-		juce::String info3 = u8"\n0 = ⦿・rest";
-		juce::String info4 = u8"\n- = 〇・rest";
-		juce::String info5 = u8"\no = オ";
-		juce::String info6 = u8"\np = ヲ";
-		juce::String info7 = u8"\ns = ス";
-		juce::String info8 = u8"\nh = ヒ";
-		juce::String info9 = u8"\n. = ・";
-		juce::String info10 = u8"\n, = 次の小節・new bar";
-		juce::String info11 = u8"\n/ = 半音符・halve note length";
-		juce::String info12 = u8"\n// = 四分音符・quarter note length";
-		juce::String info13 = u8"\n(...) = 和音・chord";
-		infoContent.setText("Info" + info1 + info2 + info3 + info4 + info5 + info6 + info7 + info8 + info9 + info10 + info11 + info12 + info13);
 
+		infoButton.setBounds(20, (getHeight() / 10) * 4.5, 20, 20);
+		
 		bpmInput.setBounds(20, (getHeight() / 10) * 5, getWidth() / 20, 20);
+
 		addKotoButton.setBounds(bpmInput.getX() + bpmInput.getWidth() + 100, (getHeight() / 10) * 5, 30, 20);
 		if (addKotoButton.getToggleState()) {
 			scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 4 - 30, (getHeight() - (getHeight() / 10) * 5.5) - 40);
@@ -1426,12 +1410,16 @@ public:
 			scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 2 - 40, (getHeight() - (getHeight() / 10) * 5.5) - 40);
 		}
 		scoreInput2.setBounds(scoreInput.getX() + getWidth() / 4 - 10, (getHeight() / 10) * 5.5, getWidth() / 4 - 30, (getHeight() - (getHeight() / 10) * 5.5) - 40);
+
 		playButton.setBounds(getWidth() / 2 - 12.5, 20, 25, 25);
 		stopButton.setBounds(getWidth() / 2 - 12.5, 50, 25, 25);
+
 		freeTextButton.setBounds(getWidth() / 2 - 12.5, titleInput.getY() + 50, 25, 25);
+
 		pdfButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 25, 25, 25);
 		saveButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 55, 25, 25);
 		loadButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY(), 25, 25);
+
 		pageNextButton.setBounds(getWidth() / 2 + ((getWidth() / 4) - 20), getHeight() - 35, 20, 20);
 		pageBackButton.setBounds(pageNextButton.getX() + pageNextButton.getWidth(), pageNextButton.getY(), 20, 20);
 
@@ -1513,7 +1501,7 @@ public:
 	}
 	void toSetTune() {
 		if (tuneKoto2.getToggleState()) {
-			//Return tuneArray to default hira chōshi tuning
+			//Set tuneArray2 to the selected preset
 			tuneArray2 = setTuneArray[tuneDropDown.getSelectedId()-1];
 			
 			//Update inputs
@@ -1524,7 +1512,7 @@ public:
 
 		}
 		else {
-			//Return tuneArray to default hirachōshi tuning
+			//Set tuneArray to the selected preset
 			tuneArray = setTuneArray[tuneDropDown.getSelectedId()-1];
 
 			//Update inputs
@@ -1537,14 +1525,7 @@ public:
 	}
 	void popInfo()
 	{
-		if (infoBox.isVisible()) {
-			infoBox.setVisible(false);
-			infoContent.setVisible(false);
-		}
-		else {
-			infoBox.setVisible(true);
-			infoContent.setVisible(true);
-		}
+		helpWindow = (new HelpWindow("Koto score creator help"));
 	}
 	void changeBPM() {
 		if (bpmInput.getText().length() > 0) {
@@ -2002,8 +1983,7 @@ private:
 
 	//Info
 	juce::TextButton infoButton{ "?" };
-	juce::DrawableRectangle infoBox;
-	juce::DrawableText infoContent;
+	juce::Component::SafePointer<HelpWindow> helpWindow;
 
 	//BPM
 	juce::TextEditor bpmInput;
@@ -2066,7 +2046,7 @@ private:
 	std::array<double, 13> rakuTuning{ 146.83, 196, 220, 261.63, 293.66, 329.63, 392, 440, 523.25, 587.33, 659.25, 783.99, 880 };
 	std::array<double, 13> nogiTuning{ 146.83, 196, 220, 246.94, 293.66, 329.63, 392, 440, 493.88, 587.33, 659.25, 783.99, 880 };
 	std::array<double, 13> chukuTuning{ 146.83, 196, 220, 233.08, 293.66, 329.63, 349.23, 440, 466.16, 587.33, 659.25, 698.46, 880 };
-	std::array<double, 13> kokonTuning{ 146.83, 196, 220, 261.63, 293.66, 311.13, 392, 440, 523.25, 587.33, 622.25, 783.99, 880 };
+	std::array<double, 13> kokonTuning{ 146.83, 392, 220, 261.63, 293.66, 311.13, 392, 440, 523.25, 587.33, 622.25, 783.99, 880 };
 	std::array<std::array<double, 13>, 8> setTuneArray{ hiraTuning, kumoiTuning, honkumoiTuning, hankumoiTuning, rakuTuning, nogiTuning, chukuTuning, kokonTuning };
 
 	//Playback

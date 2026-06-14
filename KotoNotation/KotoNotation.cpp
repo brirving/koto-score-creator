@@ -10,7 +10,7 @@ class KotoApplication : public juce::JUCEApplication
 public:
     KotoApplication() = default;
 
-    const juce::String getApplicationName() override { return "KotoNotation"; }
+    const juce::String getApplicationName() override { return "Koto score creator"; }
     const juce::String getApplicationVersion() override { return "0.1.0"; }
     bool moreThanOneInstanceAllowed() override { return true; }
 

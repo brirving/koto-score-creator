@@ -21,7 +21,7 @@ FetchContent_MakeAvailable(PDFHummus)
 add_subdirectory("JUCE" JUCE)
 
 juce_add_gui_app(KotoNotation
-    PRODUCT_NAME "Koto Notation"
+    PRODUCT_NAME "Koto score creator"
 )
 
 target_sources(KotoNotation
@@ -45,6 +45,7 @@ target_link_libraries(KotoNotation
         juce::juce_audio_utils
         juce::juce_dsp
         juce::juce_core
+        juce::juce_graphics
         PDFHummus::PDFWriter
 )
 

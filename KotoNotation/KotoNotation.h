@@ -180,7 +180,7 @@ public:
 
 		//Update location
 		xyPoint = getBoundsInParent().getTopLeft();
-		
+
 	}
 
 	void setVertical() {
@@ -206,7 +206,7 @@ public:
 		else {
 			//Make tall 
 			label.setTransform(juce::AffineTransform::fromTargetPoints(label.getX(), label.getY(), label.getX(), label.getY() + label.getHeight(),
-				label.getX() + (float) label.getWidth(), label.getY(), label.getX(), label.getY() - label.getWidth(),
+				label.getX() + (float)label.getWidth(), label.getY(), label.getX(), label.getY() - label.getWidth(),
 				label.getX(), label.getY() + (float)label.getHeight(), label.getX() + label.getHeight(), label.getY() + label.getHeight()));
 			label.setBounds(0, 25, 20, getWidth());
 			label.setJustificationType(juce::Justification::topLeft);
@@ -425,7 +425,7 @@ public:
 						int o = std::distance(ornInputVals.begin(), std::find(ornInputVals.begin(), ornInputVals.end(), c[j]));
 						comboFinal.append(ornaments[o], 1);
 					}
-					else if(c[j] == "\n") {
+					else if (c[j] == "\n") {
 						comboFinal.append("\n", 2);
 					}
 				}
@@ -565,15 +565,15 @@ public:
 			auto xyP = xyPlain * w;
 
 
-			
+
 			if (freeTextHolder[i]->rotated) {
 				freeTextHolder[i]->setTransform(juce::AffineTransform::fromTargetPoints(xyP.getX(), xyP.getY(), xyP.getX() + freeTextHolder[i]->getHeight(), xyP.getY(),
 					xyP.getX() + freeTextHolder[i]->getWidth(), xyP.getY(), xyP.getX() + freeTextHolder[i]->getHeight(), xyP.getY() + freeTextHolder[i]->getWidth(),
 					xyP.getX(), xyP.getY() + freeTextHolder[i]->getHeight(), xyP.getX(), xyP.getY()));
 			}
-			
- 			freeTextHolder[i]->setBounds(xyP.getX(), xyP.getY(), freeTextHolder[i]->getWidth(), freeTextHolder[i]->getHeight());
-			
+
+			freeTextHolder[i]->setBounds(xyP.getX(), xyP.getY(), freeTextHolder[i]->getWidth(), freeTextHolder[i]->getHeight());
+
 
 			//Pass in new position
 			freeTextHolder[i]->ogWidth = getWidth();
@@ -1399,7 +1399,7 @@ public:
 		tuneDropDown.setBounds(20, tuneInput[12].getY() + 25, getWidth() / 5, 20);
 
 		infoButton.setBounds(20, (getHeight() / 10) * 4.5, 20, 20);
-		
+
 		bpmInput.setBounds(20, (getHeight() / 10) * 5, getWidth() / 20, 20);
 
 		addKotoButton.setBounds(bpmInput.getX() + bpmInput.getWidth() + 100, (getHeight() / 10) * 5, 30, 20);
@@ -1502,8 +1502,8 @@ public:
 	void toSetTune() {
 		if (tuneKoto2.getToggleState()) {
 			//Set tuneArray2 to the selected preset
-			tuneArray2 = setTuneArray[tuneDropDown.getSelectedId()-1];
-			
+			tuneArray2 = setTuneArray[tuneDropDown.getSelectedId() - 1];
+
 			//Update inputs
 			for (int i = 0; i < tuneArray2.size(); i++) {
 				std::string fund = std::to_string(tuneArray2[i]).substr(0, 6);
@@ -1513,7 +1513,7 @@ public:
 		}
 		else {
 			//Set tuneArray to the selected preset
-			tuneArray = setTuneArray[tuneDropDown.getSelectedId()-1];
+			tuneArray = setTuneArray[tuneDropDown.getSelectedId() - 1];
 
 			//Update inputs
 			for (int i = 0; i < tuneArray.size(); i++) {
@@ -1694,6 +1694,7 @@ public:
 		std::ranges::copy(outputArrayLeft, begin(playbackHolderLeft));
 
 
+		std::vector<scoreHolder> playbackHolderChord;
 		std::vector<scoreHolder> playbackHolderSukui;
 
 		std::string bpmString = bpmInput.getText().toStdString();
@@ -1706,8 +1707,6 @@ public:
 			if (playbackHolder[i].note == ",") {
 				continue;
 			}
-			int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), playbackHolder[i].note));
-			playbackHolder[i].note = std::to_string(n);
 
 			//get length of note in samples
 			double t = (beat * sr) * (4.0f / playbackHolder[i].length);
@@ -1724,13 +1723,53 @@ public:
 				playbackHolderSukui.push_back(s);
 			}
 
-			//add note length to playtime
-			timeToPlay += t;
-
 			//assign instrument
 			if (isSecond) {
 				playbackHolder[i].isSecond = true;
 			}
+
+			//check for chords
+			if (playbackHolder[i].note.length() > 1) {
+				//Get iterator for the chord
+				std::regex del("");
+				std::sregex_token_iterator it(playbackHolder[i].note.begin() + 1,
+					playbackHolder[i].note.end(), del, -1);
+				std::sregex_token_iterator end;
+
+				std::vector<std::string> noteArray;
+
+				while (it != end) {
+					//Add each note to the array
+					noteArray.push_back(*it);
+
+					++it;
+				}
+
+				for (int j = 1; j < noteArray.size(); j++) { //starts at 1 because the above code always outputs a blank string first
+					//Add copy of chord to the chord array
+					playbackHolderChord.push_back(playbackHolder[i]);
+
+					//Set the note for the copies to each individual note
+					int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), noteArray[j]));
+					playbackHolderChord.back().note = std::to_string(n);
+				}
+
+				//Set the note of the original to just the first note in the chord
+				playbackHolder[i].note = playbackHolder[i].note.front();
+
+			}
+
+			//Set the note to the synth number
+			int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), playbackHolder[i].note));
+			playbackHolder[i].note = std::to_string(n);
+
+
+			//add note length to playtime
+			timeToPlay += t;
+
+
+
+
 		}
 
 
@@ -1741,6 +1780,50 @@ public:
 				continue;
 			}
 
+
+			//get length of note in samples
+			double t = (beat * sr) * (4.0f / playbackHolderLeft[i].length);
+
+			playbackHolderLeft[i].length = timeToPlay;
+
+			//assign instrument
+			if (isSecond) {
+				playbackHolderLeft[i].isSecond = true;
+			}
+
+
+			//check for chords
+			if (playbackHolderLeft[i].note.length() > 1) {
+				//Get iterator for the chord
+				std::regex del("");
+				std::sregex_token_iterator it(playbackHolderLeft[i].note.begin() + 1,
+					playbackHolderLeft[i].note.end(), del, -1);
+				std::sregex_token_iterator end;
+
+				std::vector<std::string> noteArray;
+
+				while (it != end) {
+					//Add each note to the array
+					noteArray.push_back(*it);
+
+					++it;
+				}
+
+				for (int j = 1; j < noteArray.size(); j++) { //starts at 1 because the above code always outputs a blank string first
+					//Add copy of chord to the chord array
+					playbackHolderChord.push_back(playbackHolderLeft[i]);
+
+					//Set the note for the copies to each individual note
+					int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), noteArray[j]));
+					playbackHolderChord.back().note = std::to_string(n);
+				}
+
+				//Set the note of the original to just the first note in the chord
+				playbackHolderLeft[i].note = playbackHolderLeft[i].note.front();
+
+			}
+
+			//Set the note to the synth number
 			if (std::ranges::contains(noteInputVals, playbackHolderLeft[i].note)) {
 				int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), playbackHolderLeft[i].note));
 				playbackHolderLeft[i].note = std::to_string(n);
@@ -1749,23 +1832,15 @@ public:
 				playbackHolderLeft[i].note = "14";
 			}
 
-
-			//get length of note in samples
-			double t = (beat * sr) * (4.0f / playbackHolderLeft[i].length);
-
-			playbackHolderLeft[i].length = timeToPlay;
-
 			//add note length to playtime
 			timeToPlay += t;
-
-			//assign instrument
-			if (isSecond) {
-				playbackHolderLeft[i].isSecond = true;
-			}
 		}
 
 		//Append left hand
 		playbackHolder.insert(playbackHolder.end(), playbackHolderLeft.begin(), playbackHolderLeft.end());
+
+		//Append chords
+		playbackHolder.insert(playbackHolder.end(), playbackHolderChord.begin(), playbackHolderChord.end());
 
 		//Append sukui
 		playbackHolder.insert(playbackHolder.end(), playbackHolderSukui.begin(), playbackHolderSukui.end());

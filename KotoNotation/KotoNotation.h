@@ -9,7 +9,7 @@
 #include "HelpBox.h"
 #include "BinaryData.h"
 
-
+//Object to hold score information 
 class scoreHolder {
 public:
 	std::string note;
@@ -19,6 +19,7 @@ public:
 	bool isSecond = false;
 };
 
+//Alteration of label to allow new lines
 class vertLabel : public juce::Label {
 public:
 	vertLabel() {};
@@ -45,24 +46,29 @@ public:
 	}
 };
 
+//Alteration of button to use to drag free text object
 class DragButton : public juce::TextButton,
 	public juce::ComponentDragger {
 public:
 	DragButton(juce::String text) :TextButton(text) { ; }
 
 	void mouseDown(const juce::MouseEvent& event) override {
+		//Set up dragger
 		startDraggingComponent(getParentComponent(), event);
 	}
 
 	void mouseDrag(const juce::MouseEvent& event) override {
+		//Start dragging
 		dragComponent(getParentComponent(), event, nullptr);
 	}
 
 	void mouseUp(const juce::MouseEvent& event) override {
+		//Trigger click so that drags can trigger on click events
 		triggerClick();
 	}
 };
 
+//Object for adding free text to the score
 class freeText : public juce::Component {
 public:
 	//Visibility
@@ -81,20 +87,24 @@ public:
 	float ogHeight;
 
 	freeText(juce::Point<int> xy, int p, int w, int h) {
+		//Set up position values
 		xyPoint = xy;
 		page = p;
 		ogWidth = w;
 		ogHeight = h;
 
+		//Add child components
 		addAndMakeVisible(label);
 		addChildComponent(moveButton);
 		addChildComponent(rotateButton);
 		addChildComponent(verticalButton);
 		addChildComponent(deleteButton);
 
+		//Set up label
 		label.setText("Click to change text", juce::NotificationType::dontSendNotification);
 		label.setEditable(true);
 
+		//Set up reactivity
 		label.onEditorShow = [this] {
 			label.getCurrentTextEditor()->setMultiLine(true);
 			showButtons(); };
@@ -104,7 +114,7 @@ public:
 		deleteButton.onClick = [this] { setVisible(false); deleted = true; };
 		label.onEditorHide = [this] { updateVertical(); hideButtons(); };
 
-
+		//Set up colours
 		label.setColour(juce::Label::backgroundColourId, juce::Colour(0.0f, 0.0f, 0.0f, 0.0f));
 		label.setColour(juce::Label::textColourId, juce::Colours::black);
 		label.setColour(juce::Label::textWhenEditingColourId, juce::Colours::black);
@@ -268,7 +278,7 @@ private:
 
 };
 
-
+//Object for creating and updating bars in the score
 class Bar : public juce::Component {
 public:
 	int placementModifier;
@@ -411,6 +421,8 @@ public:
 				combo2 = "." + comboStac;
 			}
 
+
+			//Create final string to display
 			juce::String comboFinal;
 
 			for (int j = 0; j < combo2.length(); j++) {
@@ -500,7 +512,7 @@ private:
 	std::array < std::string, 5> ornInputVals{ "o", "p", "h", "s", "." };
 };
 
-
+//Object that creates the score
 class scoreComponent : public juce::Component {
 public:
 
@@ -549,22 +561,17 @@ public:
 		sheet.setRectangle(juce::Rectangle(0.0f, 0.0f, w, h));
 
 
-
+		//Position bars
 		for (int i = 0; i < bars.size(); i++) {
 			bars[i].setBounds(0, 0, w, h);
 		}
 
+		//Position free text
 		for (int i = 0; i < freeTextHolder.size(); i++) {
 
 			float w = static_cast<float>(getWidth()) / freeTextHolder[i]->ogWidth;
-
-
 			juce::Point xyPlain = freeTextHolder[i]->xyPoint;
-
-
 			auto xyP = xyPlain * w;
-
-
 
 			if (freeTextHolder[i]->rotated) {
 				freeTextHolder[i]->setTransform(juce::AffineTransform::fromTargetPoints(xyP.getX(), xyP.getY(), xyP.getX() + freeTextHolder[i]->getHeight(), xyP.getY(),
@@ -833,6 +840,7 @@ public:
 			writeBars(contents, contentsLeft, false, hasSecondKoto);
 			writeBars(contents2, contentsLeft2, true, hasSecondKoto);
 
+			//Set free text visible or hidden based on page value
 			for (int i = 0; i < freeTextHolder.size(); i++) {
 				if (freeTextHolder[i]->page == page && freeTextHolder[i]->deleted == false) {
 					freeTextHolder[i]->setVisible(true);
@@ -850,6 +858,7 @@ public:
 			writeBars(contents, contentsLeft, false, hasSecondKoto);
 			writeBars(contents2, contentsLeft2, true, hasSecondKoto);
 
+			//Set free text visible or hidden based on page value
 			for (int i = 0; i < freeTextHolder.size(); i++) {
 				if (freeTextHolder[i]->page == page && freeTextHolder[i]->deleted == false) {
 					freeTextHolder[i]->setVisible(true);
@@ -920,6 +929,7 @@ public:
 	}
 
 	void mouseDown(const juce::MouseEvent& event) override {
+		//Add a new free text if component was clicked with free text active
 		if (event.mouseWasClicked() && freeTextActive) {
 			auto pointClicked = event.getMouseDownPosition();
 			addFreeText(pointClicked);
@@ -1039,7 +1049,7 @@ class MainContentComponent : public juce::AudioAppComponent
 public:
 	MainContentComponent()
 	{
-
+		//Add child components
 		addAndMakeVisible(scoreSheet);
 		addAndMakeVisible(titleInput);
 		addAndMakeVisible(titleVertButton);
@@ -1365,12 +1375,14 @@ public:
 
 	void resized() override
 	{
+		//Author and title
 		titleInput.setBounds(20, ((getHeight() / 20) * 3), (getWidth() / 3) - 40, 20);
 		titleVertButton.setBounds(titleInput.getWidth() + 25, titleInput.getY(), 30, 20);
 
 		authInput.setBounds(20, ((getHeight() / 20) * 4), (getWidth() / 4) - 40, 20);
 		authVertButton.setBounds(authInput.getWidth() + 25, authInput.getY(), 30, 20);
 
+		//Tuning inputs
 		for (int i = 0; i < 13; i++) {
 			int y;
 			if (i >= 7) {
@@ -1398,10 +1410,13 @@ public:
 		tuneKoto2.setBounds(80 + f.getStringWidth(u8"調子・Tuning(Hz)"), tuneInput[1].getY() - 25, 30, 20);
 		tuneDropDown.setBounds(20, tuneInput[12].getY() + 25, getWidth() / 5, 20);
 
+		//Help button
 		infoButton.setBounds(20, (getHeight() / 10) * 4.5, 20, 20);
 
+		//BPM
 		bpmInput.setBounds(20, (getHeight() / 10) * 5, getWidth() / 20, 20);
 
+		//Score inputs
 		addKotoButton.setBounds(bpmInput.getX() + bpmInput.getWidth() + 100, (getHeight() / 10) * 5, 30, 20);
 		if (addKotoButton.getToggleState()) {
 			scoreInput.setBounds(20, (getHeight() / 10) * 5.5, getWidth() / 4 - 30, (getHeight() - (getHeight() / 10) * 5.5) - 40);
@@ -1411,15 +1426,19 @@ public:
 		}
 		scoreInput2.setBounds(scoreInput.getX() + getWidth() / 4 - 10, (getHeight() / 10) * 5.5, getWidth() / 4 - 30, (getHeight() - (getHeight() / 10) * 5.5) - 40);
 
+		//Playback buttons
 		playButton.setBounds(getWidth() / 2 - 12.5, 20, 25, 25);
 		stopButton.setBounds(getWidth() / 2 - 12.5, 50, 25, 25);
 
+		//Free text button
 		freeTextButton.setBounds(getWidth() / 2 - 12.5, titleInput.getY() + 50, 25, 25);
 
+		//Save load and pdf buttons
 		pdfButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 25, 25, 25);
 		saveButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY() + scoreInput.getHeight() - 55, 25, 25);
 		loadButton.setBounds(getWidth() / 2 - 12.5, scoreInput.getY(), 25, 25);
 
+		//Paging buttons
 		pageNextButton.setBounds(getWidth() / 2 + ((getWidth() / 4) - 20), getHeight() - 35, 20, 20);
 		pageBackButton.setBounds(pageNextButton.getX() + pageNextButton.getWidth(), pageNextButton.getY(), 20, 20);
 
@@ -1451,6 +1470,7 @@ public:
 	void changeAuth() { scoreSheet.updateAuth(authInput.getText()); }
 
 	void showTuning2() {
+		//Show the tuning inputs for second koto
 		if (tuneKoto2.getToggleState()) {
 			for (int i = 0; i < 13; i++)
 			{
@@ -1599,7 +1619,7 @@ public:
 				}
 			};
 
-			//get note or chord
+			//Get chord info
 			if (inputArray[i].size() > 1) {
 				if (inputArray[i].size() > 0) {
 					std::vector<std::string> chord(inputArray[i].size());
@@ -1630,6 +1650,7 @@ public:
 
 			}
 
+			//Get note info
 			if (std::ranges::contains(noteInputVals, inputArray[i])) {
 				int num = i;
 				noteArray.push_back(inputArray[i]);
@@ -1662,6 +1683,7 @@ public:
 
 		int leftLength = 0;
 
+		//Add note to output and update left hand if necessary
 		for (int i = 0; i < noteArray.size(); i++) {
 			if (handArray[i] == "r") {
 				outputArray.push_back({ noteArray[i], ornamentArray[i], handArray[i], lengthArray[i] });
@@ -1682,11 +1704,13 @@ public:
 			}
 		}
 
+		//Update score and playback
 		scoreSheet.writeBars(outputArray, outputArrayLeft, isSecond, addKotoButton.getToggleState());
 		updatePlayback(outputArray, outputArrayLeft, isSecond);
 	}
 
 	void updatePlayback(std::vector<scoreHolder>& outputArray, std::vector<scoreHolder>& outputArrayLeft, bool isSecond) {
+		//Set up vectors
 		std::vector<scoreHolder> playbackHolder(outputArray.size());
 		std::ranges::copy(outputArray, begin(playbackHolder));
 
@@ -1763,23 +1787,19 @@ public:
 			int n = std::distance(noteInputVals.begin(), std::find(noteInputVals.begin(), noteInputVals.end(), playbackHolder[i].note));
 			playbackHolder[i].note = std::to_string(n);
 
-
 			//add note length to playtime
 			timeToPlay += t;
 
-
-
-
 		}
 
-
+		//Set back to start to calculate left hand times
 		timeToPlay = 0;
+
 		//convert notes to synth numbers for left hand
 		for (int i = 0; i < playbackHolderLeft.size(); i++) {
 			if (playbackHolderLeft[i].note == ",") {
 				continue;
 			}
-
 
 			//get length of note in samples
 			double t = (beat * sr) * (4.0f / playbackHolderLeft[i].length);

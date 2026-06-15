@@ -15,12 +15,15 @@ public:
 	~pdfCreator() {}
 
 	void savePDF(std::vector<juce::Image> imgArray) {
+		//Create temp file to write to
 		auto fileToSave = juce::File::createTempFile("pdfScore");
 
+		//Create file choosing window
 		fc.reset(new juce::FileChooser("Choose a save location...",
 			juce::File::getCurrentWorkingDirectory().getChildFile("pdfScore"),
 			"*.pdf", true));
 
+		//Launch file chooser
 		fc->launchAsync(juce::FileBrowserComponent::saveMode | juce::FileBrowserComponent::canSelectFiles,
 			[this, fileToSave, imgArray](const juce::FileChooser& chooser)
 			{
@@ -53,7 +56,7 @@ public:
 					//Create pdf to write to
 					pdfWriter.StartPDF(location, ePDFVersion13);
 
-					//Add score content
+					//Create temp file to write images to
 					juce::File f = juce::File::createTempFile("png");
 
 					//Write each page
@@ -65,6 +68,7 @@ public:
 						juce::PNGImageFormat img_fileForm;
 						juce::MemoryOutputStream img_out;
 
+						//Write score image to temp location
 						if (img_fileForm.writeImageToStream(imgArray[i], img_out) == true) {
 							juce::FileOutputStream fsaveImg(f);
 							fsaveImg.setPosition(0);
@@ -72,6 +76,7 @@ public:
 							fsaveImg.flush();
 						}
 
+						//Add image to pdf
 						PDFFormXObject* image = pdfWriter.CreateFormXObjectFromPNGFile(f.getFullPathName().toStdString());
 
 						pageContentContext->q();
@@ -106,13 +111,15 @@ public:
 	~saver() {}
 
 	void saveFile(juce::String contents) {
-
+		//Create temp file to save to
 		auto fileToSave = juce::File::createTempFile("kotoScore");
 
+		//Create file chooser window
 		fc.reset(new juce::FileChooser("Choose a save location...",
 			juce::File::getCurrentWorkingDirectory().getChildFile("kotoScore"),
 			"*.txt", true));
 
+		//Launch file chooser window
 		fc->launchAsync(juce::FileBrowserComponent::saveMode | juce::FileBrowserComponent::canSelectFiles,
 			[this, fileToSave, contents](const juce::FileChooser& chooser)
 			{
@@ -139,6 +146,7 @@ public:
 #endif
 				//Check the file path is valid
 				if (result.isWellFormed()) {
+					//Write to selected location
 					juce::FileOutputStream outputStream(result.getLocalFile());
 					outputStream.setPosition(0);
 					outputStream.writeText(contents, false, false, "\n");
@@ -153,10 +161,11 @@ public:
 	void loadFile(juce::TextEditor& titleInput, juce::TextEditor& authInput, std::array<juce::TextEditor, 13>& tuneInput, std::array<juce::TextEditor, 13>& tuneInput2,
 		juce::TextEditor& bpmInput, juce::TextEditor& scoreInput, juce::TextEditor& scoreInput2, juce::ToggleButton& addKotoButton, juce::Label& freeTextString) {
 
-
+		//Create file chooser window
 		fc.reset(new juce::FileChooser("Choose a file to open...", juce::File::getCurrentWorkingDirectory(),
 			"*.txt", true));
 
+		//Launch file chooser window
 		fc->launchAsync(juce::FileBrowserComponent::openMode
 			| juce::FileBrowserComponent::canSelectFiles,
 			[this, &titleInput, &authInput, &tuneInput, &tuneInput2, &bpmInput, &scoreInput, &scoreInput2, &addKotoButton, &freeTextString](const juce::FileChooser& chooser)

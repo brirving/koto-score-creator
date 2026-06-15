@@ -114,7 +114,7 @@ public:
     void getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill) override
     {
 
-
+        //Prepare buffer
         auto* buffer = bufferToFill.buffer;
         int numChannels = buffer->getNumChannels();
         int numSamples = buffer->getNumSamples();
@@ -122,11 +122,12 @@ public:
 
         for (int i = 0; i < numSamples; ++i)
         {
-
+            //Set level to 0
             float mix = 0;
             float m = mix;
 
             for (int i = 0; i < oscArray.size(); i++) {
+                //Get level
                 float env = adsr[i].getNextSample();
                 float p = oscArray[i].processSample(m);
                 mix += p * env;
@@ -135,18 +136,16 @@ public:
 
             for (int ch = 0; ch < numChannels; ++ch)
             {
+                //Process sample and add to buffer
                 float sample = buffer->getSample(ch, i);
                 sample += mix;
-
 
                 sample = filter.processSample(sample);
 
                 buffer->getWritePointer(ch)[i] = sample;
-
-
-
             }
 
+            //Output buffer
             juce::dsp::AudioBlock<float> block(*buffer);
             juce::dsp::ProcessContextReplacing<float> context(block);
 

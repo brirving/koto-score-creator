@@ -18,6 +18,7 @@ public:
 
 		g.setFont(helpFont.withHeight(18));
 
+		//Create help text contents
 		juce::String title = juce::CharPointer_UTF8("楽譜書き方・How to write score:");
 
 		juce::String strings = juce::CharPointer_UTF8("\n\n1, 2, 3...    =    一, 二, 三...\nq, w, e, r    =    十, 斗, 為, 巾");
@@ -28,6 +29,7 @@ public:
 		juce::String chord = juce::CharPointer_UTF8("\n(...)    =    和音・chord");
 		juce::String left = juce::CharPointer_UTF8("\nl...l    =    左・left hand");
 
+		//Draw help text
 		g.setColour(juce::Colours::black);
 		g.drawMultiLineText(title + strings + rests + length + ornaments + bar + chord + left,
 			15, 30, getWidth() - 20);
@@ -42,6 +44,7 @@ class HelpView : public juce::Viewport {
 	HelpView() {
 		setSize(400, 300);
 
+		//Create viewport to scroll over help text
 		setViewedComponent(new HelpContents);
 		getVerticalScrollBar().setColour(juce::ScrollBar::thumbColourId, juce::Colour(250, 190, 120));
 
@@ -57,18 +60,24 @@ public:
 			juce::Colour(250, 210, 150),
 			juce::DocumentWindow::allButtons)
 	{
+		//Create window for help text
 		setUsingNativeTitleBar(true);
 		setContentOwned(new HelpView(), true);
 		centreWithSize(getWidth(), getHeight());
 		setVisible(true);
+
+		//Resizing
 		setResizable(false, false);
 		setResizeLimits(250, 200, 8000, 6000);
+
+		//Keep window on top
 		setAlwaysOnTop(true);
 
 	}
 
 	void closeButtonPressed() override
 	{
+		//Delete on close
 		delete this;
 	}
 };
